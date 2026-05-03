@@ -29,74 +29,97 @@ export default function CountriesPage() {
   return (
     <>
       {/* ══════════════════════════════════════
-          HERO — Full bleed, dark, editorial
+          HERO — Full viewport, vertically centered
       ══════════════════════════════════════ */}
-      <section style={{ background: "#003366", position: "relative", overflow: "hidden", minHeight: "70vh", display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
+      <section style={{ background: "#003366", position: "relative", overflow: "hidden", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
 
-        {/* Background photo */}
-        <div className="hidden lg:block" style={{ position: "absolute", inset: 0 }}>
+        {/* Background photo — full bleed */}
+        <div style={{ position: "absolute", inset: 0 }}>
           <Image
             src="https://images.unsplash.com/photo-1562774053-701939374585?w=1920&q=80"
-            alt="University campus"
+            alt="University campus architecture"
             fill priority
             className="object-cover"
-            style={{ objectPosition: "center 40%" }}
+            style={{ objectPosition: "center 35%" }}
           />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #003366 40%, rgba(0,51,102,0.85) 70%, rgba(0,51,102,0.5) 100%)" }} />
+          {/* Strong left fade — keeps heading readable */}
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(105deg, #003366 35%, rgba(0,51,102,0.92) 55%, rgba(0,51,102,0.6) 80%, rgba(0,51,102,0.3) 100%)" }} />
+          {/* Bottom fade into stats */}
+          <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "180px", background: "linear-gradient(to top, #003366, transparent)" }} />
         </div>
 
         {/* Grid lines */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "60px 60px", pointerEvents: "none" }} />
 
         {/* Ghost number */}
-        <div style={{ position: "absolute", right: "clamp(1rem,4vw,3rem)", top: "2rem", fontFamily: "var(--font-mono)", fontSize: "clamp(8rem,16vw,14rem)", fontWeight: 700, lineHeight: 1, color: "#fff", opacity: 0.04, letterSpacing: "-0.04em", userSelect: "none", pointerEvents: "none" }}>8</div>
+        <div style={{ position: "absolute", right: "clamp(1rem,4vw,3rem)", top: "50%", transform: "translateY(-50%)", fontFamily: "var(--font-mono)", fontSize: "clamp(10rem,20vw,18rem)", fontWeight: 700, lineHeight: 1, color: "#fff", opacity: 0.04, letterSpacing: "-0.04em", userSelect: "none", pointerEvents: "none" }}>8</div>
 
         {/* Teal left stripe */}
-        <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "3px", background: "#00C5A3" }} />
+        <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "3px", background: "#00C5A3", zIndex: 2 }} />
 
-        {/* Content */}
-        <div className="container-custom" style={{ position: "relative", zIndex: 1, paddingTop: "8rem", paddingBottom: "4rem" }}>
+        {/* ── Vertically centered content ── */}
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", position: "relative", zIndex: 1 }}>
+          <div className="container-custom" style={{ paddingTop: "7rem", paddingBottom: "3rem" }}>
 
-          {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" style={{ marginBottom: "2rem" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontFamily: "var(--font-mono)", fontSize: "0.55rem", color: "rgba(255,255,255,0.35)", letterSpacing: "0.08em" }}>
-              <Link href="/" style={{ color: "rgba(255,255,255,0.35)", textDecoration: "none" }}>Home</Link>
-              <span>/</span>
-              <span style={{ color: "rgba(255,255,255,0.6)" }}>Countries</span>
+            {/* Breadcrumb */}
+            <nav aria-label="Breadcrumb" style={{ marginBottom: "2.5rem" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontFamily: "var(--font-mono)", fontSize: "0.55rem", color: "rgba(255,255,255,0.3)", letterSpacing: "0.08em" }}>
+                <Link href="/" style={{ color: "rgba(255,255,255,0.3)", textDecoration: "none", transition: "color 0.15s" }}>Home</Link>
+                <span>/</span>
+                <span style={{ color: "rgba(255,255,255,0.6)" }}>Countries</span>
+              </div>
+            </nav>
+
+            {/* Tag */}
+            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.75rem" }}>
+              <span style={{ width: "40px", height: "1px", background: "rgba(0,197,163,0.6)" }} />
+              <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#00C5A3" }}>
+                8 NMC-Approved Destinations
+              </span>
             </div>
-          </nav>
 
-          {/* Label */}
-          <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#00C5A3", marginBottom: "1.5rem", display: "flex", alignItems: "center", gap: "0.75rem" }}>
-            <span style={{ opacity: 0.4 }}>—</span>
-            <span>8 NMC-Approved Destinations</span>
-          </p>
+            {/* BIG heading — two clear lines */}
+            <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(3.25rem, 7.5vw, 7rem)", lineHeight: 0.92, letterSpacing: "-0.04em", color: "#FFFFFF", marginBottom: "0.1em" }}>
+              8 countries.
+            </h1>
+            <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(3.25rem, 7.5vw, 7rem)", lineHeight: 0.92, letterSpacing: "-0.04em", color: "#00C5A3", fontStyle: "italic", marginBottom: "2rem" }}>
+              Find yours.
+            </h1>
 
-          {/* Heading */}
-          <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.75rem, 6vw, 5.5rem)", lineHeight: 0.92, letterSpacing: "-0.04em", color: "#FFFFFF", marginBottom: "1.25rem", maxWidth: "700px" }}>
-            Choose your{" "}
-            <em style={{ color: "#00C5A3" }}>destination.</em>
-          </h1>
+            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "clamp(0.9375rem,1.2vw,1.0625rem)", lineHeight: 1.8, maxWidth: "480px", marginBottom: "2.5rem" }}>
+              The right country isn&apos;t always the cheapest. It&apos;s the one that fits your NEET score, budget, climate preference, and career goals. Our doctors will help you find it.
+            </p>
 
-          <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "1rem", lineHeight: 1.8, maxWidth: "500px", marginBottom: "2.5rem" }}>
-            The right country isn&apos;t always the cheapest — it&apos;s the one that fits your NEET score, budget, climate, and career goals.
-          </p>
+            {/* CTAs */}
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem", marginBottom: "3rem" }}>
+              <a href={whatsappLink("Hi, I need help choosing the right country for MBBS abroad.")} target="_blank" rel="noopener noreferrer" className="btn-teal">
+                <Phone size={13} />
+                Get Matched Free
+              </a>
+              <Link href="#filter" className="btn-outline-white">
+                Explore All Countries
+                <ArrowRight size={13} />
+              </Link>
+            </div>
 
-          <a href={whatsappLink("Hi, I need help choosing the right country for MBBS abroad.")} target="_blank" rel="noopener noreferrer" className="btn-teal" style={{ display: "inline-flex" }}>
-            <Phone size={14} />
-            Get Matched Free
-          </a>
+            {/* Trust badges */}
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.625rem" }}>
+              {["NMC Approved ✓", "WDOMS Listed ✓", "Doctor-Led ✓", "Zero Commission ✓"].map(b => (
+                <span key={b} style={{ fontFamily: "var(--font-mono)", fontSize: "0.52rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#00C5A3", border: "1px solid rgba(0,197,163,0.25)", padding: "4px 10px" }}>{b}</span>
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* Stats bar — pinned to bottom */}
+        {/* Stats bar — bottom */}
         <div style={{ position: "relative", zIndex: 1, borderTop: "1px solid rgba(255,255,255,0.07)" }}>
           <div className="container-custom">
             <div className="grid grid-cols-2 sm:grid-cols-4">
               {[
-                { val: "8", label: "Countries" },
-                { val: "100%", label: "NMC Approved" },
+                { val: "8",        label: "Countries" },
+                { val: "100%",     label: "NMC Approved" },
                 { val: "₹15L–55L", label: "Cost Range" },
-                { val: "5–6 yrs", label: "Duration" },
+                { val: "5–6 yrs",  label: "Duration" },
               ].map((s, i) => (
                 <div key={s.label} style={{ padding: "1.5rem clamp(1rem,3vw,2rem)", borderRight: i < 3 ? "1px solid rgba(255,255,255,0.07)" : "none" }}>
                   <p style={{ fontFamily: "var(--font-mono)", fontSize: "clamp(1.25rem,2.5vw,1.75rem)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1, letterSpacing: "-0.02em", marginBottom: "0.3rem" }}>{s.val}</p>
@@ -111,7 +134,7 @@ export default function CountriesPage() {
       {/* ══════════════════════════════════════
           FILTER + GRID
       ══════════════════════════════════════ */}
-      <section style={{ background: "#FFFFFF", padding: "clamp(4rem,7vw,6rem) 0", borderBottom: "1px solid #E8E8E8" }}>
+      <section id="filter" style={{ background: "#FFFFFF", padding: "clamp(4rem,7vw,6rem) 0", borderBottom: "1px solid #E8E8E8" }}>
         <div className="container-custom">
 
           {/* 2-col header matching landing page pattern */}
