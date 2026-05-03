@@ -255,137 +255,78 @@ export default function HomePage() {
       </div>
 
       {/* ════════════════════════════════════════
-          3. WHY WORLDWISE — Cream / bento grid
+          3. WHY WORLDWISE — Dark manifesto + feature list
       ════════════════════════════════════════ */}
-      <section
-        style={{
-          background: "#FAF8F4",
-          padding: "clamp(4rem, 8vw, 7rem) 0",
-          borderBottom: "1px solid #E8E4DC",
-        }}
-      >
-        <div className="container-custom">
-          {/* Section header */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "flex-end",
-              justifyContent: "space-between",
-              marginBottom: "3rem",
-              paddingBottom: "2rem",
-              borderBottom: "1px solid #E8E4DC",
-              flexWrap: "wrap",
-              gap: "1.5rem",
-            }}
-          >
-            <div>
-              <p
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "0.6rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  color: "#00C5A3",
-                  marginBottom: "0.75rem",
-                }}
-              >
-                Why Worldwise
-              </p>
-              <h2
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "clamp(2rem, 4vw, 3.5rem)",
-                  lineHeight: 0.98,
-                  letterSpacing: "-0.03em",
-                  color: "#0D0D0D",
-                  maxWidth: "480px",
-                }}
-              >
-                The consultancy that&apos;s actually{" "}
-                <em style={{ color: "#003366", fontStyle: "italic" }}>
-                  been there
-                </em>
-              </h2>
-            </div>
-            <p
-              style={{
-                color: "#6B7280",
-                fontSize: "0.875rem",
-                maxWidth: "300px",
-                lineHeight: 1.75,
-              }}
-              className="hidden md:block"
-            >
-              Most consultancies are run by sales professionals. Every doctor on
-              our team has an MBBS from a foreign university.
+      <section style={{ display: "grid", gridTemplateColumns: "1fr", borderBottom: "1px solid #E2E4E8" }} className="lg:grid-cols-[38%_62%]">
+
+        {/* LEFT — Dark manifesto panel */}
+        <div style={{ background: "#003366", padding: "clamp(3.5rem, 7vw, 6rem) clamp(2rem, 5vw, 4.5rem)", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: "520px", position: "relative", overflow: "hidden" }}>
+          {/* Giant background watermark */}
+          <div style={{ position: "absolute", right: "-1rem", bottom: "-2rem", fontFamily: "var(--font-display)", fontSize: "clamp(8rem, 18vw, 14rem)", lineHeight: 1, color: "rgba(255,255,255,0.04)", letterSpacing: "-0.06em", userSelect: "none", pointerEvents: "none" }}>
+            WE
+          </div>
+
+          <div style={{ position: "relative", zIndex: 2 }}>
+            <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#00C5A3", marginBottom: "2rem" }}>
+              Why Worldwise
+            </p>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.25rem, 4.5vw, 3.75rem)", lineHeight: 0.95, letterSpacing: "-0.03em", color: "#FFFFFF", marginBottom: "1.5rem" }}>
+              The only consultancy that&apos;s{" "}
+              <em style={{ color: "#00C5A3" }}>actually been there.</em>
+            </h2>
+            <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.9375rem", lineHeight: 1.75, maxWidth: "360px", marginBottom: "2.5rem" }}>
+              Most consultancies are staffed by salespeople who have never set foot in a foreign medical university. Every doctor on our team holds an MBBS from one of the universities they recommend.
             </p>
           </div>
 
-          {/* Bento grid */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(1, 1fr)",
-              gap: "1px",
-              background: "#E8E4DC",
-            }}
-            className="md:grid-cols-2 lg:grid-cols-4"
-          >
-            {/* Large feature card — first card, deep navy */}
-            {features.map((f, idx) => (
-              <div
-                key={f.num}
-                style={{
-                  padding: "2.5rem",
-                  background: idx === 0 ? "#003366" : "#FFFFFF",
-                  position: "relative",
-                }}
-              >
-                <p
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "0.6rem",
-                    fontWeight: 700,
-                    letterSpacing: "0.15em",
-                    color: "#00C5A3",
-                    marginBottom: "1.75rem",
-                  }}
-                >
-                  {f.num}
-                </p>
-                <h3
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "clamp(1.25rem, 2vw, 1.625rem)",
-                    lineHeight: 1.05,
-                    letterSpacing: "-0.02em",
-                    color: idx === 0 ? "#FFFFFF" : "#0D0D0D",
-                    marginBottom: "1rem",
-                  }}
-                >
+          {/* Proof stats */}
+          <div style={{ position: "relative", zIndex: 2, display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px", background: "rgba(255,255,255,0.08)" }}>
+            {[
+              { val: "500+", label: "Students placed" },
+              { val: "8",    label: "Countries covered" },
+              { val: "100%", label: "NMC compliant" },
+              { val: "4",    label: "Doctor counselors" },
+            ].map((s) => (
+              <div key={s.label} style={{ background: "#003366", padding: "1.25rem 1.5rem" }}>
+                <p style={{ fontFamily: "var(--font-mono)", fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1, letterSpacing: "-0.02em", marginBottom: "0.35rem" }}>{s.val}</p>
+                <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", color: "rgba(255,255,255,0.35)", letterSpacing: "0.1em", textTransform: "uppercase" }}>{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* RIGHT — 4 feature rows, numbered editorial style */}
+        <div style={{ background: "#FFFFFF" }}>
+          {features.map((f, idx) => (
+            <div key={f.num} className="group hover:bg-[#FAF8F4] transition-colors duration-200" style={{ display: "grid", gridTemplateColumns: "80px 1fr", borderBottom: idx < 3 ? "1px solid #E2E4E8" : "none" }}>
+
+              {/* Number column */}
+              <div style={{ borderRight: "1px solid #E2E4E8", display: "flex", alignItems: "flex-start", justifyContent: "center", padding: "2.5rem 0 2.5rem", paddingTop: "2.75rem" }}>
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.15em", color: "#00C5A3" }}>{f.num}</span>
+              </div>
+
+              {/* Content column */}
+              <div style={{ padding: "2.5rem 2.75rem" }}>
+                <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.375rem, 2vw, 1.875rem)", lineHeight: 1.05, letterSpacing: "-0.025em", color: "#0D0D0D", marginBottom: "0.75rem" }}>
                   {f.title}
                 </h3>
-                <div
-                  style={{
-                    width: "28px",
-                    height: "2px",
-                    background: "#00C5A3",
-                    marginBottom: "1rem",
-                  }}
-                />
-                <p
-                  style={{
-                    color:
-                      idx === 0 ? "rgba(255,255,255,0.55)" : "#6B7280",
-                    fontSize: "0.875rem",
-                    lineHeight: 1.75,
-                  }}
-                >
+                <div style={{ width: "24px", height: "2px", background: "#00C5A3", marginBottom: "0.9rem", transition: "width 0.3s" }} className="group-hover:w-10" />
+                <p style={{ color: "#6B7280", fontSize: "0.9375rem", lineHeight: 1.75, maxWidth: "480px" }}>
                   {f.body}
                 </p>
               </div>
-            ))}
+            </div>
+          ))}
+
+          {/* Bottom CTA strip */}
+          <div style={{ padding: "1.75rem 2.75rem", borderTop: "1px solid #E2E4E8", display: "flex", alignItems: "center", justifyContent: "space-between", background: "#FAF8F4" }}>
+            <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", color: "#6B7280", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+              Free · No obligation · Doctor-led
+            </p>
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn-teal" style={{ padding: "10px 20px", fontSize: "0.65rem" }}>
+              <Phone className="w-3 h-3" />
+              Start Free Counseling
+            </a>
           </div>
         </div>
       </section>
