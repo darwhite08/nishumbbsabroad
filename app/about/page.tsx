@@ -61,23 +61,22 @@ export default function AboutPage() {
 
             <div className="space-y-5 text-text-muted leading-relaxed">
               <p>
-                In 2010, Dr. Arjun Sharma was in the same position as thousands of students today —
-                NEET-qualified, without a government seat, trying to figure out what to do next. His
-                family was approached by multiple consultancies, none of which had medical backgrounds.
-                The advice was generic. The universities recommended were based on commission, not
-                fit. Nobody warned him about FMGE.
+                Dr. Nishu Yadav was in the same position as thousands of students today —
+                NEET-qualified, determined to become a doctor, and navigating the overwhelming
+                world of MBBS abroad alone. The consultancies he encountered had no medical
+                background. The advice was commission-driven. Nobody warned him about FMGE.
               </p>
               <p>
-                He went to Kazan Federal University in Russia and figured it out himself — the hard
-                way. Six years later, he graduated, cleared FMGE on his first attempt, and returned
-                to practice medicine in India. Along the way, he saw too many fellow students
-                struggle — not because the universities were bad, but because they had received poor
+                He completed his MBBS across Ukraine and Kazakhstan, cleared FMGE on his first
+                attempt with a strong score, and returned to India determined to do things
+                differently. Along the way, he saw too many fellow students struggle — not because
+                the universities were bad, but because they had received no honest, experience-based
                 guidance at the start.
               </p>
               <p>
-                He reached out to three other doctors — Dr. Priya Nair (Georgia), Dr. Rahul Verma
-                (Kazakhstan), and Dr. Sunita Gupta (Philippines) — who had similar stories. Together,
-                they founded Worldwise Education with a single premise:{" "}
+                He joined with Dr. Lokesh Attri and Dr. Bindu Tyagi — each with their own MBBS
+                abroad journey and first-attempt FMGE success — to found Worldwise Education with
+                a single premise:{" "}
                 <strong className="text-text-main">
                   the only people qualified to guide students through MBBS abroad are doctors who
                   have done it themselves.
