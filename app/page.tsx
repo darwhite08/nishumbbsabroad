@@ -190,7 +190,7 @@ export default function HomePage() {
               <p
                 style={{
                   fontFamily: "var(--font-mono)",
-                  fontSize: "0.6rem",
+                  fontSize: "0.58rem",
                   fontWeight: 400,
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
@@ -257,7 +257,7 @@ export default function HomePage() {
       {/* ════════════════════════════════════════
           3. WHY WORLDWISE — Pure white, ultra-premium editorial
       ════════════════════════════════════════ */}
-      <section style={{ background: "#FFFFFF", borderBottom: "1px solid #EBEBEB", position: "relative", overflow: "hidden" }}>
+      <section style={{ background: "#FFFFFF", borderBottom: "1px solid #E8E8E8", position: "relative", overflow: "hidden" }}>
 
         {/* Ghost number — enormous barely-visible background decoration */}
         <div style={{ position: "absolute", right: "-2rem", top: "50%", transform: "translateY(-50%)", fontFamily: "var(--font-display)", fontSize: "clamp(16rem, 30vw, 28rem)", lineHeight: 1, color: "#F5F5F5", letterSpacing: "-0.06em", userSelect: "none", pointerEvents: "none", zIndex: 0 }}>
@@ -270,7 +270,7 @@ export default function HomePage() {
         <div className="container-custom" style={{ position: "relative", zIndex: 1 }}>
 
           {/* Header row */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "2rem", padding: "5rem 0 4rem", borderBottom: "1px solid #EBEBEB" }} className="lg:grid-cols-[55%_45%]">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "2rem", padding: "5rem 0 4rem", borderBottom: "1px solid #E8E8E8" }} className="lg:grid-cols-[55%_45%]">
             <div>
               <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#00C5A3", marginBottom: "1.75rem" }}>
                 Why Worldwise Education
@@ -281,7 +281,7 @@ export default function HomePage() {
               </h2>
             </div>
             <div style={{ display: "flex", alignItems: "flex-end", paddingBottom: "0.25rem" }}>
-              <p style={{ color: "#6B7280", fontSize: "1rem", lineHeight: 1.8, maxWidth: "380px", borderLeft: "2px solid #EBEBEB", paddingLeft: "1.75rem" }}>
+              <p style={{ color: "#6B7280", fontSize: "1rem", lineHeight: 1.8, maxWidth: "380px", borderLeft: "2px solid #E8E8E8", paddingLeft: "1.75rem" }}>
                 Most consultancies are staffed by salespeople who have never set foot in a foreign medical university. Every single person on our team holds an MBBS from one of the universities they recommend.
               </p>
             </div>
@@ -290,7 +290,7 @@ export default function HomePage() {
           {/* Feature rows — full-width numbered list */}
           <div>
             {features.map((f, idx) => (
-              <div key={f.num} className="group" style={{ display: "grid", gridTemplateColumns: "1fr", borderBottom: "1px solid #EBEBEB", cursor: "default", position: "relative" }} >
+              <div key={f.num} className="group" style={{ display: "grid", gridTemplateColumns: "1fr", borderBottom: "1px solid #E8E8E8", cursor: "default", position: "relative" }} >
 
                 {/* Teal left hover bar */}
                 <div className="absolute left-0 top-0 bottom-0 w-0 group-hover:w-[3px] transition-all duration-300 bg-teal" style={{ background: "#00C5A3" }} />
@@ -298,12 +298,12 @@ export default function HomePage() {
                 <div style={{ display: "grid", gridTemplateColumns: "5rem 1fr", gap: 0 }} className="lg:grid-cols-[5rem_40%_1fr]">
 
                   {/* Index number */}
-                  <div style={{ padding: "2.75rem 0", display: "flex", alignItems: "flex-start", justifyContent: "center", borderRight: "1px solid #EBEBEB" }}>
-                    <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.15em", color: "#00C5A3" }}>{f.num}</span>
+                  <div style={{ padding: "2.75rem 0", display: "flex", alignItems: "flex-start", justifyContent: "center", borderRight: "1px solid #E8E8E8" }}>
+                    <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.15em", color: "#00C5A3" }}>{f.num}</span>
                   </div>
 
                   {/* Title */}
-                  <div style={{ padding: "2.75rem 3rem 2.75rem 2.5rem", borderRight: "1px solid #EBEBEB", display: "flex", alignItems: "center" }} className="hidden lg:flex">
+                  <div style={{ padding: "2.75rem 3rem 2.75rem 2.5rem", borderRight: "1px solid #E8E8E8", display: "flex", alignItems: "center" }} className="hidden lg:flex">
                     <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.5rem, 2.5vw, 2.125rem)", lineHeight: 1.05, letterSpacing: "-0.025em", color: "#0A0A0A", transition: "color 0.2s" }} className="group-hover:text-[#003366]">
                       {f.title}
                     </h3>
@@ -349,13 +349,13 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════
-          4. COUNTRIES — Pure white, full photo cards
+          4. COUNTRIES — Off-white, full photo cards
       ════════════════════════════════════════ */}
       <section
         style={{
-          background: "#FFFFFF",
-          padding: "clamp(4rem, 8vw, 7rem) 0",
-          borderBottom: "1px solid #E2E4E8",
+          background: "#F5F5F5",
+          padding: "clamp(5rem, 8vw, 7rem) 0",
+          borderBottom: "1px solid #E8E8E8",
         }}
       >
         <div className="container-custom">
@@ -367,7 +367,7 @@ export default function HomePage() {
               justifyContent: "space-between",
               marginBottom: "3rem",
               paddingBottom: "2rem",
-              borderBottom: "1px solid #E2E4E8",
+              borderBottom: "1px solid #E8E8E8",
               flexWrap: "wrap",
               gap: "1rem",
             }}
@@ -376,7 +376,7 @@ export default function HomePage() {
               <p
                 style={{
                   fontFamily: "var(--font-mono)",
-                  fontSize: "0.6rem",
+                  fontSize: "0.58rem",
                   fontWeight: 700,
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
@@ -389,7 +389,7 @@ export default function HomePage() {
               <h2
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontSize: "clamp(2rem, 4vw, 3.5rem)",
+                  fontSize: "clamp(2.25rem, 4vw, 3.75rem)",
                   lineHeight: 0.98,
                   letterSpacing: "-0.03em",
                   color: "#0D0D0D",
@@ -410,7 +410,7 @@ export default function HomePage() {
               display: "grid",
               gridTemplateColumns: "repeat(1, 1fr)",
               gap: "1px",
-              background: "#E2E4E8",
+              background: "#E8E8E8",
             }}
             className="sm:grid-cols-2 lg:grid-cols-4"
           >
@@ -557,7 +557,7 @@ export default function HomePage() {
         <div
           style={{
             background: "#00C5A3",
-            padding: "clamp(4rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem)",
+            padding: "clamp(5rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem)",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -566,7 +566,7 @@ export default function HomePage() {
           <p
             style={{
               fontFamily: "var(--font-mono)",
-              fontSize: "0.6rem",
+              fontSize: "0.58rem",
               fontWeight: 700,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
@@ -619,17 +619,17 @@ export default function HomePage() {
         <div
           style={{
             background: "#FFFFFF",
-            padding: "clamp(4rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem)",
+            padding: "clamp(5rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem)",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            borderLeft: "1px solid #E2E4E8",
+            borderLeft: "1px solid #E8E8E8",
           }}
         >
           <p
             style={{
               fontFamily: "var(--font-mono)",
-              fontSize: "0.6rem",
+              fontSize: "0.58rem",
               fontWeight: 700,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
@@ -664,7 +664,7 @@ export default function HomePage() {
                 gap: "1.25rem",
                 marginBottom: "2rem",
                 paddingBottom: "2rem",
-                borderBottom: "1px solid #F0EFED",
+                borderBottom: "1px solid #E8E8E8",
               }}
             >
               <div
@@ -710,7 +710,7 @@ export default function HomePage() {
       <section
         style={{
           background: "#1A1A1A",
-          padding: "clamp(4rem, 8vw, 7rem) 0",
+          padding: "clamp(5rem, 8vw, 7rem) 0",
           borderBottom: "1px solid rgba(255,255,255,0.06)",
         }}
       >
@@ -732,7 +732,7 @@ export default function HomePage() {
               <p
                 style={{
                   fontFamily: "var(--font-mono)",
-                  fontSize: "0.6rem",
+                  fontSize: "0.58rem",
                   fontWeight: 700,
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
@@ -745,7 +745,7 @@ export default function HomePage() {
               <h2
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontSize: "clamp(2rem, 4vw, 3.5rem)",
+                  fontSize: "clamp(2.25rem, 4vw, 3.75rem)",
                   lineHeight: 0.98,
                   letterSpacing: "-0.03em",
                   color: "#FFFFFF",
@@ -843,7 +843,7 @@ export default function HomePage() {
                   <p
                     style={{
                       fontFamily: "var(--font-mono)",
-                      fontSize: "0.6rem",
+                      fontSize: "0.58rem",
                       color: "rgba(255,255,255,0.3)",
                       letterSpacing: "0.08em",
                       marginBottom: "0.6rem",
@@ -876,9 +876,9 @@ export default function HomePage() {
       ════════════════════════════════════════ */}
       <section
         style={{
-          background: "#FAF8F4",
-          padding: "clamp(4rem, 8vw, 7rem) 0",
-          borderBottom: "1px solid #E8E4DC",
+          background: "#FFFFFF",
+          padding: "clamp(5rem, 8vw, 7rem) 0",
+          borderBottom: "1px solid #E8E8E8",
         }}
       >
         <div className="container-custom">
@@ -896,7 +896,7 @@ export default function HomePage() {
               <p
                 style={{
                   fontFamily: "var(--font-mono)",
-                  fontSize: "0.6rem",
+                  fontSize: "0.58rem",
                   fontWeight: 700,
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
@@ -909,7 +909,7 @@ export default function HomePage() {
               <h2
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontSize: "clamp(2rem, 4vw, 3.5rem)",
+                  fontSize: "clamp(2.25rem, 4vw, 3.75rem)",
                   lineHeight: 0.98,
                   letterSpacing: "-0.03em",
                   color: "#0D0D0D",
@@ -977,7 +977,7 @@ export default function HomePage() {
             <div
               style={{
                 background: "#FFFFFF",
-                border: "1px solid #E8E4DC",
+                border: "1px solid #E8E8E8",
                 overflow: "hidden",
               }}
             >
@@ -1052,14 +1052,14 @@ export default function HomePage() {
                   style={{
                     display: "grid",
                     gridTemplateColumns: "auto 1fr 1fr",
-                    borderTop: "1px solid #F0EFED",
-                    background: i % 2 === 0 ? "#FFFFFF" : "#FAF8F4",
+                    borderTop: "1px solid #E8E8E8",
+                    background: i % 2 === 0 ? "#FFFFFF" : "#F8F8F8",
                   }}
                 >
                   <div
                     style={{
                       padding: "1rem 1.25rem",
-                      borderRight: "1px solid #F0EFED",
+                      borderRight: "1px solid #E8E8E8",
                       minWidth: "110px",
                     }}
                   >
@@ -1078,7 +1078,7 @@ export default function HomePage() {
                   <div
                     style={{
                       padding: "1rem 1.25rem",
-                      borderRight: "1px solid #F0EFED",
+                      borderRight: "1px solid #E8E8E8",
                     }}
                   >
                     <p
@@ -1122,7 +1122,7 @@ export default function HomePage() {
       <section
         style={{
           background: "#003366",
-          padding: "clamp(4rem, 8vw, 7rem) 0",
+          padding: "clamp(5rem, 8vw, 7rem) 0",
           borderBottom: "1px solid rgba(255,255,255,0.06)",
         }}
       >
@@ -1138,7 +1138,7 @@ export default function HomePage() {
             <p
               style={{
                 fontFamily: "var(--font-mono)",
-                fontSize: "0.6rem",
+                fontSize: "0.58rem",
                 fontWeight: 700,
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
@@ -1151,7 +1151,7 @@ export default function HomePage() {
             <h2
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "clamp(2rem, 4vw, 3.5rem)",
+                fontSize: "clamp(2.25rem, 4vw, 3.75rem)",
                 lineHeight: 0.98,
                 letterSpacing: "-0.03em",
                 color: "#FFFFFF",
@@ -1268,13 +1268,13 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════
-          9. FAQ — White, sticky sidebar, accordion
+          9. FAQ — Off-white, sticky sidebar, accordion
       ════════════════════════════════════════ */}
       <section
         style={{
-          background: "#FFFFFF",
-          padding: "clamp(4rem, 8vw, 7rem) 0",
-          borderBottom: "1px solid #E2E4E8",
+          background: "#F5F5F5",
+          padding: "clamp(5rem, 8vw, 7rem) 0",
+          borderBottom: "1px solid #E8E8E8",
         }}
       >
         <div className="container-custom">
@@ -1294,7 +1294,7 @@ export default function HomePage() {
               <p
                 style={{
                   fontFamily: "var(--font-mono)",
-                  fontSize: "0.6rem",
+                  fontSize: "0.58rem",
                   fontWeight: 700,
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
@@ -1347,7 +1347,7 @@ export default function HomePage() {
                 <details
                   key={faq.id}
                   className="group"
-                  style={{ borderBottom: "1px solid #E2E4E8" }}
+                  style={{ borderBottom: "1px solid #E8E8E8" }}
                 >
                   <summary
                     style={{
@@ -1411,7 +1411,7 @@ export default function HomePage() {
         <div
           style={{
             background: "#0D0D0D",
-            padding: "clamp(4rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem)",
+            padding: "clamp(5rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem)",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -1432,7 +1432,7 @@ export default function HomePage() {
           <p
             style={{
               fontFamily: "var(--font-mono)",
-              fontSize: "0.6rem",
+              fontSize: "0.58rem",
               fontWeight: 700,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
@@ -1471,7 +1471,7 @@ export default function HomePage() {
         <div
           style={{
             background: "#00C5A3",
-            padding: "clamp(4rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem)",
+            padding: "clamp(5rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem)",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -1480,7 +1480,7 @@ export default function HomePage() {
           <p
             style={{
               fontFamily: "var(--font-mono)",
-              fontSize: "0.6rem",
+              fontSize: "0.58rem",
               fontWeight: 700,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
