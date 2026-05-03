@@ -91,292 +91,86 @@ export default function HomePage() {
   return (
     <>
       {/* ════════════════════════════════════════
-          1. HERO — Near-black charcoal, editorial split
+          1. HERO — Full-viewport editorial split
       ════════════════════════════════════════ */}
-      <section
-        style={{ background: "#0D0D0D", position: "relative", overflow: "hidden", minHeight: "100vh", display: "flex", flexDirection: "column" }}
-      >
+      <section style={{ background: "#0D0D0D", position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", overflow: "hidden" }}>
+
         {/* Teal left accent stripe */}
-        <div
-          style={{
-            position: "absolute",
-            left: 0,
-            top: 0,
-            bottom: 0,
-            width: "4px",
-            background: "#00C5A3",
-            zIndex: 10,
-          }}
-        />
+        <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "3px", background: "#00C5A3", zIndex: 10 }} />
 
-        {/* Main content grid */}
-        <div
-          style={{
-            flex: 1,
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            position: "relative",
-          }}
-          className="lg:grid lg:grid-cols-[40%_60%]"
-        >
-          {/* Left column */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              padding: "clamp(2rem, 5vw, 5rem) clamp(1.5rem, 4vw, 4rem)",
-              paddingLeft: "clamp(2rem, 5vw, 5rem)",
-              position: "relative",
-              zIndex: 5,
-            }}
-          >
-            {/* Top tag */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "1rem",
-                marginBottom: "3rem",
-                marginTop: "4rem",
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "0.6rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.35)",
-                }}
-              >
-                Worldwise Education
-              </span>
-              <div
-                style={{
-                  flex: 1,
-                  height: "1px",
-                  background: "rgba(255,255,255,0.08)",
-                  maxWidth: "80px",
-                }}
-              />
-              <span
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "0.55rem",
-                  color: "rgba(255,255,255,0.2)",
-                  letterSpacing: "0.1em",
-                }}
-              >
-                EST. 2024
-              </span>
-            </div>
+        {/* Background photo — full bleed, dark overlay */}
+        <div className="hidden lg:block" style={{ position: "absolute", inset: 0 }}>
+          <Image
+            src="https://images.unsplash.com/photo-1562774053-701939374585?w=1920&q=90"
+            alt="Modern university campus architecture"
+            fill priority
+            className="object-cover"
+            style={{ objectPosition: "60% center" }}
+          />
+          {/* Heavy left-to-right fade so left text stays legible */}
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #0D0D0D 45%, rgba(13,13,13,0.85) 65%, rgba(13,13,13,0.4) 100%)" }} />
+          {/* Bottom fade into stats bar */}
+          <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "160px", background: "linear-gradient(to top, #0D0D0D, transparent)" }} />
+        </div>
 
-            {/* Main headline */}
-            <div style={{ marginBottom: "2rem" }}>
-              <h1
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "clamp(3rem, 6vw, 5.5rem)",
-                  lineHeight: 0.9,
-                  letterSpacing: "-0.04em",
-                  color: "#FFFFFF",
-                  margin: 0,
-                  marginBottom: "0.15em",
-                }}
-              >
-                For the
-              </h1>
-              <h1
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "clamp(3rem, 6vw, 5.5rem)",
-                  lineHeight: 0.9,
-                  letterSpacing: "-0.04em",
-                  color: "#FFFFFF",
-                  margin: 0,
-                  marginBottom: "0.25em",
-                }}
-              >
-                Doctors.
-              </h1>
-              <h2
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "clamp(2.5rem, 5vw, 4.75rem)",
-                  lineHeight: 0.9,
-                  letterSpacing: "-0.04em",
-                  color: "#00C5A3",
-                  fontStyle: "italic",
-                  margin: 0,
-                  marginBottom: "0.15em",
-                }}
-              >
-                By the
-              </h2>
-              <h2
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "clamp(2.5rem, 5vw, 4.75rem)",
-                  lineHeight: 0.9,
-                  letterSpacing: "-0.04em",
-                  color: "#00C5A3",
-                  fontStyle: "italic",
-                  margin: 0,
-                }}
-              >
-                Doctors.
-              </h2>
-            </div>
+        {/* Content — vertically centred, left-aligned */}
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", position: "relative", zIndex: 5, padding: "6rem clamp(2rem, 5vw, 5rem) 3rem clamp(2.5rem, 6vw, 6rem)", maxWidth: "700px" }}>
 
-            {/* Sub copy */}
-            <p
-              style={{
-                color: "rgba(255,255,255,0.45)",
-                fontSize: "clamp(0.875rem, 1.2vw, 1.0625rem)",
-                lineHeight: 1.7,
-                maxWidth: "400px",
-                marginBottom: "2.5rem",
-                fontFamily: "var(--font-inter)",
-              }}
-            >
-              MBBS abroad counseling from doctors who have studied at the same
-              universities they recommend. Free. No obligation.
-            </p>
-
-            {/* CTA buttons */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem", marginBottom: "3rem" }}>
-              <a
-                href={whatsappLink()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-teal"
-              >
-                <Phone className="w-3.5 h-3.5" />
-                Talk to a Doctor
-              </a>
-              <Link
-                href="/countries"
-                className="btn-outline-white"
-              >
-                Explore Destinations
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-
-            {/* Trust badges row */}
-            <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap" }}>
-              {["NMC ✓", "WDOMS ✓", "Doctor-Led ✓"].map((badge) => (
-                <span
-                  key={badge}
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "0.55rem",
-                    fontWeight: 700,
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                    color: "#00C5A3",
-                    border: "1px solid rgba(0,197,163,0.3)",
-                    padding: "4px 10px",
-                  }}
-                >
-                  {badge}
-                </span>
-              ))}
-            </div>
+          {/* Label row */}
+          <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "2.5rem" }}>
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)" }}>
+              Worldwise Education
+            </span>
+            <div style={{ width: "40px", height: "1px", background: "rgba(0,197,163,0.5)" }} />
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.52rem", color: "rgba(255,255,255,0.18)", letterSpacing: "0.1em" }}>EST. 2024</span>
           </div>
 
-          {/* Right column — architectural photo */}
-          <div
-            style={{
-              position: "relative",
-              overflow: "hidden",
-              minHeight: "60vh",
-            }}
-            className="hidden lg:block"
-          >
-            <Image
-              src="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=1400&q=90"
-              alt="Modern university architecture"
-              fill
-              priority
-              className="object-cover"
-              style={{ objectPosition: "center 30%" }}
-            />
-            {/* Gradient overlay — blends left edge into charcoal */}
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                background:
-                  "linear-gradient(to right, #0D0D0D 0%, rgba(13,13,13,0.3) 30%, rgba(13,13,13,0.05) 100%)",
-              }}
-            />
-            {/* Bottom fade */}
-            <div
-              style={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                right: 0,
-                height: "200px",
-                background: "linear-gradient(to top, #0D0D0D 0%, transparent 100%)",
-              }}
-            />
-            {/* Floating stat card */}
-            <div
-              style={{
-                position: "absolute",
-                bottom: "80px",
-                right: "40px",
-                background: "rgba(13,13,13,0.85)",
-                border: "1px solid rgba(0,197,163,0.3)",
-                padding: "1.25rem 1.5rem",
-                backdropFilter: "blur(10px)",
-              }}
-            >
-              <p
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "0.55rem",
-                  color: "#00C5A3",
-                  letterSpacing: "0.15em",
-                  textTransform: "uppercase",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                Students placed
-              </p>
-              <p
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "2.75rem",
-                  color: "white",
-                  lineHeight: 1,
-                  letterSpacing: "-0.04em",
-                }}
-              >
-                500+
-              </p>
-            </div>
+          {/* Main headline — two clean lines */}
+          <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(3.5rem, 7.5vw, 6.5rem)", lineHeight: 0.92, letterSpacing: "-0.04em", color: "#FFFFFF", margin: 0, marginBottom: "0.12em" }}>
+            For the Doctors.
+          </h1>
+          <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(3.5rem, 7.5vw, 6.5rem)", lineHeight: 0.92, letterSpacing: "-0.04em", color: "#00C5A3", fontStyle: "italic", margin: 0, marginBottom: "2rem" }}>
+            By the Doctors.
+          </h1>
+
+          {/* Sub copy */}
+          <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "clamp(0.9375rem, 1.2vw, 1.0625rem)", lineHeight: 1.75, maxWidth: "420px", marginBottom: "2.5rem", fontFamily: "var(--font-inter)" }}>
+            MBBS abroad counseling from doctors who studied at the same universities they recommend. Free. No obligation.
+          </p>
+
+          {/* CTAs */}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem", marginBottom: "3rem" }}>
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn-teal">
+              <Phone className="w-3.5 h-3.5" />
+              Talk to a Doctor
+            </a>
+            <Link href="/countries" className="btn-outline-white">
+              Explore Destinations
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          {/* Trust badges */}
+          <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+            {["NMC Approved ✓", "WDOMS Listed ✓", "Doctor-Led ✓", "Free Counseling ✓"].map((badge) => (
+              <span key={badge} style={{ fontFamily: "var(--font-mono)", fontSize: "0.53rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#00C5A3", border: "1px solid rgba(0,197,163,0.25)", padding: "4px 10px" }}>
+                {badge}
+              </span>
+            ))}
           </div>
         </div>
 
-        {/* Stats bar — grid ruled bottom */}
-        <div
-          style={{
-            borderTop: "1px solid rgba(255,255,255,0.07)",
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-          }}
-        >
+        {/* Floating card — bottom right, desktop only */}
+        <div className="hidden lg:block" style={{ position: "absolute", bottom: "80px", right: "48px", background: "rgba(13,13,13,0.9)", border: "1px solid rgba(0,197,163,0.25)", padding: "1.25rem 1.75rem", backdropFilter: "blur(12px)", zIndex: 10 }}>
+          <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.52rem", color: "#00C5A3", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: "0.5rem" }}>Students placed</p>
+          <p style={{ fontFamily: "var(--font-display)", fontSize: "2.5rem", color: "white", lineHeight: 1, letterSpacing: "-0.04em" }}>500+</p>
+          <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.52rem", color: "rgba(255,255,255,0.3)", letterSpacing: "0.08em", marginTop: "0.25rem" }}>Across 8 countries</p>
+        </div>
+
+        {/* Stats bar */}
+        <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", position: "relative", zIndex: 5 }}>
           {stats.map((s, i) => (
-            <div
-              key={s.label}
-              style={{
-                padding: "1.75rem clamp(1.5rem, 4vw, 2.5rem)",
-                borderRight:
+            <div key={s.label} style={{ padding: "1.75rem clamp(1.5rem, 4vw, 2.5rem)", borderRight:
                   i < 3 ? "1px solid rgba(255,255,255,0.07)" : "none",
               }}
             >
