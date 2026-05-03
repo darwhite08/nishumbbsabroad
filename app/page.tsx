@@ -560,31 +560,32 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* 4 proof cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2" style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+          {/* 4 proof points — horizontal rule rows */}
+          <div style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
             {[
               { num: "01", title: "We studied abroad — they didn't", desc: "Every team member holds an MBBS from an NMC-approved foreign university. Agents have brochures. We have diplomas." },
               { num: "02", title: "Zero university commission", desc: "Our income is from student fees, not referral cuts. We recommend what is right for you — not what pays us the most." },
               { num: "03", title: "FMGE planning starts pre-departure", desc: "We hand you a year-wise FMGE study plan before your flight. Not after year 3 when panic sets in." },
               { num: "04", title: "One point of contact, always", desc: "No passing you around. The counselor who signs you is reachable throughout your full 5–6 year degree." },
-            ].map((item, i) => (
-              <div key={item.num} className="group" style={{ padding: "2.75rem 0", position: "relative", borderBottom: i < 2 ? "1px solid rgba(255,255,255,0.08)" : "none", borderRight: i % 2 === 0 ? "1px solid rgba(255,255,255,0.08)" : "none" }}>
-                {/* Hover teal top accent */}
-                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: "#00C5A3", transform: "scaleX(0)", transformOrigin: "left", transition: "transform 0.3s ease" }} className="group-hover:scale-x-100" />
+            ].map((item) => (
+              <div key={item.num} className="group" style={{ display: "grid", gridTemplateColumns: "56px 1fr", borderTop: "1px solid rgba(255,255,255,0.08)", position: "relative" }}>
+                {/* Hover teal left bar */}
+                <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 0, background: "#00C5A3", transition: "width 0.25s ease" }} className="group-hover:!w-[3px]" />
 
-                {/* Large faded number */}
-                <p style={{ fontFamily: "var(--font-mono)", fontSize: "3.5rem", fontWeight: 700, color: "rgba(255,255,255,0.04)", lineHeight: 1, letterSpacing: "-0.04em", marginBottom: "1rem", userSelect: "none" }}>
-                  {item.num}
-                </p>
-                <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#00C5A3", marginBottom: "0.875rem" }}>
-                  {item.num}
-                </p>
-                <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.125rem, 1.75vw, 1.5rem)", lineHeight: 1.15, letterSpacing: "-0.02em", color: "#FFFFFF", marginBottom: "0.875rem" }}>
-                  {item.title}
-                </h3>
-                <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.875rem", lineHeight: 1.75 }}>
-                  {item.desc}
-                </p>
+                {/* Index */}
+                <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", paddingTop: "2rem", borderRight: "1px solid rgba(255,255,255,0.08)" }}>
+                  <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.12em", color: "#00C5A3" }}>{item.num}</span>
+                </div>
+
+                {/* Content */}
+                <div style={{ padding: "2rem 0 2rem 2rem" }} className="lg:grid lg:grid-cols-[40%_1fr] lg:gap-8">
+                  <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.125rem, 1.5vw, 1.375rem)", lineHeight: 1.2, letterSpacing: "-0.02em", color: "#FFFFFF", marginBottom: "0.625rem" }}>
+                    {item.title}
+                  </h3>
+                  <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.875rem", lineHeight: 1.75 }}>
+                    {item.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
