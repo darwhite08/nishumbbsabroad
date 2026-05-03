@@ -269,21 +269,23 @@ export default function HomePage() {
 
         <div className="container-custom" style={{ position: "relative", zIndex: 1 }}>
 
-          {/* Header row */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "2rem", padding: "5rem 0 4rem", borderBottom: "1px solid #E8E8E8" }} className="lg:grid-cols-[55%_45%]">
-            <div>
-              <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#00C5A3", marginBottom: "1.75rem", whiteSpace: "nowrap", display: "flex", alignItems: "center", gap: "0.75rem" }}>
-                <span style={{ opacity: 0.35 }}>01</span>
-                <span style={{ opacity: 0.35 }}>—</span>
-                <span>Why Worldwise Education</span>
-              </p>
-              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.5rem, 5vw, 4.5rem)", lineHeight: 0.93, letterSpacing: "-0.035em", color: "#0A0A0A" }}>
-                The consultancy that&apos;s<br />
+          {/* Header — section label + 2-col heading/copy using pure Tailwind (no inline grid conflict) */}
+          <div style={{ padding: "4rem 0 3.5rem", borderBottom: "1px solid #E8E8E8" }}>
+
+            {/* Label */}
+            <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#00C5A3", marginBottom: "2rem", whiteSpace: "nowrap", display: "flex", alignItems: "center", gap: "0.75rem" }}>
+              <span style={{ opacity: 0.35 }}>01</span>
+              <span style={{ opacity: 0.35 }}>—</span>
+              <span>Why Worldwise Education</span>
+            </p>
+
+            {/* 2-column: heading left, copy right — Tailwind only, no inline gridTemplateColumns */}
+            <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: "3rem", alignItems: "end" }}>
+              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.25rem, 4vw, 3.75rem)", lineHeight: 0.97, letterSpacing: "-0.03em", color: "#0A0A0A" }}>
+                The consultancy that&apos;s{" "}
                 <em style={{ color: "#003366" }}>actually been there.</em>
               </h2>
-            </div>
-            <div style={{ display: "flex", alignItems: "flex-end", paddingBottom: "0.25rem" }}>
-              <p style={{ color: "#6B7280", fontSize: "1rem", lineHeight: 1.8, maxWidth: "380px", borderLeft: "2px solid #E8E8E8", paddingLeft: "1.75rem" }}>
+              <p style={{ color: "#6B7280", fontSize: "0.9375rem", lineHeight: 1.8, borderLeft: "2px solid #E8E8E8", paddingLeft: "1.75rem" }}>
                 Most consultancies are staffed by salespeople who have never set foot in a foreign medical university. Every single person on our team holds an MBBS from one of the universities they recommend.
               </p>
             </div>
