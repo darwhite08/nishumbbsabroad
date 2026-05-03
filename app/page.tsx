@@ -599,14 +599,10 @@ export default function HomePage() {
             </Link>
           </div>
 
-          {/* Team grid */}
+          {/* Team grid — no inline gridTemplateColumns so Tailwind classes work */}
           <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(1, 1fr)",
-              border: "1px solid rgba(255,255,255,0.07)",
-            }}
-            className="md:grid-cols-3"
+            className="grid grid-cols-1 md:grid-cols-3"
+            style={{ border: "1px solid rgba(255,255,255,0.07)" }}
           >
             {featuredTeam.map((member, i) => (
               <div
@@ -625,7 +621,7 @@ export default function HomePage() {
                   style={{
                     position: "relative",
                     overflow: "hidden",
-                    height: "300px",
+                    height: "320px",
                   }}
                 >
                   <Image

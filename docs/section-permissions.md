@@ -21,7 +21,7 @@ A general instruction like "redesign the site", "make it look better", "update t
 | Marquee Strip | `app/page.tsx` — Section 2 | **🔒 LOCKED** | 2026-05-04 | Animated CSS ticker, deep navy #003366, teal dot separators, Space Mono uppercase. User-approved final state. |
 | Why Worldwise | `app/page.tsx` — Section 3 | **🔒 LOCKED** | 2026-05-04 | White bg, teal gradient top accent, faded "01" ghost number, 2-col header (heading left / copy right), 4 feature rows (64px index col + 1fr content), proof stats strip + CTA. User-approved final state. |
 | Countries | `app/page.tsx` — Section 4 | **🔒 LOCKED** | 2026-05-04 | Filter bar (budget/duration/internship) + grid/list view toggle + 260px photo cards. CountriesFilter client component. User-approved final state. |
-| Split Feature | `app/page.tsx` — Section 5 | ✅ OPEN | — | Teal / white split |
+| Split Feature | `app/page.tsx` — Section 5 | **🔒 LOCKED** | 2026-05-04 | White bg, 3D wireframe cubes, mouse parallax, cursor glow, Framer Motion scroll+tilt animations, comparison strip. OurDifference.tsx client component. User-approved final state. |
 | Team | `app/page.tsx` — Section 6 | ✅ OPEN | — | Charcoal bg, grayscale photos |
 | Fee Comparison | `app/page.tsx` — Section 7 | ✅ OPEN | — | Cream, comparison card |
 | Testimonials | `app/page.tsx` — Section 8 | ✅ OPEN | — | Navy bg, serif quotes |
