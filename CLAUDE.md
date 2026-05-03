@@ -11,7 +11,7 @@
 - Only act on a locked section when the user's message **explicitly names it**: e.g. "fix the hero", "update the hero section", "change the hero".
 - When in doubt, skip the section and note what you skipped.
 
-**Currently locked:** Hero section (`app/page.tsx` Section 1)
+**Currently locked:** Hero (Section 1) · Marquee Strip (Section 2) · Why Worldwise (Section 3)
 
 ---
 
