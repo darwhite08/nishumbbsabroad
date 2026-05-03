@@ -11,7 +11,7 @@
 - Only act on a locked section when the user's message **explicitly names it**: e.g. "fix the hero", "update the hero section", "change the hero".
 - When in doubt, skip the section and note what you skipped.
 
-**Currently locked:** Hero (Section 1) · Marquee Strip (Section 2) · Why Worldwise (Section 3) · Countries (Section 4) · Our Difference (Section 5) · Team (Section 6) · The Numbers (Section 7)
+**🔒 ENTIRE LANDING PAGE LOCKED** — `app/page.tsx` is fully locked. All 11 sections are locked as of 2026-05-04. Do not touch any section without an explicit user instruction naming that section.
 
 ---
 
