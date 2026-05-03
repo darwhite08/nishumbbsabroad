@@ -255,79 +255,96 @@ export default function HomePage() {
       </div>
 
       {/* ════════════════════════════════════════
-          3. WHY WORLDWISE — Dark manifesto + feature list
+          3. WHY WORLDWISE — Pure white, ultra-premium editorial
       ════════════════════════════════════════ */}
-      <section style={{ display: "grid", gridTemplateColumns: "1fr", borderBottom: "1px solid #E2E4E8" }} className="lg:grid-cols-[38%_62%]">
+      <section style={{ background: "#FFFFFF", borderBottom: "1px solid #EBEBEB", position: "relative", overflow: "hidden" }}>
 
-        {/* LEFT — Dark manifesto panel */}
-        <div style={{ background: "#003366", padding: "clamp(3.5rem, 7vw, 6rem) clamp(2rem, 5vw, 4.5rem)", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: "520px", position: "relative", overflow: "hidden" }}>
-          {/* Giant background watermark */}
-          <div style={{ position: "absolute", right: "-1rem", bottom: "-2rem", fontFamily: "var(--font-display)", fontSize: "clamp(8rem, 18vw, 14rem)", lineHeight: 1, color: "rgba(255,255,255,0.04)", letterSpacing: "-0.06em", userSelect: "none", pointerEvents: "none" }}>
-            WE
+        {/* Ghost number — enormous barely-visible background decoration */}
+        <div style={{ position: "absolute", right: "-2rem", top: "50%", transform: "translateY(-50%)", fontFamily: "var(--font-display)", fontSize: "clamp(16rem, 30vw, 28rem)", lineHeight: 1, color: "#F5F5F5", letterSpacing: "-0.06em", userSelect: "none", pointerEvents: "none", zIndex: 0 }}>
+          4
+        </div>
+
+        {/* Teal top accent */}
+        <div style={{ height: "3px", background: "linear-gradient(to right, #00C5A3 0%, #003366 60%, transparent 100%)" }} />
+
+        <div className="container-custom" style={{ position: "relative", zIndex: 1 }}>
+
+          {/* Header row */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "2rem", padding: "5rem 0 4rem", borderBottom: "1px solid #EBEBEB" }} className="lg:grid-cols-[55%_45%]">
+            <div>
+              <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#00C5A3", marginBottom: "1.75rem" }}>
+                Why Worldwise Education
+              </p>
+              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.5rem, 5vw, 4.5rem)", lineHeight: 0.93, letterSpacing: "-0.035em", color: "#0A0A0A" }}>
+                The consultancy that&apos;s<br />
+                <em style={{ color: "#003366" }}>actually been there.</em>
+              </h2>
+            </div>
+            <div style={{ display: "flex", alignItems: "flex-end", paddingBottom: "0.25rem" }}>
+              <p style={{ color: "#6B7280", fontSize: "1rem", lineHeight: 1.8, maxWidth: "380px", borderLeft: "2px solid #EBEBEB", paddingLeft: "1.75rem" }}>
+                Most consultancies are staffed by salespeople who have never set foot in a foreign medical university. Every single person on our team holds an MBBS from one of the universities they recommend.
+              </p>
+            </div>
           </div>
 
-          <div style={{ position: "relative", zIndex: 2 }}>
-            <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#00C5A3", marginBottom: "2rem" }}>
-              Why Worldwise
-            </p>
-            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.25rem, 4.5vw, 3.75rem)", lineHeight: 0.95, letterSpacing: "-0.03em", color: "#FFFFFF", marginBottom: "1.5rem" }}>
-              The only consultancy that&apos;s{" "}
-              <em style={{ color: "#00C5A3" }}>actually been there.</em>
-            </h2>
-            <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.9375rem", lineHeight: 1.75, maxWidth: "360px", marginBottom: "2.5rem" }}>
-              Most consultancies are staffed by salespeople who have never set foot in a foreign medical university. Every doctor on our team holds an MBBS from one of the universities they recommend.
-            </p>
-          </div>
+          {/* Feature rows — full-width numbered list */}
+          <div>
+            {features.map((f, idx) => (
+              <div key={f.num} className="group" style={{ display: "grid", gridTemplateColumns: "1fr", borderBottom: "1px solid #EBEBEB", cursor: "default", position: "relative" }} >
 
-          {/* Proof stats */}
-          <div style={{ position: "relative", zIndex: 2, display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px", background: "rgba(255,255,255,0.08)" }}>
-            {[
-              { val: "500+", label: "Students placed" },
-              { val: "8",    label: "Countries covered" },
-              { val: "100%", label: "NMC compliant" },
-              { val: "4",    label: "Doctor counselors" },
-            ].map((s) => (
-              <div key={s.label} style={{ background: "#003366", padding: "1.25rem 1.5rem" }}>
-                <p style={{ fontFamily: "var(--font-mono)", fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1, letterSpacing: "-0.02em", marginBottom: "0.35rem" }}>{s.val}</p>
-                <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", color: "rgba(255,255,255,0.35)", letterSpacing: "0.1em", textTransform: "uppercase" }}>{s.label}</p>
+                {/* Teal left hover bar */}
+                <div className="absolute left-0 top-0 bottom-0 w-0 group-hover:w-[3px] transition-all duration-300 bg-teal" style={{ background: "#00C5A3" }} />
+
+                <div style={{ display: "grid", gridTemplateColumns: "5rem 1fr", gap: 0 }} className="lg:grid-cols-[5rem_40%_1fr]">
+
+                  {/* Index number */}
+                  <div style={{ padding: "2.75rem 0", display: "flex", alignItems: "flex-start", justifyContent: "center", borderRight: "1px solid #EBEBEB" }}>
+                    <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.15em", color: "#00C5A3" }}>{f.num}</span>
+                  </div>
+
+                  {/* Title */}
+                  <div style={{ padding: "2.75rem 3rem 2.75rem 2.5rem", borderRight: "1px solid #EBEBEB", display: "flex", alignItems: "center" }} className="hidden lg:flex">
+                    <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.5rem, 2.5vw, 2.125rem)", lineHeight: 1.05, letterSpacing: "-0.025em", color: "#0A0A0A", transition: "color 0.2s" }} className="group-hover:text-[#003366]">
+                      {f.title}
+                    </h3>
+                  </div>
+
+                  {/* Body */}
+                  <div style={{ padding: "2.75rem 0 2.75rem 2.5rem", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                    {/* Title (mobile only) */}
+                    <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.375rem", lineHeight: 1.1, letterSpacing: "-0.02em", color: "#0A0A0A", marginBottom: "0.75rem" }} className="lg:hidden">
+                      {f.title}
+                    </h3>
+                    <p style={{ color: "#6B7280", fontSize: "0.9375rem", lineHeight: 1.8, maxWidth: "520px" }}>
+                      {f.body}
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
-        </div>
 
-        {/* RIGHT — 4 feature rows, numbered editorial style */}
-        <div style={{ background: "#FFFFFF" }}>
-          {features.map((f, idx) => (
-            <div key={f.num} className="group hover:bg-[#FAF8F4] transition-colors duration-200" style={{ display: "grid", gridTemplateColumns: "80px 1fr", borderBottom: idx < 3 ? "1px solid #E2E4E8" : "none" }}>
-
-              {/* Number column */}
-              <div style={{ borderRight: "1px solid #E2E4E8", display: "flex", alignItems: "flex-start", justifyContent: "center", padding: "2.5rem 0 2.5rem", paddingTop: "2.75rem" }}>
-                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.15em", color: "#00C5A3" }}>{f.num}</span>
-              </div>
-
-              {/* Content column */}
-              <div style={{ padding: "2.5rem 2.75rem" }}>
-                <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.375rem, 2vw, 1.875rem)", lineHeight: 1.05, letterSpacing: "-0.025em", color: "#0D0D0D", marginBottom: "0.75rem" }}>
-                  {f.title}
-                </h3>
-                <div style={{ width: "24px", height: "2px", background: "#00C5A3", marginBottom: "0.9rem", transition: "width 0.3s" }} className="group-hover:w-10" />
-                <p style={{ color: "#6B7280", fontSize: "0.9375rem", lineHeight: 1.75, maxWidth: "480px" }}>
-                  {f.body}
-                </p>
-              </div>
+          {/* Bottom strip — proof + CTA */}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1.5rem", padding: "2.25rem 0" }}>
+            <div style={{ display: "flex", gap: "2.5rem", flexWrap: "wrap" }}>
+              {[
+                { val: "500+", label: "Students placed" },
+                { val: "8",    label: "Countries" },
+                { val: "4",    label: "Doctor counselors" },
+                { val: "100%", label: "NMC compliant" },
+              ].map((s) => (
+                <div key={s.label}>
+                  <p style={{ fontFamily: "var(--font-mono)", fontSize: "1.25rem", fontWeight: 700, color: "#003366", lineHeight: 1, letterSpacing: "-0.02em" }}>{s.val}</p>
+                  <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", color: "#9CA3AF", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: "0.25rem" }}>{s.label}</p>
+                </div>
+              ))}
             </div>
-          ))}
-
-          {/* Bottom CTA strip */}
-          <div style={{ padding: "1.75rem 2.75rem", borderTop: "1px solid #E2E4E8", display: "flex", alignItems: "center", justifyContent: "space-between", background: "#FAF8F4" }}>
-            <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", color: "#6B7280", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-              Free · No obligation · Doctor-led
-            </p>
-            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn-teal" style={{ padding: "10px 20px", fontSize: "0.65rem" }}>
-              <Phone className="w-3 h-3" />
-              Start Free Counseling
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn-surgical">
+              <Phone className="w-3.5 h-3.5" />
+              Free Counseling
             </a>
           </div>
+
         </div>
       </section>
 
