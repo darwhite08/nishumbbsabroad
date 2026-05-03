@@ -631,71 +631,25 @@ export default function HomePage() {
                     className="object-cover transition-all duration-500 grayscale group-hover:grayscale-0 group-hover:scale-105"
                     style={{ objectPosition: "top center" }}
                   />
-                  <div
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      background:
-                        "linear-gradient(to bottom, rgba(26,26,26,0.05) 0%, rgba(26,26,26,0.75) 100%)",
-                    }}
-                  />
-                  <div
-                    style={{
-                      position: "absolute",
-                      bottom: "1.25rem",
-                      left: "1.25rem",
-                      right: "1.25rem",
-                    }}
-                  >
-                    <p
-                      style={{
-                        fontFamily: "var(--font-display)",
-                        fontSize: "1.375rem",
-                        color: "white",
-                        lineHeight: 1.1,
-                        letterSpacing: "-0.01em",
-                      }}
-                    >
+                  {/* Stronger gradient so name/role always readable */}
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.88) 100%)" }} />
+
+                  <div style={{ position: "absolute", bottom: "1.25rem", left: "1.5rem", right: "1.5rem" }}>
+                    <p style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", color: "#FFFFFF", lineHeight: 1.1, letterSpacing: "-0.01em", textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}>
                       {member.name}
                     </p>
-                    <p
-                      style={{
-                        fontFamily: "var(--font-mono)",
-                        fontSize: "0.58rem",
-                        color: "#00C5A3",
-                        letterSpacing: "0.12em",
-                        textTransform: "uppercase",
-                        marginTop: "4px",
-                      }}
-                    >
+                    <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", color: "#00C5A3", letterSpacing: "0.12em", textTransform: "uppercase", marginTop: "5px", fontWeight: 700 }}>
                       {member.role}
                     </p>
                   </div>
                 </div>
+
                 {/* Bio */}
-                <div style={{ padding: "1.25rem 1.5rem" }}>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-mono)",
-                      fontSize: "0.58rem",
-                      color: "rgba(255,255,255,0.3)",
-                      letterSpacing: "0.08em",
-                      marginBottom: "0.6rem",
-                    }}
-                  >
+                <div style={{ padding: "1.5rem" }}>
+                  <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", color: "rgba(255,255,255,0.7)", letterSpacing: "0.06em", marginBottom: "0.75rem", fontWeight: 600 }}>
                     {member.qualification} · {member.university}, {member.country}
                   </p>
-                  <p
-                    style={{
-                      color: "rgba(255,255,255,0.45)",
-                      fontSize: "0.8125rem",
-                      lineHeight: 1.65,
-                      display: "-webkit-box",
-                      WebkitLineClamp: 3,
-                      WebkitBoxOrient: "vertical",
-                      overflow: "hidden",
-                    }}
-                  >
+                  <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.875rem", lineHeight: 1.7, display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
                     {member.bio}
                   </p>
                 </div>
