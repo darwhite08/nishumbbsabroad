@@ -82,3 +82,26 @@
 .spin-ring    { animation: spin-ring    12s linear infinite; }
 .spin-ring-r  { animation: spin-ring-r  16s linear infinite; }
 .pulse-dot { animation: pulse-dot 3s ease-in-out infinite; }
+
+/* Wireframe cube */
+@keyframes rotate-cube  { from{transform:rotateX(20deg) rotateY(0deg)} to{transform:rotateX(20deg) rotateY(360deg)} }
+@keyframes rotate-cube2 { from{transform:rotateX(-15deg) rotateY(360deg) rotateZ(10deg)} to{transform:rotateX(-15deg) rotateY(0deg) rotateZ(10deg)} }
+.spin-cube  { animation: rotate-cube  14s linear infinite; transform-style: preserve-3d; }
+.spin-cube2 { animation: rotate-cube2 20s linear infinite; transform-style: preserve-3d; }
+.cube-face  { position:absolute; border:1px solid rgba(0,197,163,0.18); background:rgba(0,197,163,0.01); }
+
+/* Shimmer sweep */
+@keyframes shimmer-sweep { 0%{background-position:-200% center} 100%{background-position:200% center} }
+.shimmer-text {
+  background: linear-gradient(90deg, #003366 30%, #00C5A3 50%, #003366 70%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-sweep 4s linear infinite;
+}
+
+/* Orbiting ring */
+@keyframes orbit { from{transform:rotateZ(0deg) translateX(60px) rotateZ(0deg)} to{transform:rotateZ(360deg) translateX(60px) rotateZ(-360deg)} }
+.orbit-dot { animation: orbit 6s linear infinite; }
+.orbit-dot-r { animation: orbit 9s linear infinite reverse; }
