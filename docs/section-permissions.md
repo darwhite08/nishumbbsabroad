@@ -20,7 +20,7 @@ A general instruction like "redesign the site", "make it look better", "update t
 | Hero | `app/page.tsx` — Section 1 | **🔒 LOCKED** | 2026-05-04 | Two-line headline, full-bleed photo, floating stat card, stats bar. User-approved final state. |
 | Marquee Strip | `app/page.tsx` — Section 2 | **🔒 LOCKED** | 2026-05-04 | Animated CSS ticker, deep navy #003366, teal dot separators, Space Mono uppercase. User-approved final state. |
 | Why Worldwise | `app/page.tsx` — Section 3 | **🔒 LOCKED** | 2026-05-04 | White bg, teal gradient top accent, faded "01" ghost number, 2-col header (heading left / copy right), 4 feature rows (64px index col + 1fr content), proof stats strip + CTA. User-approved final state. |
-| Countries | `app/page.tsx` — Section 4 | ✅ OPEN | — | Photo cards grid |
+| Countries | `app/page.tsx` — Section 4 | **🔒 LOCKED** | 2026-05-04 | Filter bar (budget/duration/internship) + grid/list view toggle + 260px photo cards. CountriesFilter client component. User-approved final state. |
 | Split Feature | `app/page.tsx` — Section 5 | ✅ OPEN | — | Teal / white split |
 | Team | `app/page.tsx` — Section 6 | ✅ OPEN | — | Charcoal bg, grayscale photos |
 | Fee Comparison | `app/page.tsx` — Section 7 | ✅ OPEN | — | Cream, comparison card |
