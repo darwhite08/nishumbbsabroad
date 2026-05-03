@@ -3,6 +3,10 @@ export interface Country {
   name: string;
   flag: string;
   duration: string;
+  durationYears: number;        // numeric for filtering (use max if range)
+  budgetMin: number;            // total cost min in lakhs
+  budgetMax: number;            // total cost max in lakhs
+  internshipIncluded: boolean;  // clinical internship year within the degree
   feeRangePerYear: string;
   totalCost: string;
   language: string;
@@ -28,7 +32,7 @@ export interface Country {
 
 export const countries: Country[] = [
   {
-    slug: "russia",
+    slug: "russia", durationYears: 6, budgetMin: 25, budgetMax: 45, internshipIncluded: false,
     name: "Russia",
     flag: "🇷🇺",
     duration: "6 years",
@@ -85,7 +89,7 @@ export const countries: Country[] = [
     whatsappMessage: "Hi, I'm interested in MBBS in Russia. Please guide me.",
   },
   {
-    slug: "georgia",
+    slug: "georgia", durationYears: 6, budgetMin: 30, budgetMax: 50, internshipIncluded: false,
     name: "Georgia",
     flag: "🇬🇪",
     duration: "6 years",
@@ -142,7 +146,7 @@ export const countries: Country[] = [
     whatsappMessage: "Hi, I'm interested in MBBS in Georgia. Please guide me.",
   },
   {
-    slug: "kazakhstan",
+    slug: "kazakhstan", durationYears: 5, budgetMin: 20, budgetMax: 40, internshipIncluded: false,
     name: "Kazakhstan",
     flag: "🇰🇿",
     duration: "5 years",
@@ -198,7 +202,7 @@ export const countries: Country[] = [
     whatsappMessage: "Hi, I'm interested in MBBS in Kazakhstan. Please guide me.",
   },
   {
-    slug: "uzbekistan",
+    slug: "uzbekistan", durationYears: 6, budgetMin: 18, budgetMax: 35, internshipIncluded: false,
     name: "Uzbekistan",
     flag: "🇺🇿",
     duration: "5–6 years",
@@ -254,7 +258,7 @@ export const countries: Country[] = [
     whatsappMessage: "Hi, I'm interested in MBBS in Uzbekistan. Please guide me.",
   },
   {
-    slug: "kyrgyzstan",
+    slug: "kyrgyzstan", durationYears: 6, budgetMin: 15, budgetMax: 30, internshipIncluded: false,
     name: "Kyrgyzstan",
     flag: "🇰🇬",
     duration: "5–6 years",
@@ -310,7 +314,7 @@ export const countries: Country[] = [
     whatsappMessage: "Hi, I'm interested in MBBS in Kyrgyzstan. Please guide me.",
   },
   {
-    slug: "bangladesh",
+    slug: "bangladesh", durationYears: 5, budgetMin: 25, budgetMax: 40, internshipIncluded: true,
     name: "Bangladesh",
     flag: "🇧🇩",
     duration: "5 years",
@@ -366,7 +370,7 @@ export const countries: Country[] = [
     whatsappMessage: "Hi, I'm interested in MBBS in Bangladesh. Please guide me.",
   },
   {
-    slug: "nepal",
+    slug: "nepal", durationYears: 6, budgetMin: 30, budgetMax: 55, internshipIncluded: true,
     name: "Nepal",
     flag: "🇳🇵",
     duration: "5.5 years",
@@ -423,7 +427,7 @@ export const countries: Country[] = [
     whatsappMessage: "Hi, I'm interested in MBBS in Nepal. Please guide me.",
   },
   {
-    slug: "philippines",
+    slug: "philippines", durationYears: 6, budgetMin: 25, budgetMax: 45, internshipIncluded: true,
     name: "Philippines",
     flag: "🇵🇭",
     duration: "5.5–6 years",

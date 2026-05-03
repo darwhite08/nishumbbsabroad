@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Phone, Instagram, ArrowRight, CheckCircle, Star } from "lucide-react";
+import CountriesFilter from "@/components/sections/CountriesFilter";
 import { whatsappLink, instagramLink } from "@/lib/utils";
 import { countries } from "@/data/countries";
 import { team } from "@/data/team";
@@ -395,23 +396,17 @@ export default function HomePage() {
             </Link>
           </div>
 
-          {/* Country grid — full photo cards */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(1, 1fr)",
-              gap: "1px",
-              background: "#E8E8E8",
-            }}
-            className="sm:grid-cols-2 lg:grid-cols-4"
-          >
-            {countries.map((country) => (
-              <Link
-                key={country.slug}
-                href={`/countries/${country.slug}`}
-                style={{ textDecoration: "none", display: "block", position: "relative", overflow: "hidden", height: "260px", background: "#0D0D0D" }}
-                className="group"
-              >
+          {/* Country filter + grid/list — interactive client component */}
+          <CountriesFilter countries={countries} />
+
+          {/* DEAD CODE START — kept as reference, replaced by CountriesFilter */}
+          {false && countries.map((country) => (
+            <Link
+              key={country.slug}
+              href={`/countries/${country.slug}`}
+              style={{ textDecoration: "none", display: "block", position: "relative", overflow: "hidden", height: "260px", background: "#0D0D0D" }}
+              className="group"
+            >
                 {/* Full-bleed photo */}
                 <Image
                   src={
@@ -529,8 +524,7 @@ export default function HomePage() {
                   </div>
                 </div>
               </Link>
-            ))}
-          </div>
+          ))}
         </div>
       </section>
 
