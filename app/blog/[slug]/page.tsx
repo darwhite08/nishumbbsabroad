@@ -53,7 +53,7 @@ export default function BlogPostPage({ params }: Props) {
     },
     publisher: {
       "@type": "Organization",
-      name: "NishU MBBS Abroad",
+      name: "Worldwise Education",
       url: "https://nishumbbsabroad.com",
     },
     datePublished: post.publishedAt,

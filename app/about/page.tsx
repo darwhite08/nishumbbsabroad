@@ -8,7 +8,7 @@ import Breadcrumb from "@/components/ui/Breadcrumb";
 export const metadata: Metadata = {
   title: "About Us — Doctor-Led MBBS Abroad Consultancy",
   description:
-    "Meet the team of doctors behind NishU MBBS Abroad. Every counselor holds an MBBS degree from a foreign university — because real guidance comes from real experience.",
+    "Meet the team of doctors behind Worldwise Education. Every counselor holds an MBBS degree from a foreign university — because real guidance comes from real experience.",
   alternates: { canonical: "/about" },
 };
 
@@ -42,7 +42,7 @@ export default function AboutPage() {
       <section className="bg-primary pt-28 pb-16">
         <div className="container-custom">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "About Us" }]} />
-          <h1 className="text-white mb-4">About NishU MBBS Abroad</h1>
+          <h1 className="text-white mb-4">About Worldwise Education</h1>
           <p className="text-white/80 text-xl max-w-2xl">
             We are doctors who studied MBBS abroad. We came back, cleared FMGE, and built
             careers — and now we help the next generation do the same.
@@ -77,7 +77,7 @@ export default function AboutPage() {
               <p>
                 He reached out to three other doctors — Dr. Priya Nair (Georgia), Dr. Rahul Verma
                 (Kazakhstan), and Dr. Sunita Gupta (Philippines) — who had similar stories. Together,
-                they founded NishU MBBS Abroad with a single premise:{" "}
+                they founded Worldwise Education with a single premise:{" "}
                 <strong className="text-text-main">
                   the only people qualified to guide students through MBBS abroad are doctors who
                   have done it themselves.

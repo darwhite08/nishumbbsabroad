@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Phone, Instagram, MapPin, Clock } from "lucide-react";
+import { Phone, Instagram, MapPin, Clock, ArrowUpRight } from "lucide-react";
 import { whatsappLink, instagramLink } from "@/lib/utils";
 import { countries } from "@/data/countries";
 
@@ -9,63 +9,80 @@ export default function Footer() {
   const igHandle = process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE ?? "nishumbbsabroad";
 
   return (
-    <footer className="bg-text-main text-white">
-      <div className="container-custom py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Col 1: Brand */}
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+    <footer style={{ background: "#060D1F" }}>
+      {/* Main footer */}
+      <div className="container-custom pt-20 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
+
+          {/* Brand — spans 4 cols */}
+          <div className="lg:col-span-4">
+            <div className="flex items-center gap-2.5 mb-5">
+              <div className="w-9 h-9 rounded-xl flex items-center justify-center"
+                style={{ background: "linear-gradient(135deg, #1B4F8A 0%, #2E6DB4 100%)" }}>
                 <span className="text-white font-bold text-sm">N</span>
               </div>
-              <span className="font-bold text-lg">NishU MBBS Abroad</span>
+              <div>
+                <p className="text-white font-bold text-[15px] leading-tight">Worldwise Education</p>
+                <p className="text-white/30 text-[10px] tracking-widest uppercase">MBBS Abroad Consultancy</p>
+              </div>
             </div>
-            <p className="text-white/70 text-sm leading-relaxed mb-4">
-              India&apos;s only doctor-led MBBS abroad consultancy. Our counselors hold
-              MBBS degrees from the same universities they recommend — because
-              we&apos;ve been where you are.
+
+            <p className="text-white/40 text-sm leading-relaxed mb-6 max-w-xs">
+              India&apos;s only MBBS abroad consultancy where every counselor holds an MBBS degree from
+              a foreign university. For the doctors, by the doctors.
             </p>
-            <p className="text-white/50 text-xs italic">
-              &quot;Future Doctors, Guided by Doctors.&quot;
-            </p>
+
+            <div className="flex gap-3">
+              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-white/[0.06] hover:bg-success/20 border border-white/[0.08] hover:border-success/30 text-white/60 hover:text-success text-xs px-4 py-2.5 rounded-xl transition-all duration-200 font-medium">
+                <Phone className="w-3.5 h-3.5" />
+                WhatsApp
+              </a>
+              <a href={instagramLink()} target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-white/[0.06] hover:bg-pink-500/20 border border-white/[0.08] hover:border-pink-500/30 text-white/60 hover:text-pink-400 text-xs px-4 py-2.5 rounded-xl transition-all duration-200 font-medium">
+                <Instagram className="w-3.5 h-3.5" />
+                Instagram
+              </a>
+            </div>
           </div>
 
-          {/* Col 2: Countries */}
-          <div>
-            <h3 className="font-semibold text-white mb-4 text-base">Countries</h3>
-            <ul className="space-y-2">
+          {/* Countries — 3 cols */}
+          <div className="lg:col-span-3">
+            <p className="text-white/30 text-[10px] tracking-widest uppercase font-bold mb-5">
+              Destinations
+            </p>
+            <ul className="space-y-2.5">
               {countries.map((c) => (
                 <li key={c.slug}>
-                  <Link
-                    href={`/countries/${c.slug}`}
-                    className="text-white/70 hover:text-white text-sm transition-colors flex items-center gap-1.5"
-                  >
-                    <span>{c.flag}</span>
+                  <Link href={`/countries/${c.slug}`}
+                    className="group flex items-center gap-2 text-white/50 hover:text-white text-sm transition-colors duration-200">
+                    <span className="text-base">{c.flag}</span>
                     <span>{c.name}</span>
+                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity ml-auto" />
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Col 3: Quick Links */}
-          <div>
-            <h3 className="font-semibold text-white mb-4 text-base">Quick Links</h3>
-            <ul className="space-y-2">
+          {/* Quick Links — 2 cols */}
+          <div className="lg:col-span-2">
+            <p className="text-white/30 text-[10px] tracking-widest uppercase font-bold mb-5">
+              Company
+            </p>
+            <ul className="space-y-2.5">
               {[
+                { href: "/about", label: "About Us" },
                 { href: "/process", label: "Admission Process" },
                 { href: "/eligibility", label: "Eligibility" },
                 { href: "/universities", label: "Universities" },
                 { href: "/blog", label: "Blog" },
                 { href: "/faq", label: "FAQ" },
-                { href: "/about", label: "About Us" },
                 { href: "/contact", label: "Contact" },
               ].map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-white/70 hover:text-white text-sm transition-colors"
-                  >
+                  <Link href={link.href}
+                    className="text-white/50 hover:text-white text-sm transition-colors duration-200">
                     {link.label}
                   </Link>
                 </li>
@@ -73,67 +90,79 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 4: Contact */}
-          <div>
-            <h3 className="font-semibold text-white mb-4 text-base">Contact</h3>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href={whatsappLink()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-2.5 text-white/70 hover:text-white text-sm transition-colors"
-                >
-                  <Phone className="w-4 h-4 mt-0.5 shrink-0 text-success" />
-                  <span>+{waNumber.replace(/^91/, "+91 ")}</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href={instagramLink()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-2.5 text-white/70 hover:text-white text-sm transition-colors"
-                >
-                  <Instagram className="w-4 h-4 mt-0.5 shrink-0" />
-                  <span>@{igHandle}</span>
-                </a>
-              </li>
-              <li className="flex items-start gap-2.5 text-white/70 text-sm">
-                <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-                <span>New Delhi, India</span>
-              </li>
-              <li className="flex items-start gap-2.5 text-white/70 text-sm">
-                <Clock className="w-4 h-4 mt-0.5 shrink-0" />
-                <span>Mon–Sat, 9 AM – 8 PM IST</span>
-              </li>
-            </ul>
+          {/* Contact — 3 cols */}
+          <div className="lg:col-span-3">
+            <p className="text-white/30 text-[10px] tracking-widest uppercase font-bold mb-5">
+              Contact
+            </p>
+            <div className="space-y-4">
+              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer"
+                className="flex items-start gap-3 group">
+                <div className="w-7 h-7 rounded-lg bg-success/10 flex items-center justify-center mt-0.5 shrink-0">
+                  <Phone className="w-3.5 h-3.5 text-success" />
+                </div>
+                <div>
+                  <p className="text-white/60 text-xs mb-0.5">WhatsApp</p>
+                  <p className="text-white/90 text-sm font-medium group-hover:text-success transition-colors">
+                    +{waNumber.replace(/^91/, "91 ")}
+                  </p>
+                </div>
+              </a>
+
+              <a href={instagramLink()} target="_blank" rel="noopener noreferrer"
+                className="flex items-start gap-3 group">
+                <div className="w-7 h-7 rounded-lg bg-pink-500/10 flex items-center justify-center mt-0.5 shrink-0">
+                  <Instagram className="w-3.5 h-3.5 text-pink-400" />
+                </div>
+                <div>
+                  <p className="text-white/60 text-xs mb-0.5">Instagram</p>
+                  <p className="text-white/90 text-sm font-medium group-hover:text-pink-400 transition-colors">
+                    @{igHandle}
+                  </p>
+                </div>
+              </a>
+
+              <div className="flex items-start gap-3">
+                <div className="w-7 h-7 rounded-lg bg-white/[0.06] flex items-center justify-center mt-0.5 shrink-0">
+                  <MapPin className="w-3.5 h-3.5 text-white/40" />
+                </div>
+                <div>
+                  <p className="text-white/60 text-xs mb-0.5">Office</p>
+                  <p className="text-white/70 text-sm">New Delhi, India</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="w-7 h-7 rounded-lg bg-white/[0.06] flex items-center justify-center mt-0.5 shrink-0">
+                  <Clock className="w-3.5 h-3.5 text-white/40" />
+                </div>
+                <div>
+                  <p className="text-white/60 text-xs mb-0.5">Hours</p>
+                  <p className="text-white/70 text-sm">Mon–Sat, 9AM–8PM IST</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10">
-        <div className="container-custom py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-white/50 text-xs">
-          <p>© {year} NishU MBBS Abroad. All rights reserved.</p>
-          <div className="flex gap-4">
-            <Link href="/privacy" className="hover:text-white transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/disclaimer" className="hover:text-white transition-colors">
-              Disclaimer
-            </Link>
+      <div className="border-t" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+        <div className="container-custom py-5 flex flex-col md:flex-row items-center justify-between gap-3">
+          <p className="text-white/25 text-xs">© {year} Worldwise Education. All rights reserved.</p>
+          <div className="flex items-center gap-6">
+            <Link href="/privacy" className="text-white/25 hover:text-white/50 text-xs transition-colors">Privacy Policy</Link>
+            <Link href="/disclaimer" className="text-white/25 hover:text-white/50 text-xs transition-colors">Disclaimer</Link>
           </div>
         </div>
       </div>
 
-      {/* Legal disclaimer */}
-      <div className="bg-black/20">
+      {/* Disclaimer */}
+      <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}>
         <div className="container-custom py-3">
-          <p className="text-white/40 text-xs text-center leading-relaxed">
-            All university information is provided for guidance only. Students are advised to
-            verify NMC/WDOMS listings independently before making any payments. We do not share
-            your information with any third parties.
+          <p className="text-white/20 text-[11px] text-center leading-relaxed">
+            All university information is for guidance only. Verify NMC/WDOMS listings independently before making any payments.
+            We do not share your information with third parties.
           </p>
         </div>
       </div>

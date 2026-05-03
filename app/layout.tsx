@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, DM_Serif_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -11,10 +11,18 @@ const inter = Inter({
   display: "swap",
 });
 
+const dmSerif = DM_Serif_Display({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-display",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
-    default: "NishU MBBS Abroad — Doctor-Led MBBS Abroad Consultancy",
-    template: "%s | NishU MBBS Abroad",
+    default: "Worldwise Education — Worldwide Education, Doctor-Led",
+    template: "%s | Worldwise Education",
   },
   description:
     "India's only doctor-led MBBS abroad consultancy. Our counselors hold MBBS degrees from the same universities. Get honest, expert guidance for MBBS in Russia, Georgia, Kazakhstan, and 5 more countries.",
@@ -27,18 +35,18 @@ export const metadata: Metadata = {
     "mbbs abroad for indian students",
     "doctor led mbbs counseling",
   ],
-  authors: [{ name: "NishU MBBS Abroad" }],
+  authors: [{ name: "Worldwise Education" }],
   openGraph: {
     type: "website",
     locale: "en_IN",
-    siteName: "NishU MBBS Abroad",
-    title: "NishU MBBS Abroad — Doctor-Led MBBS Consultancy",
+    siteName: "Worldwise Education",
+    title: "Worldwise Education — Doctor-Led MBBS Consultancy",
     description:
       "Guided by doctors who've been there. Get honest MBBS abroad counseling from a team with MBBS degrees from Russia, Georgia, Kazakhstan, and Philippines.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "NishU MBBS Abroad",
+    title: "Worldwise Education",
     description:
       "Doctor-led MBBS abroad consultancy. Honest guidance from doctors who studied abroad.",
   },
@@ -55,7 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${dmSerif.variable}`}>
       <body>
         <a
           href="#main-content"

@@ -4,9 +4,9 @@ import { whatsappLink, instagramLink } from "@/lib/utils";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Contact NishU MBBS Abroad — WhatsApp & Instagram",
+  title: "Contact Worldwise Education — WhatsApp & Instagram",
   description:
-    "Contact NishU MBBS Abroad for free MBBS counseling. WhatsApp or Instagram for a response within hours. Doctor-led guidance, no obligation.",
+    "Contact Worldwise Education for free MBBS counseling. WhatsApp or Instagram for a response within hours. Doctor-led guidance, no obligation.",
   alternates: { canonical: "/contact" },
 };
 
@@ -16,7 +16,7 @@ export default function ContactPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "NishU MBBS Abroad",
+    name: "Worldwise Education",
     description: "Doctor-led MBBS abroad consultancy for Indian students",
     telephone: `+${waNumber}`,
     address: {
