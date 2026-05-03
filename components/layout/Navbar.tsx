@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { whatsappLink } from "@/lib/utils";
 
 const navLinks = [
@@ -13,7 +13,6 @@ const navLinks = [
   { href: "/blog", label: "Blog" },
   { href: "/faq", label: "FAQ" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -21,102 +20,78 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const bc = scrolled ? "#E2E4E8" : "rgba(255,255,255,0.12)";
+
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-xl shadow-[0_1px_0_rgba(0,0,0,0.06)] border-b border-black/[0.04]"
-          : "bg-transparent"
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      style={{ background: scrolled ? "#fff" : "transparent", borderBottom: `1px solid ${bc}` }}>
       <div className="container-custom">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-stretch h-16 md:h-[68px]">
+
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl flex items-center justify-center overflow-hidden"
-              style={{ background: "linear-gradient(135deg, #1B4F8A 0%, #2E6DB4 100%)" }}>
-              <span className="text-white font-bold text-sm font-display">N</span>
+          <Link href="/" className="flex items-center gap-3 mr-auto pr-6" style={{ borderRight: `1px solid ${bc}` }}>
+            <div className="w-7 h-7 flex items-center justify-center text-white bg-surgical flex-shrink-0"
+              style={{ fontFamily: "var(--font-mono)", fontSize: "0.5rem", fontWeight: 700, letterSpacing: "0.05em", border: "1px solid #003366" }}>
+              WE
             </div>
-            <div className="flex flex-col leading-none">
-              <span className={`font-bold text-[15px] tracking-tight transition-colors ${scrolled ? "text-text-main" : "text-white"}`}>
+            <div>
+              <p style={{ fontFamily: "var(--font-display)", fontSize: "13px", color: scrolled ? "#003366" : "white", lineHeight: 1.1, transition: "color 0.3s", whiteSpace: "nowrap" }}>
                 Worldwise Education
-              </span>
-              <span className={`text-[10px] tracking-widest uppercase transition-colors ${scrolled ? "text-text-muted" : "text-white/50"}`}>
-                MBBS Abroad Consultancy
-              </span>
+              </p>
+              <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.52rem", letterSpacing: "0.14em", textTransform: "uppercase", color: scrolled ? "#9CA3AF" : "rgba(255,255,255,0.4)", marginTop: 2 }}>
+                MBBS ABROAD
+              </p>
             </div>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          {/* Desktop nav */}
+          <nav className="hidden lg:flex items-stretch">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-[13px] font-medium px-3.5 py-2 rounded-lg transition-all duration-200 ${
-                  scrolled
-                    ? "text-text-muted hover:text-text-main hover:bg-bg-light"
-                    : "text-white/75 hover:text-white hover:bg-white/10"
-                }`}
-              >
+              <Link key={link.href} href={link.href}
+                className="flex items-center px-4 transition-all duration-150"
+                style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: scrolled ? "#6B7280" : "rgba(255,255,255,0.6)", borderRight: `1px solid ${bc}`, textDecoration: "none" }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = scrolled ? "#003366" : "white"; (e.currentTarget as HTMLAnchorElement).style.background = scrolled ? "#F8F9FA" : "rgba(255,255,255,0.07)"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = scrolled ? "#6B7280" : "rgba(255,255,255,0.6)"; (e.currentTarget as HTMLAnchorElement).style.background = "transparent"; }}>
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          {/* CTA */}
-          <div className="hidden lg:flex items-center">
-            <a
-              href={whatsappLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-whatsapp text-sm px-5 py-2.5"
-            >
-              <Phone className="w-3.5 h-3.5" />
+          <div className="hidden lg:flex items-stretch">
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn-teal flex items-center"
+              style={{ fontSize: "0.6rem", padding: "0 24px", letterSpacing: "0.1em", borderRadius: 0, border: "none", borderLeft: `1px solid ${bc}` }}>
               Free Counseling
             </a>
           </div>
 
-          {/* Mobile hamburger */}
-          <button
-            className={`lg:hidden p-2 rounded-lg transition-colors ${
-              scrolled ? "text-text-main hover:bg-bg-light" : "text-white hover:bg-white/10"
-            }`}
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          {/* Mobile */}
+          <button className="lg:hidden flex items-center justify-center w-12 ml-auto"
+            style={{ color: scrolled ? "#003366" : "white", background: "transparent", borderTop: "none", borderRight: "none", borderBottom: "none", borderLeft: `1px solid ${bc}` }}
+            onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
+            {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile drawer */}
-      <div className={`lg:hidden transition-all duration-300 overflow-hidden ${isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"}`}>
-        <div className="bg-white border-t border-border">
-          <div className="container-custom py-4 flex flex-col">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-text-main hover:text-primary font-medium py-3 px-2 border-b border-border/50 last:border-0 transition-colors text-sm"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <a
-              href={whatsappLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-whatsapp mt-4 text-sm"
-            >
-              <Phone className="w-4 h-4" />
-              Free Counseling on WhatsApp
+      <div className={`lg:hidden overflow-hidden transition-all duration-200 ${isOpen ? "max-h-screen" : "max-h-0"}`}
+        style={{ background: "#fff", borderTop: "1px solid #E2E4E8" }}>
+        <div className="container-custom">
+          {navLinks.map((link) => (
+            <Link key={link.href} href={link.href} onClick={() => setIsOpen(false)}
+              className="block py-4 hover:text-teal transition-colors"
+              style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#003366", borderBottom: "1px solid #E2E4E8", textDecoration: "none" }}>
+              {link.label}
+            </Link>
+          ))}
+          <div className="py-4">
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn-teal"
+              style={{ display: "flex", width: "100%", justifyContent: "center" }}>
+              Free Counseling
             </a>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Phone, Instagram, MapPin, Clock, ArrowUpRight } from "lucide-react";
+import { Phone, Instagram, MapPin, Clock } from "lucide-react";
 import { whatsappLink, instagramLink } from "@/lib/utils";
 import { countries } from "@/data/countries";
 
@@ -9,160 +9,116 @@ export default function Footer() {
   const igHandle = process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE ?? "nishumbbsabroad";
 
   return (
-    <footer style={{ background: "#060D1F" }}>
-      {/* Main footer */}
-      <div className="container-custom pt-20 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
+    <footer style={{ background: "#0A0A0A", borderTop: "4px solid #00C5A3" }}>
+      <div className="container-custom pt-16 pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
 
-          {/* Brand — spans 4 cols */}
-          <div className="lg:col-span-4">
-            <div className="flex items-center gap-2.5 mb-5">
-              <div className="w-9 h-9 rounded-xl flex items-center justify-center"
-                style={{ background: "linear-gradient(135deg, #1B4F8A 0%, #2E6DB4 100%)" }}>
-                <span className="text-white font-bold text-sm">N</span>
+          {/* Brand */}
+          <div className="lg:col-span-4" style={{ borderRight: "1px solid rgba(255,255,255,0.06)", paddingRight: "2.5rem" }}>
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-8 h-8 bg-surgical flex items-center justify-center"
+                style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", fontWeight: 700, color: "white", letterSpacing: "0.05em", border: "1px solid #004488" }}>
+                WE
               </div>
               <div>
-                <p className="text-white font-bold text-[15px] leading-tight">Worldwise Education</p>
-                <p className="text-white/30 text-[10px] tracking-widest uppercase">MBBS Abroad Consultancy</p>
+                <p style={{ fontFamily: "var(--font-display)", fontSize: "14px", color: "white", lineHeight: 1.1 }}>Worldwise Education</p>
+                <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.52rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", marginTop: 2 }}>MBBS Abroad Consultancy</p>
               </div>
             </div>
-
-            <p className="text-white/40 text-sm leading-relaxed mb-6 max-w-xs">
-              India&apos;s only MBBS abroad consultancy where every counselor holds an MBBS degree from
-              a foreign university. For the doctors, by the doctors.
+            <p style={{ color: "rgba(255,255,255,0.35)", fontSize: "0.8125rem", lineHeight: 1.75, marginBottom: "1.5rem", maxWidth: "280px" }}>
+              India&apos;s only MBBS abroad consultancy where every counselor holds an MBBS degree from a foreign university.
             </p>
-
-            <div className="flex gap-3">
-              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-white/[0.06] hover:bg-success/20 border border-white/[0.08] hover:border-success/30 text-white/60 hover:text-success text-xs px-4 py-2.5 rounded-xl transition-all duration-200 font-medium">
-                <Phone className="w-3.5 h-3.5" />
-                WhatsApp
-              </a>
-              <a href={instagramLink()} target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-white/[0.06] hover:bg-pink-500/20 border border-white/[0.08] hover:border-pink-500/30 text-white/60 hover:text-pink-400 text-xs px-4 py-2.5 rounded-xl transition-all duration-200 font-medium">
-                <Instagram className="w-3.5 h-3.5" />
-                Instagram
-              </a>
-            </div>
+            <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.1em", color: "#00C5A3", textTransform: "uppercase" }}>
+              For the Doctors. By the Doctors.
+            </p>
           </div>
 
-          {/* Countries — 3 cols */}
+          {/* Countries */}
           <div className="lg:col-span-3">
-            <p className="text-white/30 text-[10px] tracking-widest uppercase font-bold mb-5">
-              Destinations
-            </p>
-            <ul className="space-y-2.5">
-              {countries.map((c) => (
+            <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.575rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.25)", marginBottom: "1rem" }}>Destinations</p>
+            <ul className="space-y-2">
+              {countries.map(c => (
                 <li key={c.slug}>
                   <Link href={`/countries/${c.slug}`}
-                    className="group flex items-center gap-2 text-white/50 hover:text-white text-sm transition-colors duration-200">
-                    <span className="text-base">{c.flag}</span>
-                    <span>{c.name}</span>
-                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity ml-auto" />
+                    style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", color: "rgba(255,255,255,0.45)", textDecoration: "none", letterSpacing: "0.05em", display: "flex", alignItems: "center", gap: "8px", transition: "color 0.15s" }}
+                    onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.color = "white"}
+                    onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.45)"}>
+                    {c.flag} {c.name}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Quick Links — 2 cols */}
+          {/* Links */}
           <div className="lg:col-span-2">
-            <p className="text-white/30 text-[10px] tracking-widest uppercase font-bold mb-5">
-              Company
-            </p>
+            <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.575rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.25)", marginBottom: "1rem" }}>Company</p>
             <ul className="space-y-2.5">
-              {[
-                { href: "/about", label: "About Us" },
-                { href: "/process", label: "Admission Process" },
-                { href: "/eligibility", label: "Eligibility" },
-                { href: "/universities", label: "Universities" },
-                { href: "/blog", label: "Blog" },
-                { href: "/faq", label: "FAQ" },
-                { href: "/contact", label: "Contact" },
-              ].map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href}
-                    className="text-white/50 hover:text-white text-sm transition-colors duration-200">
-                    {link.label}
+              {["/about","/process","/eligibility","/universities","/blog","/faq","/contact"].map(href => (
+                <li key={href}>
+                  <Link href={href}
+                    style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", color: "rgba(255,255,255,0.45)", textDecoration: "none", letterSpacing: "0.03em", transition: "color 0.15s", textTransform: "capitalize" }}
+                    onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.color = "white"}
+                    onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.45)"}>
+                    {href.replace("/", "")}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact — 3 cols */}
-          <div className="lg:col-span-3">
-            <p className="text-white/30 text-[10px] tracking-widest uppercase font-bold mb-5">
-              Contact
-            </p>
+          {/* Contact */}
+          <div className="lg:col-span-3" style={{ borderLeft: "1px solid rgba(255,255,255,0.06)", paddingLeft: "2rem" }}>
+            <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.575rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.25)", marginBottom: "1rem" }}>Contact</p>
             <div className="space-y-4">
-              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer"
-                className="flex items-start gap-3 group">
-                <div className="w-7 h-7 rounded-lg bg-success/10 flex items-center justify-center mt-0.5 shrink-0">
-                  <Phone className="w-3.5 h-3.5 text-success" />
+              {[
+                { icon: Phone, label: "WhatsApp", val: `+${waNumber.replace(/^91/, "91 ")}`, href: whatsappLink(), col: "#00C5A3" },
+                { icon: Instagram, label: "Instagram", val: `@${igHandle}`, href: instagramLink(), col: "#E1306C" },
+                { icon: MapPin, label: "Office", val: "New Delhi, India", href: null, col: "rgba(255,255,255,0.4)" },
+                { icon: Clock, label: "Hours", val: "Mon–Sat, 9AM–8PM IST", href: null, col: "rgba(255,255,255,0.4)" },
+              ].map(item => (
+                <div key={item.label} className="flex items-start gap-3">
+                  <item.icon className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: item.col }} />
+                  <div>
+                    <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.575rem", color: "rgba(255,255,255,0.25)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 2 }}>{item.label}</p>
+                    {item.href ? (
+                      <a href={item.href} target="_blank" rel="noopener noreferrer"
+                        style={{ fontFamily: "var(--font-mono)", fontSize: "0.7125rem", color: "rgba(255,255,255,0.65)", textDecoration: "none", transition: "color 0.15s" }}
+                        onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.color = "white"}
+                        onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.65)"}>
+                        {item.val}
+                      </a>
+                    ) : (
+                      <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.7125rem", color: "rgba(255,255,255,0.55)" }}>{item.val}</p>
+                    )}
+                  </div>
                 </div>
-                <div>
-                  <p className="text-white/60 text-xs mb-0.5">WhatsApp</p>
-                  <p className="text-white/90 text-sm font-medium group-hover:text-success transition-colors">
-                    +{waNumber.replace(/^91/, "91 ")}
-                  </p>
-                </div>
-              </a>
-
-              <a href={instagramLink()} target="_blank" rel="noopener noreferrer"
-                className="flex items-start gap-3 group">
-                <div className="w-7 h-7 rounded-lg bg-pink-500/10 flex items-center justify-center mt-0.5 shrink-0">
-                  <Instagram className="w-3.5 h-3.5 text-pink-400" />
-                </div>
-                <div>
-                  <p className="text-white/60 text-xs mb-0.5">Instagram</p>
-                  <p className="text-white/90 text-sm font-medium group-hover:text-pink-400 transition-colors">
-                    @{igHandle}
-                  </p>
-                </div>
-              </a>
-
-              <div className="flex items-start gap-3">
-                <div className="w-7 h-7 rounded-lg bg-white/[0.06] flex items-center justify-center mt-0.5 shrink-0">
-                  <MapPin className="w-3.5 h-3.5 text-white/40" />
-                </div>
-                <div>
-                  <p className="text-white/60 text-xs mb-0.5">Office</p>
-                  <p className="text-white/70 text-sm">New Delhi, India</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-7 h-7 rounded-lg bg-white/[0.06] flex items-center justify-center mt-0.5 shrink-0">
-                  <Clock className="w-3.5 h-3.5 text-white/40" />
-                </div>
-                <div>
-                  <p className="text-white/60 text-xs mb-0.5">Hours</p>
-                  <p className="text-white/70 text-sm">Mon–Sat, 9AM–8PM IST</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
-        <div className="container-custom py-5 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-white/25 text-xs">© {year} Worldwise Education. All rights reserved.</p>
-          <div className="flex items-center gap-6">
-            <Link href="/privacy" className="text-white/25 hover:text-white/50 text-xs transition-colors">Privacy Policy</Link>
-            <Link href="/disclaimer" className="text-white/25 hover:text-white/50 text-xs transition-colors">Disclaimer</Link>
+      <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="container-custom py-4 flex flex-col md:flex-row items-center justify-between gap-3">
+          <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", color: "rgba(255,255,255,0.2)", letterSpacing: "0.06em" }}>© {year} Worldwise Education. All rights reserved.</p>
+          <div className="flex gap-6">
+            {["/privacy", "/disclaimer"].map(href => (
+              <Link key={href} href={href}
+                style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", color: "rgba(255,255,255,0.2)", textDecoration: "none", letterSpacing: "0.06em", textTransform: "capitalize", transition: "color 0.15s" }}
+                onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.6)"}
+                onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.2)"}>
+                {href.replace("/", "")}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
-
-      {/* Disclaimer */}
       <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-        <div className="container-custom py-3">
-          <p className="text-white/20 text-[11px] text-center leading-relaxed">
-            All university information is for guidance only. Verify NMC/WDOMS listings independently before making any payments.
-            We do not share your information with third parties.
+        <div className="container-custom py-2.5">
+          <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", color: "rgba(255,255,255,0.15)", textAlign: "center", letterSpacing: "0.04em", lineHeight: 1.7 }}>
+            All university information is for guidance only. Verify NMC/WDOMS listings independently before payment. We do not share information with third parties.
           </p>
         </div>
       </div>

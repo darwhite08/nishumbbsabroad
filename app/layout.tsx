@@ -1,74 +1,39 @@
 import type { Metadata } from "next";
-import { Inter, DM_Serif_Display } from "next/font/google";
+import { Inter, DM_Serif_Display, Space_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const dmSerif = DM_Serif_Display({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-display",
-  display: "swap",
+  subsets: ["latin"], weight: "400", style: ["normal", "italic"],
+  variable: "--font-display", display: "swap",
+});
+const spaceMono = Space_Mono({
+  subsets: ["latin"], weight: ["400", "700"],
+  variable: "--font-mono", display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "Worldwise Education — Worldwide Education, Doctor-Led",
-    template: "%s | Worldwise Education",
-  },
-  description:
-    "India's only doctor-led MBBS abroad consultancy. Our counselors hold MBBS degrees from the same universities. Get honest, expert guidance for MBBS in Russia, Georgia, Kazakhstan, and 5 more countries.",
-  keywords: [
-    "mbbs abroad",
-    "mbbs abroad consultancy",
-    "mbbs in russia",
-    "mbbs in georgia",
-    "nmc approved universities",
-    "mbbs abroad for indian students",
-    "doctor led mbbs counseling",
-  ],
+  title: { default: "Worldwise Education — MBBS Abroad Consultancy", template: "%s | Worldwise Education" },
+  description: "Premium MBBS abroad consultancy. Doctor-led guidance for NMC-approved universities in Russia, Georgia, Kazakhstan and 5 more countries.",
+  keywords: ["mbbs abroad", "mbbs consultancy", "nmc approved universities", "mbbs russia", "mbbs georgia"],
   authors: [{ name: "Worldwise Education" }],
   openGraph: {
-    type: "website",
-    locale: "en_IN",
-    siteName: "Worldwise Education",
-    title: "Worldwise Education — Doctor-Led MBBS Consultancy",
-    description:
-      "Guided by doctors who've been there. Get honest MBBS abroad counseling from a team with MBBS degrees from Russia, Georgia, Kazakhstan, and Philippines.",
+    type: "website", locale: "en_IN", siteName: "Worldwise Education",
+    title: "Worldwise Education — For the Doctors, By the Doctors",
+    description: "Doctor-led MBBS abroad consultancy. Free counseling from doctors who studied at the same universities they recommend.",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Worldwise Education",
-    description:
-      "Doctor-led MBBS abroad consultancy. Honest guidance from doctors who studied abroad.",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true },
-  },
+  twitter: { card: "summary_large_image", title: "Worldwise Education", description: "Doctor-led MBBS abroad consultancy." },
+  robots: { index: true, follow: true },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${dmSerif.variable}`}>
-      <body>
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-white px-4 py-2 rounded-lg z-50"
-        >
+    <html lang="en" className={`${inter.variable} ${dmSerif.variable} ${spaceMono.variable}`}>
+      <body className="bg-white text-ink antialiased">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 bg-surgical text-white px-4 py-2 z-50">
           Skip to main content
         </a>
         <Navbar />
