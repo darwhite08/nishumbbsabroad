@@ -68,3 +68,17 @@
 /* Marquee strip */
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .marquee-track { animation: marquee 20s linear infinite; display: flex; width: max-content; }
+
+/* 3D floating objects — Our Difference section */
+@keyframes float-slow   { 0%,100%{transform:translateY(0) rotateZ(0deg)} 50%{transform:translateY(-18px) rotateZ(180deg)} }
+@keyframes float-medium { 0%,100%{transform:translateY(0) rotateZ(0deg)} 50%{transform:translateY(-12px) rotateZ(-120deg)} }
+@keyframes float-fast   { 0%,100%{transform:translateY(0) rotateZ(0deg)} 50%{transform:translateY(-24px) rotateZ(90deg)} }
+@keyframes spin-ring    { from{transform:rotateX(70deg) rotateZ(0deg)} to{transform:rotateX(70deg) rotateZ(360deg)} }
+@keyframes spin-ring-r  { from{transform:rotateX(50deg) rotateZ(360deg)} to{transform:rotateX(50deg) rotateZ(0deg)} }
+@keyframes pulse-dot    { 0%,100%{opacity:0.15;transform:scale(1)} 50%{opacity:0.35;transform:scale(1.3)} }
+.float-slow   { animation: float-slow   9s ease-in-out infinite; }
+.float-medium { animation: float-medium 7s ease-in-out 1.5s infinite; }
+.float-fast   { animation: float-fast   11s ease-in-out 3s infinite; }
+.spin-ring    { animation: spin-ring    12s linear infinite; }
+.spin-ring-r  { animation: spin-ring-r  16s linear infinite; }
+.pulse-dot { animation: pulse-dot 3s ease-in-out infinite; }
