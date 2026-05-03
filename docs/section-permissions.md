@@ -22,7 +22,7 @@ A general instruction like "redesign the site", "make it look better", "update t
 | Why Worldwise | `app/page.tsx` — Section 3 | **🔒 LOCKED** | 2026-05-04 | White bg, teal gradient top accent, faded "01" ghost number, 2-col header (heading left / copy right), 4 feature rows (64px index col + 1fr content), proof stats strip + CTA. User-approved final state. |
 | Countries | `app/page.tsx` — Section 4 | **🔒 LOCKED** | 2026-05-04 | Filter bar (budget/duration/internship) + grid/list view toggle + 260px photo cards. CountriesFilter client component. User-approved final state. |
 | Split Feature | `app/page.tsx` — Section 5 | **🔒 LOCKED** | 2026-05-04 | White bg, 3D wireframe cubes, mouse parallax, cursor glow, Framer Motion scroll+tilt animations, comparison strip. OurDifference.tsx client component. User-approved final state. |
-| Team | `app/page.tsx` — Section 6 | ✅ OPEN | — | Charcoal bg, grayscale photos |
+| Team | `app/page.tsx` — Section 6 | **🔒 LOCKED** | 2026-05-04 | Charcoal #1A1A1A bg, 3-col horizontal grid, 360px photos objectPosition:top-center, grayscale→color on hover, strong gradient overlay, white name + teal role. User-approved. |
 | Fee Comparison | `app/page.tsx` — Section 7 | ✅ OPEN | — | Cream, comparison card |
 | Testimonials | `app/page.tsx` — Section 8 | ✅ OPEN | — | Navy bg, serif quotes |
 | FAQ | `app/page.tsx` — Section 9 | ✅ OPEN | — | White, sticky sidebar |

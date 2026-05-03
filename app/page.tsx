@@ -659,250 +659,80 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════
-          7. FEE COMPARISON
-      ════════════════════════════════════════ */}
-      <section
-        style={{
-          background: "#FFFFFF",
-          padding: "clamp(5rem, 8vw, 7rem) 0",
-          borderBottom: "1px solid #E8E8E8",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <div style={{ position: "absolute", right: "clamp(1rem, 4vw, 3rem)", top: "2rem", fontFamily: "var(--font-mono)", fontSize: "clamp(6rem, 14vw, 11rem)", fontWeight: 700, lineHeight: 1, color: "#0A0A0A", opacity: 0.04, letterSpacing: "-0.04em", userSelect: "none", pointerEvents: "none" }}>05</div>
-        <div className="container-custom">
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr",
-              gap: "4rem",
-              alignItems: "start",
-            }}
-            className="lg:grid-cols-2"
-          >
-            {/* Left — editorial heading */}
-            <div>
-              <p
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "0.58rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  color: "#00C5A3",
-                  marginBottom: "0.75rem",
-                  whiteSpace: "nowrap",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.75rem",
-                }}
-              >
-                <span style={{ opacity: 0.35 }}>05</span><span style={{ opacity: 0.35 }}>—</span><span>The Numbers</span>
-              </p>
-              <h2
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "clamp(2.25rem, 4vw, 3.75rem)",
-                  lineHeight: 0.98,
-                  letterSpacing: "-0.03em",
-                  color: "#0D0D0D",
-                  marginBottom: "1.5rem",
-                }}
-              >
+      {/* ═══════════════════════════════════════════
+          7. THE NUMBERS — White, full-width editorial
+      ═══════════════════════════════════════════ */}
+      <section style={{ background: "#FFFFFF", borderBottom: "1px solid #E8E8E8", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", right: "clamp(1rem,4vw,3rem)", top: "2rem", fontFamily: "var(--font-mono)", fontSize: "clamp(6rem,14vw,11rem)", fontWeight: 700, lineHeight: 1, color: "#0A0A0A", opacity: 0.04, letterSpacing: "-0.04em", userSelect: "none", pointerEvents: "none" }}>05</div>
+
+        {/* Teal top accent */}
+        <div style={{ height: "3px", background: "linear-gradient(to right, #003366 0%, #00C5A3 50%, transparent 100%)" }} />
+
+        <div className="container-custom" style={{ position: "relative", zIndex: 1 }}>
+
+          {/* Header */}
+          <div style={{ padding: "4rem 0 3rem", borderBottom: "1px solid #E8E8E8" }}>
+            <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#00C5A3", marginBottom: "2rem", display: "flex", alignItems: "center", gap: "0.75rem" }}>
+              <span style={{ opacity: 0.35 }}>05</span><span style={{ opacity: 0.35 }}>—</span><span>The Numbers</span>
+            </p>
+            <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: "3rem", alignItems: "end" }}>
+              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.25rem, 4vw, 3.75rem)", lineHeight: 0.97, letterSpacing: "-0.035em", color: "#0A0A0A" }}>
                 MBBS abroad is the{" "}
-                <em style={{ fontStyle: "italic", color: "#003366" }}>
-                  rational choice
-                </em>
+                <em style={{ color: "#003366" }}>rational choice.</em>
               </h2>
-              <div
-                style={{
-                  width: "32px",
-                  height: "2px",
-                  background: "#00C5A3",
-                  marginBottom: "1.5rem",
-                }}
-              />
-              <p
-                style={{
-                  color: "#6B7280",
-                  lineHeight: 1.75,
-                  marginBottom: "2rem",
-                  fontSize: "0.9375rem",
-                }}
-              >
-                Indian private colleges charge ₹60L–₹1Cr+ — with ₹20–50L in
-                capitation fees paid under the table. MBBS abroad has no
-                capitation, no donations, no hidden charges.
+              <p style={{ color: "#6B7280", fontSize: "0.9375rem", lineHeight: 1.8, borderLeft: "2px solid #E8E8E8", paddingLeft: "1.75rem" }}>
+                Indian private colleges charge ₹60L–₹1Cr+ with ₹20–50L in unreceipted capitation fees. MBBS abroad has zero capitation, zero donations, zero hidden charges.
               </p>
-              {[
-                "60–95% cheaper than Indian private colleges",
-                "Zero capitation or donation fees",
-                "Degree valid in India after FMGE/NExT",
-                "Same NEET PG eligibility as Indian graduates",
-              ].map((item) => (
-                <div
-                  key={item}
-                  style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "0.75rem",
-                    marginBottom: "0.875rem",
-                  }}
-                >
-                  <CheckCircle
-                    className="w-4 h-4 flex-shrink-0"
-                    style={{ color: "#00C5A3", marginTop: "2px" }}
-                  />
-                  <p
-                    style={{
-                      fontSize: "0.875rem",
-                      color: "#2C2C2C",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {item}
-                  </p>
+            </div>
+          </div>
+
+          {/* 4 stat callouts */}
+          <div className="grid grid-cols-2 lg:grid-cols-4" style={{ borderBottom: "1px solid #E8E8E8" }}>
+            {[
+              { val: "60–95%", label: "Cheaper than Indian private" },
+              { val: "₹0", label: "Capitation / donation fees" },
+              { val: "100%", label: "NMC compliant universities" },
+              { val: "=", label: "Same NEET PG eligibility" },
+            ].map((s, i) => (
+              <div key={s.label} style={{ padding: "2rem 0", borderRight: i < 3 ? "1px solid #E8E8E8" : "none", paddingLeft: i > 0 ? "2rem" : 0 }}>
+                <p style={{ fontFamily: "var(--font-mono)", fontSize: "clamp(1.5rem,3vw,2.25rem)", fontWeight: 700, color: "#003366", lineHeight: 1, letterSpacing: "-0.03em", marginBottom: "0.5rem" }}>{s.val}</p>
+                <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", color: "#6B7280", letterSpacing: "0.08em", textTransform: "uppercase" }}>{s.label}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Comparison table */}
+          <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: "3rem", padding: "3rem 0", alignItems: "start" }}>
+            {/* Left — bullet points */}
+            <div>
+              <p style={{ fontFamily: "var(--font-display)", fontSize: "1.375rem", color: "#0A0A0A", letterSpacing: "-0.015em", marginBottom: "1.5rem", lineHeight: 1.2 }}>Why the numbers matter</p>
+              {["Zero capitation or donation fees", "Degree valid in India after FMGE/NExT", "Same NEET PG eligibility as Indian graduates", "Education loans available from major banks"].map(item => (
+                <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem", marginBottom: "1rem" }}>
+                  <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: "#00C5A3", marginTop: "2px" }} />
+                  <p style={{ fontSize: "0.9375rem", color: "#2C2C2C", lineHeight: 1.6 }}>{item}</p>
                 </div>
               ))}
             </div>
 
-            {/* Right — styled comparison card (not a table) */}
-            <div
-              style={{
-                background: "#FFFFFF",
-                border: "1px solid #E8E8E8",
-                overflow: "hidden",
-              }}
-            >
-              {/* Card header — two columns */}
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "auto 1fr 1fr",
-                  background: "#0D0D0D",
-                }}
-              >
-                <div style={{ padding: "1rem 1.25rem" }}>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-mono)",
-                      fontSize: "0.55rem",
-                      fontWeight: 700,
-                      letterSpacing: "0.12em",
-                      textTransform: "uppercase",
-                      color: "rgba(255,255,255,0.3)",
-                    }}
-                  >
-                    Factor
-                  </p>
-                </div>
-                <div
-                  style={{
-                    padding: "1rem 1.25rem",
-                    borderLeft: "1px solid rgba(255,255,255,0.07)",
-                  }}
-                >
-                  <p
-                    style={{
-                      fontFamily: "var(--font-mono)",
-                      fontSize: "0.55rem",
-                      fontWeight: 700,
-                      letterSpacing: "0.12em",
-                      textTransform: "uppercase",
-                      color: "rgba(255,255,255,0.3)",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    India Private
-                  </p>
-                </div>
-                <div
-                  style={{
-                    padding: "1rem 1.25rem",
-                    background: "#00C5A3",
-                    borderLeft: "1px solid rgba(255,255,255,0.2)",
-                  }}
-                >
-                  <p
-                    style={{
-                      fontFamily: "var(--font-mono)",
-                      fontSize: "0.55rem",
-                      fontWeight: 700,
-                      letterSpacing: "0.12em",
-                      textTransform: "uppercase",
-                      color: "white",
-                    }}
-                  >
-                    MBBS Abroad ✓
-                  </p>
-                </div>
+            {/* Right — comparison */}
+            <div style={{ border: "1px solid #E8E8E8", overflow: "hidden" }}>
+              <div className="grid grid-cols-3" style={{ background: "#0D0D0D" }}>
+                {["Factor", "India Private", "MBBS Abroad ✓"].map((h, i) => (
+                  <div key={h} style={{ padding: "0.875rem 1.25rem", borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.07)" : "none", background: i === 2 ? "#00C5A3" : "transparent" }}>
+                    <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: i === 1 ? "rgba(255,255,255,0.35)" : "white", textDecoration: i === 1 ? "line-through" : "none" }}>{h}</p>
+                  </div>
+                ))}
               </div>
-
-              {/* Rows */}
               {feeRows.map((row, i) => (
-                <div
-                  key={row.label}
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "auto 1fr 1fr",
-                    borderTop: "1px solid #E8E8E8",
-                    background: i % 2 === 0 ? "#FFFFFF" : "#F8F8F8",
-                  }}
-                >
-                  <div
-                    style={{
-                      padding: "1rem 1.25rem",
-                      borderRight: "1px solid #E8E8E8",
-                      minWidth: "110px",
-                    }}
-                  >
-                    <p
-                      style={{
-                        fontFamily: "var(--font-mono)",
-                        fontSize: "0.65rem",
-                        fontWeight: 700,
-                        color: "#0A0A0A",
-                        letterSpacing: "0.02em",
-                      }}
-                    >
-                      {row.label}
-                    </p>
+                <div key={row.label} className="grid grid-cols-3" style={{ borderTop: "1px solid #E8E8E8", background: i % 2 === 0 ? "#fff" : "#F8F8F8" }}>
+                  <div style={{ padding: "0.875rem 1.25rem", borderRight: "1px solid #E8E8E8" }}>
+                    <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", fontWeight: 700, color: "#0A0A0A" }}>{row.label}</p>
                   </div>
-                  <div
-                    style={{
-                      padding: "1rem 1.25rem",
-                      borderRight: "1px solid #E8E8E8",
-                    }}
-                  >
-                    <p
-                      style={{
-                        fontFamily: "var(--font-mono)",
-                        fontSize: "0.7rem",
-                        color: "#9CA3AF",
-                        textDecoration: "line-through",
-                      }}
-                    >
-                      {row.india}
-                    </p>
+                  <div style={{ padding: "0.875rem 1.25rem", borderRight: "1px solid #E8E8E8" }}>
+                    <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", color: "#9CA3AF", textDecoration: "line-through" }}>{row.india}</p>
                   </div>
-                  <div
-                    style={{
-                      padding: "1rem 1.25rem",
-                      background: "rgba(0,197,163,0.05)",
-                    }}
-                  >
-                    <p
-                      style={{
-                        fontFamily: "var(--font-mono)",
-                        fontSize: "0.7rem",
-                        fontWeight: 700,
-                        color: "#003366",
-                      }}
-                    >
-                      {row.abroad}
-                    </p>
+                  <div style={{ padding: "0.875rem 1.25rem", background: "rgba(0,197,163,0.05)" }}>
+                    <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", fontWeight: 700, color: "#003366" }}>{row.abroad}</p>
                   </div>
                 </div>
               ))}
@@ -911,143 +741,54 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════
-          8. TESTIMONIALS — Deep navy
-      ════════════════════════════════════════ */}
-      <section
-        style={{
-          background: "#003366",
-          padding: "clamp(5rem, 8vw, 7rem) 0",
-          borderBottom: "1px solid rgba(255,255,255,0.06)",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <div style={{ position: "absolute", right: "clamp(1rem, 4vw, 3rem)", top: "2rem", fontFamily: "var(--font-mono)", fontSize: "clamp(6rem, 14vw, 11rem)", fontWeight: 700, lineHeight: 1, color: "#FFFFFF", opacity: 0.05, letterSpacing: "-0.04em", userSelect: "none", pointerEvents: "none" }}>06</div>
-        <div className="container-custom">
+      {/* ═══════════════════════════════════════════
+          8. TESTIMONIALS — Navy, large editorial cards
+      ═══════════════════════════════════════════ */}
+      <section style={{ background: "#003366", borderBottom: "1px solid rgba(255,255,255,0.06)", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", right: "clamp(1rem,4vw,3rem)", top: "2rem", fontFamily: "var(--font-mono)", fontSize: "clamp(6rem,14vw,11rem)", fontWeight: 700, lineHeight: 1, color: "#fff", opacity: 0.04, letterSpacing: "-0.04em", userSelect: "none", pointerEvents: "none" }}>06</div>
+        {/* Subtle dot grid */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
+
+        <div className="container-custom" style={{ position: "relative", zIndex: 1 }}>
           {/* Header */}
-          <div
-            style={{
-              marginBottom: "3rem",
-              paddingBottom: "2rem",
-              borderBottom: "1px solid rgba(255,255,255,0.07)",
-            }}
-          >
-            <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", marginBottom: "0.75rem", whiteSpace: "nowrap", display: "flex", alignItems: "center", gap: "0.75rem" }}>
+          <div style={{ padding: "clamp(4rem,7vw,6rem) 0 3rem", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+            <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", marginBottom: "2rem", display: "flex", alignItems: "center", gap: "0.75rem" }}>
               <span style={{ opacity: 0.6 }}>06</span><span style={{ opacity: 0.6 }}>—</span><span>Student Stories</span>
             </p>
-            <h2
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "clamp(2.25rem, 4vw, 3.75rem)",
-                lineHeight: 0.98,
-                letterSpacing: "-0.03em",
-                color: "#FFFFFF",
-              }}
-            >
-              Real students.{" "}
-              <em style={{ fontStyle: "italic", color: "#00C5A3" }}>
-                Real words.
-              </em>
-            </h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: "3rem", alignItems: "end" }}>
+              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.25rem,4.5vw,4rem)", lineHeight: 0.95, letterSpacing: "-0.035em", color: "#FFFFFF" }}>
+                Real students.<br />
+                <em style={{ color: "#00C5A3" }}>Real words.</em>
+              </h2>
+              <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.9375rem", lineHeight: 1.8, borderLeft: "2px solid rgba(255,255,255,0.1)", paddingLeft: "1.75rem" }}>
+                Unscripted. Unedited. Every student you see here was counseled by a doctor who studied at the same university they now attend.
+              </p>
+            </div>
           </div>
 
-          {/* Testimonial grid */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(1, 1fr)",
-              border: "1px solid rgba(255,255,255,0.07)",
-            }}
-            className="md:grid-cols-2 lg:grid-cols-3"
-          >
+          {/* Testimonial grid — pure Tailwind, no inline gridTemplateColumns */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
             {featuredTestimonials.map((t, i) => (
-              <div
-                key={t.id}
-                style={{
-                  padding: "2.25rem",
-                  display: "flex",
-                  flexDirection: "column",
-                  borderRight:
-                    (i + 1) % 3 !== 0
-                      ? "1px solid rgba(255,255,255,0.07)"
-                      : "none",
-                  borderBottom: "1px solid rgba(255,255,255,0.07)",
-                }}
-              >
-                {/* Big quote mark */}
-                <p
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "5rem",
-                    color: "rgba(0,197,163,0.25)",
-                    lineHeight: 0.75,
-                    marginBottom: "1.25rem",
-                    userSelect: "none",
-                  }}
-                >
-                  &ldquo;
-                </p>
+              <div key={t.id} style={{ padding: "2.5rem 0", borderBottom: "1px solid rgba(255,255,255,0.07)", borderRight: "1px solid rgba(255,255,255,0.07)", position: "relative" }}
+                className={i % 3 === 2 ? "lg:!border-r-0" : ""}>
+
+                {/* Large decorative quote */}
+                <p style={{ fontFamily: "var(--font-display)", fontSize: "6rem", color: "rgba(0,197,163,0.15)", lineHeight: 0.7, marginBottom: "1.5rem", userSelect: "none" }}>&ldquo;</p>
+
                 {/* Stars */}
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "2px",
-                    marginBottom: "1rem",
-                  }}
-                >
+                <div style={{ display: "flex", gap: "3px", marginBottom: "1.25rem" }}>
                   {Array.from({ length: 5 }).map((_, idx) => (
-                    <Star
-                      key={idx}
-                      className="w-3.5 h-3.5"
-                      style={{
-                        fill: idx < t.rating ? "#F59E0B" : "transparent",
-                        color: idx < t.rating ? "#F59E0B" : "rgba(255,255,255,0.15)",
-                      }}
-                    />
+                    <Star key={idx} className="w-3.5 h-3.5" style={{ fill: idx < t.rating ? "#F59E0B" : "transparent", color: idx < t.rating ? "#F59E0B" : "rgba(255,255,255,0.12)" }} />
                   ))}
                 </div>
-                {/* Quote text */}
-                <blockquote
-                  style={{
-                    color: "rgba(255,255,255,0.7)",
-                    fontSize: "0.9375rem",
-                    lineHeight: 1.75,
-                    flex: 1,
-                    marginBottom: "1.5rem",
-                    fontFamily: "var(--font-inter)",
-                  }}
-                >
+
+                <blockquote style={{ color: "rgba(255,255,255,0.85)", fontSize: "0.9375rem", lineHeight: 1.8, flex: 1, marginBottom: "2rem", fontFamily: "var(--font-inter)" }}>
                   {t.quote}
                 </blockquote>
-                {/* Attrib */}
-                <div
-                  style={{
-                    borderTop: "1px solid rgba(255,255,255,0.07)",
-                    paddingTop: "1rem",
-                  }}
-                >
-                  <p
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontSize: "1.0625rem",
-                      color: "#FFFFFF",
-                      marginBottom: "3px",
-                    }}
-                  >
-                    {t.studentName}
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-mono)",
-                      fontSize: "0.58rem",
-                      letterSpacing: "0.1em",
-                      textTransform: "uppercase",
-                      color: "#00C5A3",
-                    }}
-                  >
-                    {t.currentYear} · {t.university}
-                  </p>
+
+                <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "1.25rem" }}>
+                  <p style={{ fontFamily: "var(--font-display)", fontSize: "1.0625rem", color: "#FFFFFF", marginBottom: "4px" }}>{t.studentName}</p>
+                  <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.575rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#00C5A3", fontWeight: 700 }}>{t.currentYear} · {t.country}</p>
                 </div>
               </div>
             ))}
@@ -1055,327 +796,121 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════
-          9. FAQ — Off-white, sticky sidebar, accordion
-      ════════════════════════════════════════ */}
-      <section
-        style={{
-          background: "#F5F5F5",
-          padding: "clamp(5rem, 8vw, 7rem) 0",
-          borderBottom: "1px solid #E8E8E8",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <div style={{ position: "absolute", right: "clamp(1rem, 4vw, 3rem)", top: "2rem", fontFamily: "var(--font-mono)", fontSize: "clamp(6rem, 14vw, 11rem)", fontWeight: 700, lineHeight: 1, color: "#0A0A0A", opacity: 0.04, letterSpacing: "-0.04em", userSelect: "none", pointerEvents: "none" }}>07</div>
-        <div className="container-custom">
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr",
-              gap: "3rem",
-            }}
-            className="lg:grid-cols-12"
-          >
-            {/* Left sticky sidebar */}
-            <div
-              className="lg:col-span-4"
-              style={{ position: "sticky", top: "100px", alignSelf: "start" }}
-            >
-              <p
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "0.58rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  color: "#00C5A3",
-                  marginBottom: "0.75rem",
-                  whiteSpace: "nowrap",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.75rem",
-                }}
-              >
-                <span style={{ opacity: 0.35 }}>07</span><span style={{ opacity: 0.35 }}>—</span><span>FAQ</span>
-              </p>
-              <h2
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "clamp(1.75rem, 3.5vw, 3rem)",
-                  lineHeight: 0.98,
-                  letterSpacing: "-0.03em",
-                  color: "#0D0D0D",
-                  marginBottom: "1.25rem",
-                }}
-              >
-                Questions we hear{" "}
-                <em style={{ fontStyle: "italic" }}>every day</em>
-              </h2>
-              <div
-                style={{
-                  width: "32px",
-                  height: "2px",
-                  background: "#00C5A3",
-                  marginBottom: "1.25rem",
-                }}
-              />
-              <p
-                style={{
-                  color: "#6B7280",
-                  fontSize: "0.875rem",
-                  lineHeight: 1.75,
-                  marginBottom: "1.75rem",
-                }}
-              >
-                Honest answers from doctors who have been through the full
-                process.
-              </p>
-              <Link href="/faq" className="btn-surgical" style={{ display: "inline-flex" }}>
-                All 30+ FAQs <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
+      {/* ═══════════════════════════════════════════
+          9. FAQ — White, editorial sidebar + clean accordion
+      ═══════════════════════════════════════════ */}
+      <section style={{ background: "#F5F5F5", borderBottom: "1px solid #E8E8E8", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", right: "clamp(1rem,4vw,3rem)", top: "2rem", fontFamily: "var(--font-mono)", fontSize: "clamp(6rem,14vw,11rem)", fontWeight: 700, lineHeight: 1, color: "#0A0A0A", opacity: 0.04, letterSpacing: "-0.04em", userSelect: "none", pointerEvents: "none" }}>07</div>
 
-            {/* Right accordion */}
-            <div className="lg:col-span-8">
-              {homeFaqs.map((faq) => (
-                <details
-                  key={faq.id}
-                  className="group"
-                  style={{ borderBottom: "1px solid #E8E8E8" }}
-                >
-                  <summary
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      padding: "1.375rem 0",
-                      cursor: "pointer",
-                      listStyle: "none",
-                      gap: "1rem",
-                      fontFamily: "var(--font-display)",
-                      fontSize: "1.0625rem",
-                      color: "#0A0A0A",
-                      lineHeight: 1.3,
-                    }}
-                  >
-                    {faq.question}
-                    <span
-                      style={{
-                        fontFamily: "var(--font-mono)",
-                        fontSize: "1.25rem",
-                        color: "#00C5A3",
-                        flexShrink: 0,
-                        lineHeight: 1,
-                      }}
-                    >
-                      <span className="group-open:hidden">+</span>
-                      <span className="hidden group-open:inline">−</span>
-                    </span>
-                  </summary>
-                  <div
-                    style={{
-                      paddingBottom: "1.375rem",
-                      color: "#6B7280",
-                      fontSize: "0.9375rem",
-                      lineHeight: 1.75,
-                    }}
-                  >
-                    {faq.answer}
-                  </div>
-                </details>
-              ))}
+        <div className="container-custom" style={{ position: "relative", zIndex: 1 }}>
+          <div style={{ padding: "clamp(4rem,7vw,6rem) 0" }}>
+            <div className="grid grid-cols-1 lg:grid-cols-12" style={{ gap: "3rem" }}>
+
+              {/* Sidebar */}
+              <div className="lg:col-span-4" style={{ position: "sticky" as const, top: "100px", alignSelf: "start" as const }}>
+                <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#00C5A3", marginBottom: "2rem", display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                  <span style={{ opacity: 0.35 }}>07</span><span style={{ opacity: 0.35 }}>—</span><span>FAQ</span>
+                </p>
+                <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem,3.5vw,3rem)", lineHeight: 0.97, letterSpacing: "-0.03em", color: "#0A0A0A", marginBottom: "1.5rem" }}>
+                  Questions we hear{" "}
+                  <em style={{ color: "#003366" }}>every day</em>
+                </h2>
+                <div style={{ width: "32px", height: "2px", background: "#00C5A3", marginBottom: "1.5rem" }} />
+                <p style={{ color: "#6B7280", fontSize: "0.9375rem", lineHeight: 1.75, marginBottom: "2rem" }}>
+                  Honest answers from doctors who have been through the full process themselves.
+                </p>
+                <Link href="/faq" className="btn-surgical" style={{ display: "inline-flex" }}>
+                  All 30+ FAQs <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+
+              {/* Accordion */}
+              <div className="lg:col-span-8">
+                {homeFaqs.map((faq, i) => (
+                  <details key={faq.id} className="group" style={{ borderBottom: "1px solid #E8E8E8", background: "#FFFFFF" }}>
+                    <summary style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "1.5rem", cursor: "pointer", listStyle: "none", gap: "1rem", background: "transparent" }}>
+                      <span style={{ fontFamily: "var(--font-display)", fontSize: "1.0625rem", color: "#0A0A0A", lineHeight: 1.3 }}>{faq.question}</span>
+                      <span style={{ fontFamily: "var(--font-mono)", fontSize: "1.125rem", color: "#00C5A3", flexShrink: 0, lineHeight: 1, fontWeight: 700 }}>
+                        <span className="group-open:hidden">+</span>
+                        <span className="hidden group-open:inline">−</span>
+                      </span>
+                    </summary>
+                    <div style={{ padding: "0 1.5rem 1.5rem", color: "#4B5563", fontSize: "0.9375rem", lineHeight: 1.8 }}>
+                      {faq.answer}
+                    </div>
+                  </details>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ════════════════════════════════════════
-          10. FINAL CTA — Charcoal left / Teal right
-      ════════════════════════════════════════ */}
-      <section
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr",
-          position: "relative",
-          overflow: "hidden",
-        }}
-        className="lg:grid-cols-2"
-      >
-        {/* Left — charcoal */}
-        <div
-          style={{
-            background: "#0D0D0D",
-            padding: "clamp(5rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem)",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            position: "relative",
-          }}
-        >
-          {/* Teal left stripe */}
-          <div
-            style={{
-              position: "absolute",
-              left: 0,
-              top: 0,
-              bottom: 0,
-              width: "4px",
-              background: "#00C5A3",
-            }}
-          />
-          <p
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.58rem",
-              fontWeight: 700,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: "rgba(255,255,255,0.3)",
-              marginBottom: "1.5rem",
-            }}
-          >
-            Free Counseling
-          </p>
-          <h2
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(3.5rem, 8vw, 7rem)",
-              lineHeight: 0.88,
-              letterSpacing: "-0.05em",
-              color: "#FFFFFF",
-              marginBottom: "2rem",
-            }}
-          >
-            Ready?
-          </h2>
-          <p
-            style={{
-              color: "rgba(255,255,255,0.45)",
-              fontSize: "1rem",
-              lineHeight: 1.75,
-              maxWidth: "380px",
-            }}
-          >
-            Talk to a doctor who has sat exactly where you are. No pressure. No
-            commission-driven advice. Just honest guidance.
-          </p>
-        </div>
+      {/* ═══════════════════════════════════════════
+          10. FINAL CTA — Full-width, premium dark
+      ═══════════════════════════════════════════ */}
+      <section style={{ background: "#0D0D0D", position: "relative", overflow: "hidden" }}>
+        {/* Background grid */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "60px 60px", pointerEvents: "none" }} />
+        {/* Teal glow */}
+        <div style={{ position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)", width: "60%", height: "300px", background: "radial-gradient(ellipse, rgba(0,197,163,0.12) 0%, transparent 70%)", pointerEvents: "none" }} />
+        {/* Teal left stripe */}
+        <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "3px", background: "#00C5A3" }} />
 
-        {/* Right — teal */}
-        <div
-          style={{
-            background: "#00C5A3",
-            padding: "clamp(5rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem)",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-          }}
-        >
-          <p
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.58rem",
-              fontWeight: 700,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: "rgba(255,255,255,0.6)",
-              marginBottom: "2rem",
-            }}
-          >
-            Start now — it&apos;s free
-          </p>
+        <div className="container-custom" style={{ position: "relative", zIndex: 1 }}>
+          <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: "0", alignItems: "stretch" }}>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "1.75rem" }}>
-            <a
-              href={whatsappLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "10px",
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.75rem",
-                fontWeight: 700,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                background: "#FFFFFF",
-                color: "#0D0D0D",
-                padding: "16px 32px",
-                border: "none",
-                textDecoration: "none",
-                cursor: "pointer",
-                transition: "all 0.15s",
-              }}
-            >
-              <Phone className="w-4 h-4" />
-              Talk to Us on WhatsApp
-            </a>
-            <a
-              href={instagramLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "10px",
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.75rem",
-                fontWeight: 700,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                background: "transparent",
-                color: "white",
-                padding: "15px 31px",
-                border: "2px solid rgba(255,255,255,0.5)",
-                textDecoration: "none",
-                cursor: "pointer",
-                transition: "all 0.15s",
-              }}
-            >
-              <Instagram className="w-4 h-4" />
-              Find Us on Instagram
-            </a>
+            {/* Left — headline */}
+            <div style={{ padding: "clamp(5rem,8vw,7rem) 0", borderRight: "1px solid rgba(255,255,255,0.07)" }}>
+              <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", marginBottom: "2rem" }}>
+                Free Counseling · No Obligation
+              </p>
+              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(3.5rem,8vw,7rem)", lineHeight: 0.88, letterSpacing: "-0.05em", color: "#FFFFFF", marginBottom: "2rem" }}>
+                Ready?
+              </h2>
+              <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "1rem", lineHeight: 1.8, maxWidth: "380px", marginBottom: "2rem" }}>
+                Talk to a doctor who has sat exactly where you are. No pressure. No commission-driven advice. Just honest guidance from someone who has lived it.
+              </p>
+              <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+                {[{ val: "500+", label: "Students" }, { val: "8", label: "Countries" }, { val: "3", label: "Doctors" }].map(s => (
+                  <div key={s.label} style={{ paddingRight: "1.5rem", borderRight: "1px solid rgba(255,255,255,0.08)" }}>
+                    <p style={{ fontFamily: "var(--font-mono)", fontSize: "1.5rem", fontWeight: 700, color: "#00C5A3", lineHeight: 1, letterSpacing: "-0.02em" }}>{s.val}</p>
+                    <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", color: "rgba(255,255,255,0.3)", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: "3px" }}>{s.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right — CTAs */}
+            <div style={{ padding: "clamp(5rem,8vw,7rem) 0 clamp(5rem,8vw,7rem) clamp(2rem,5vw,4rem)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+              <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#00C5A3", marginBottom: "2rem" }}>
+                Start now — it&apos;s free
+              </p>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "2rem" }}>
+                <a href={whatsappLink()} target="_blank" rel="noopener noreferrer"
+                  style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "10px", fontFamily: "var(--font-mono)", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", background: "#00C5A3", color: "#FFFFFF", padding: "18px 32px", border: "1px solid #00C5A3", textDecoration: "none", transition: "all 0.15s" }}>
+                  <Phone className="w-4 h-4" />
+                  Talk to Us on WhatsApp
+                </a>
+                <a href={instagramLink()} target="_blank" rel="noopener noreferrer"
+                  style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "10px", fontFamily: "var(--font-mono)", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", background: "transparent", color: "white", padding: "17px 32px", border: "1px solid rgba(255,255,255,0.25)", textDecoration: "none", transition: "all 0.15s" }}>
+                  <Instagram className="w-4 h-4" />
+                  Find Us on Instagram
+                </a>
+              </div>
+
+              <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", color: "rgba(255,255,255,0.25)", letterSpacing: "0.12em", textTransform: "uppercase" }}>
+                Free · No Obligation · Mon–Sat 9am–8pm IST
+              </p>
+            </div>
           </div>
-
-          <p
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.58rem",
-              color: "rgba(255,255,255,0.55)",
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-            }}
-          >
-            Free · No Obligation · Mon–Sat 9am–8pm IST
-          </p>
         </div>
 
-        {/* JSON-LD */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              {
-                "@context": "https://schema.org",
-                "@type": "Organization",
-                name: "Worldwise Education",
-                url: "https://nishumbbsabroad.com",
-                description:
-                  "Doctor-led MBBS abroad consultancy for Indian students.",
-              },
-              {
-                "@context": "https://schema.org",
-                "@type": "WebSite",
-                name: "Worldwise Education",
-                url: "https://nishumbbsabroad.com",
-              },
-            ]),
-          }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([
+          { "@context": "https://schema.org", "@type": "Organization", name: "Worldwise Education", url: "https://nishumbbsabroad.com", description: "Doctor-led MBBS abroad consultancy for Indian students." },
+          { "@context": "https://schema.org", "@type": "WebSite", name: "Worldwise Education", url: "https://nishumbbsabroad.com" },
+        ]) }} />
       </section>
     </>
   );
