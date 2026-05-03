@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { CheckCircle2, Heart, Shield, Users, Award } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import { team } from "@/data/team";
-import TeamMemberCard from "@/components/ui/TeamMemberCard";
 import CTABanner from "@/components/ui/CTABanner";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 
@@ -14,22 +14,22 @@ export const metadata: Metadata = {
 
 const values = [
   {
-    icon: Shield,
+    number: "01",
     title: "Transparency",
     desc: "We tell you what other consultancies won't — including FMGE challenges, country-specific risks, and realistic cost expectations.",
   },
   {
-    icon: Heart,
+    number: "02",
     title: "Student-First",
     desc: "Our success is measured by your success in FMGE and your medical career — not by our commission. We only recommend what's right for you.",
   },
   {
-    icon: Award,
+    number: "03",
     title: "Medical Integrity",
     desc: "We are doctors first, consultants second. Every recommendation we make is one we would make for our own family members.",
   },
   {
-    icon: Users,
+    number: "04",
     title: "Long-Term Relationship",
     desc: "We stay in touch with students throughout their MBBS — with FMGE guidance, check-ins, and support for PG planning after you return.",
   },
@@ -39,11 +39,77 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section style={{ background: "#003366", paddingTop: "7rem", paddingBottom: "4rem" }}>
-        <div className="container-custom">
+      <section
+        style={{
+          background: "#003366",
+          paddingTop: "7rem",
+          paddingBottom: "4rem",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        {/* Teal left stripe */}
+        <div
+          style={{
+            position: "absolute",
+            left: 0,
+            top: 0,
+            bottom: 0,
+            width: "4px",
+            background: "#00C5A3",
+          }}
+        />
+        {/* Grid lines */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)",
+            backgroundSize: "80px 80px",
+            pointerEvents: "none",
+          }}
+        />
+
+        <div className="container-custom" style={{ position: "relative" }}>
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "About Us" }]} />
-          <h1 className="text-white mb-4">About Worldwise Education</h1>
-          <p className="text-white/80 text-xl max-w-2xl">
+
+          {/* Label */}
+          <span
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.65rem",
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "#00C5A3",
+              display: "block",
+              marginBottom: "1rem",
+            }}
+          >
+            Who We Are
+          </span>
+
+          <h1
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
+              lineHeight: 0.95,
+              letterSpacing: "-0.03em",
+              color: "#FFFFFF",
+              marginBottom: "1.25rem",
+            }}
+          >
+            Doctors helping doctors.
+          </h1>
+
+          <p
+            style={{
+              color: "rgba(255,255,255,0.65)",
+              fontSize: "1.0625rem",
+              lineHeight: 1.7,
+              maxWidth: "560px",
+            }}
+          >
             We are doctors who studied MBBS abroad. We came back, cleared FMGE, and built
             careers — and now we help the next generation do the same.
           </p>
@@ -51,126 +117,341 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story */}
-      <section className="section-padding bg-white">
+      <section style={{ background: "#FFFFFF", paddingTop: "clamp(4rem, 7vw, 6rem)", paddingBottom: "clamp(4rem, 7vw, 6rem)" }}>
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto">
-            <span className="text-accent font-semibold text-sm uppercase tracking-wider">
-              Our Story
-            </span>
-            <h2 className="text-text-main mt-2 mb-6">Why Doctors Started This Consultancy</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: "3rem", alignItems: "start" }}>
+            {/* Left: story text */}
+            <div>
+              <span
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.65rem",
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "#00C5A3",
+                  display: "block",
+                  marginBottom: "0.75rem",
+                }}
+              >
+                Our Story
+              </span>
+              <h2
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(1.75rem, 3vw, 2.75rem)",
+                  lineHeight: 1.05,
+                  letterSpacing: "-0.025em",
+                  color: "#0D0D0D",
+                  marginBottom: "1.75rem",
+                }}
+              >
+                Why Doctors Started This Consultancy
+              </h2>
 
-            <div className="space-y-5 text-text-muted leading-relaxed">
-              <p>
-                Dr. Nishu Yadav was in the same position as thousands of students today —
-                NEET-qualified, determined to become a doctor, and navigating the overwhelming
-                world of MBBS abroad alone. The consultancies he encountered had no medical
-                background. The advice was commission-driven. Nobody warned him about FMGE.
-              </p>
-              <p>
-                He completed his MBBS across Ukraine and Kazakhstan, cleared FMGE on his first
-                attempt with a strong score, and returned to India determined to do things
-                differently. Along the way, he saw too many fellow students struggle — not because
-                the universities were bad, but because they had received no honest, experience-based
-                guidance at the start.
-              </p>
-              <p>
-                He joined with Dr. Lokesh Attri and Dr. Bindu Tyagi — each with their own MBBS
-                abroad journey and first-attempt FMGE success — to found Worldwise Education with
-                a single premise:{" "}
-                <strong className="text-text-main">
-                  the only people qualified to guide students through MBBS abroad are doctors who
-                  have done it themselves.
-                </strong>
-              </p>
-              <p>
-                That&apos;s the gap we fill. Not as salespeople. As doctors who have sat exactly
-                where you are sitting right now.
-              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem", color: "#4B5563", lineHeight: 1.75, fontSize: "0.9375rem" }}>
+                <p>
+                  Dr. Nishu Yadav was in the same position as thousands of students today —
+                  NEET-qualified, determined to become a doctor, and navigating the overwhelming
+                  world of MBBS abroad alone. The consultancies he encountered had no medical
+                  background. The advice was commission-driven. Nobody warned him about FMGE.
+                </p>
+                <p>
+                  He completed his MBBS across Ukraine and Kazakhstan, cleared FMGE on his first
+                  attempt with a strong score, and returned to India determined to do things
+                  differently. Along the way, he saw too many fellow students struggle — not because
+                  the universities were bad, but because they had received no honest,
+                  experience-based guidance at the start.
+                </p>
+                <p>
+                  He joined with Dr. Lokesh Attri and Dr. Bindu Tyagi — each with their own MBBS
+                  abroad journey and first-attempt FMGE success — to found Worldwise Education with
+                  a single premise:{" "}
+                  <strong style={{ color: "#0D0D0D" }}>
+                    the only people qualified to guide students through MBBS abroad are doctors who
+                    have done it themselves.
+                  </strong>
+                </p>
+              </div>
+            </div>
+
+            {/* Right: stats card */}
+            <div
+              style={{
+                background: "#003366",
+                border: "1px solid #004488",
+                padding: "2.5rem",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.65rem",
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "rgba(255,255,255,0.4)",
+                  display: "block",
+                  marginBottom: "2rem",
+                }}
+              >
+                By The Numbers
+              </span>
+
+              {[
+                { stat: "4", label: "doctors on team" },
+                { stat: "500+", label: "students placed" },
+                { stat: "3", label: "countries studied in" },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  style={{
+                    paddingBottom: i < 2 ? "1.5rem" : 0,
+                    marginBottom: i < 2 ? "1.5rem" : 0,
+                    borderBottom: i < 2 ? "1px solid rgba(255,255,255,0.1)" : "none",
+                  }}
+                >
+                  <div
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "clamp(2rem, 4vw, 3rem)",
+                      fontWeight: 700,
+                      color: "#00C5A3",
+                      lineHeight: 1,
+                      marginBottom: "0.35rem",
+                    }}
+                  >
+                    {item.stat}
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "0.65rem",
+                      letterSpacing: "0.12em",
+                      textTransform: "uppercase",
+                      color: "rgba(255,255,255,0.55)",
+                    }}
+                  >
+                    {item.label}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Full Team */}
-      <section className="section-padding bg-bg-light">
+      {/* Team */}
+      <section style={{ background: "#F5F5F5", paddingTop: "clamp(4rem, 7vw, 6rem)", paddingBottom: "clamp(4rem, 7vw, 6rem)" }}>
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <span className="text-accent font-semibold text-sm uppercase tracking-wider">
+          {/* Section header */}
+          <div style={{ marginBottom: "3rem" }}>
+            <span
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.65rem",
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: "#00C5A3",
+                display: "block",
+                marginBottom: "0.75rem",
+              }}
+            >
               Our Team
             </span>
-            <h2 className="text-text-main mt-2 mb-4">Meet the Doctors</h2>
-            <p className="text-text-muted text-lg max-w-2xl mx-auto">
+            <h2
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "clamp(1.75rem, 3vw, 2.75rem)",
+                lineHeight: 1.05,
+                letterSpacing: "-0.025em",
+                color: "#0D0D0D",
+                marginBottom: "0.75rem",
+              }}
+            >
+              Meet the Doctors
+            </h2>
+            <p style={{ color: "#4B5563", fontSize: "1rem", lineHeight: 1.7, maxWidth: "520px" }}>
               Every counselor on our team is a qualified doctor with an MBBS from a foreign
               university. When we say &ldquo;we&apos;ve been where you are,&rdquo; we mean it
               literally.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "0", border: "1px solid #E2E4E8" }}>
             {team.map((member) => (
-              <TeamMemberCard key={member.id} member={member} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="text-center mb-10">
-            <span className="text-accent font-semibold text-sm uppercase tracking-wider">
-              What We Stand For
-            </span>
-            <h2 className="text-text-main mt-2 mb-4">Our Values</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((v) => (
-              <div key={v.title} className="bg-bg-light p-6 border border-border">
-                <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mb-4">
-                  <v.icon className="w-6 h-6 text-primary" />
+              <div
+                key={member.id}
+                style={{
+                  background: "#FFFFFF",
+                  borderRight: "1px solid #E2E4E8",
+                  borderBottom: "1px solid #E2E4E8",
+                }}
+              >
+                {/* Photo */}
+                <div
+                  style={{
+                    position: "relative",
+                    height: "280px",
+                    overflow: "hidden",
+                    background: "#001F3F",
+                  }}
+                >
+                  <Image
+                    src={member.photo}
+                    alt={member.name}
+                    fill
+                    style={{ objectFit: "cover", objectPosition: "top center" }}
+                  />
+                  {/* Dark gradient overlay */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      background:
+                        "linear-gradient(to top, rgba(0,20,40,0.85) 0%, rgba(0,20,40,0.2) 60%, transparent 100%)",
+                    }}
+                  />
+                  {/* Name & role on photo */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: "1rem",
+                      left: "1rem",
+                      right: "1rem",
+                    }}
+                  >
+                    <div
+                      style={{
+                        fontFamily: "var(--font-display)",
+                        fontSize: "1.1875rem",
+                        color: "#FFFFFF",
+                        lineHeight: 1.2,
+                        marginBottom: "0.25rem",
+                      }}
+                    >
+                      {member.name}
+                    </div>
+                    <div
+                      style={{
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "0.6rem",
+                        letterSpacing: "0.1em",
+                        textTransform: "uppercase",
+                        color: "#00C5A3",
+                      }}
+                    >
+                      {member.role}
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-text-main font-semibold mb-2">{v.title}</h3>
-                <p className="text-text-muted text-sm leading-relaxed">{v.desc}</p>
+
+                {/* Card body */}
+                <div style={{ padding: "1.25rem 1.25rem 1.5rem" }}>
+                  {/* Qualification · University · Country */}
+                  <div
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "0.6rem",
+                      letterSpacing: "0.1em",
+                      textTransform: "uppercase",
+                      color: "#6B7280",
+                      marginBottom: "0.875rem",
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    {member.qualification} · {member.university} · {member.country}
+                  </div>
+
+                  {/* Bio */}
+                  <p
+                    style={{
+                      color: "#4B5563",
+                      fontSize: "0.875rem",
+                      lineHeight: 1.7,
+                    }}
+                  >
+                    {member.bio}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Accreditations */}
-      <section className="section-padding bg-bg-light">
+      {/* Values */}
+      <section style={{ background: "#FFFFFF", paddingTop: "clamp(4rem, 7vw, 6rem)", paddingBottom: "clamp(4rem, 7vw, 6rem)" }}>
         <div className="container-custom">
-          <div className="text-center mb-8">
-            <h2 className="text-text-main mb-4">Our Commitment to Compliance</h2>
-            <p className="text-text-muted text-lg max-w-2xl mx-auto">
-              We only work with universities that are fully compliant with Indian regulatory
-              requirements. No exceptions.
-            </p>
+          {/* Section header */}
+          <div style={{ marginBottom: "3rem" }}>
+            <span
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.65rem",
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: "#00C5A3",
+                display: "block",
+                marginBottom: "0.75rem",
+              }}
+            >
+              What We Stand For
+            </span>
+            <h2
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "clamp(1.75rem, 3vw, 2.75rem)",
+                lineHeight: 1.05,
+                letterSpacing: "-0.025em",
+                color: "#0D0D0D",
+              }}
+            >
+              Our Values
+            </h2>
           </div>
 
-          <div className="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
-            {[
-              {
-                title: "NMC Approved",
-                desc: "All partner universities are on the NMC approved list",
-              },
-              {
-                title: "WDOMS Listed",
-                desc: "Verified on the World Directory of Medical Schools",
-              },
-              {
-                title: "No Fake Universities",
-                desc: "We independently verify every university before recommending it",
-              },
-            ].map((item) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" style={{ border: "1px solid #E2E4E8" }}>
+            {values.map((v) => (
               <div
-                key={item.title}
-                className="bg-white p-5 border border-border text-center"
+                key={v.number}
+                style={{
+                  padding: "2rem",
+                  borderRight: "1px solid #E2E4E8",
+                  borderBottom: "1px solid #E2E4E8",
+                }}
               >
-                <CheckCircle2 className="w-8 h-8 text-success mx-auto mb-2" />
-                <h3 className="font-semibold text-text-main text-sm mb-1">{item.title}</h3>
-                <p className="text-text-muted text-xs">{item.desc}</p>
+                <div
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "0.65rem",
+                    letterSpacing: "0.18em",
+                    textTransform: "uppercase",
+                    color: "#00C5A3",
+                    marginBottom: "0.875rem",
+                  }}
+                >
+                  {v.number}
+                </div>
+                <h3
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontSize: "1.25rem",
+                    lineHeight: 1.2,
+                    letterSpacing: "-0.015em",
+                    color: "#0D0D0D",
+                    marginBottom: "0.75rem",
+                  }}
+                >
+                  {v.title}
+                </h3>
+                <p
+                  style={{
+                    color: "#4B5563",
+                    fontSize: "0.875rem",
+                    lineHeight: 1.7,
+                  }}
+                >
+                  {v.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -178,8 +459,8 @@ export default function AboutPage() {
       </section>
 
       <CTABanner
-        headline="Talk to a Doctor Who's Been Where You Are"
-        subtext="Free counseling from doctors who have studied MBBS abroad and cleared FMGE. No pressure, no obligation."
+        headline="Talk to a doctor today."
+        subtext="Free counseling. No obligation. Just honest guidance from someone who's been there."
       />
     </>
   );

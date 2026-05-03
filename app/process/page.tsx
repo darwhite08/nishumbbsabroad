@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { CheckSquare, Phone } from "lucide-react";
-import { whatsappLink } from "@/lib/utils";
+import Link from "next/link";
 import Breadcrumb from "@/components/ui/Breadcrumb";
+import CTABanner from "@/components/ui/CTABanner";
 
 export const metadata: Metadata = {
   title: "MBBS Abroad Admission Process — Step-by-Step Guide 2026",
@@ -12,93 +12,54 @@ export const metadata: Metadata = {
 
 const steps = [
   {
-    num: 1,
+    num: "01",
     title: "Free Counseling",
-    icon: "🎯",
-    details: [
-      "Discuss your NEET score, budget, country preference, and career goals",
-      "Understand which countries and universities fit your profile",
-      "Ask any question — no topic is off-limits",
-      "You speak directly to a doctor who has studied abroad",
-    ],
+    body: "Discuss your NEET score, budget, country preference, and career goals with a doctor who has done it themselves. No topic is off-limits.",
   },
   {
-    num: 2,
+    num: "02",
     title: "University Shortlisting",
-    icon: "🏫",
-    details: [
-      "Receive 2–3 personalised university recommendations with reasoning",
-      "Compare fees, FMGE pass rates, location, and quality",
-      "Understand the full total cost — no hidden charges",
-      "Finalize your choice at your own pace",
-    ],
+    body: "Receive 2–3 personalised university recommendations with full reasoning — fees, FMGE pass rates, location, and total cost. No hidden charges.",
   },
   {
-    num: 3,
+    num: "03",
     title: "Application & Offer Letter",
-    icon: "📋",
-    details: [
-      "Submit application to the university with our assistance",
-      "Document compilation: marksheets, passport, NEET scorecard",
-      "Receive official Invitation/Offer Letter (2–4 weeks)",
-      "Apply for NMC Eligibility Certificate simultaneously",
-    ],
+    body: "Document submission with our assistance. Receive official Invitation or Offer Letter within 2–4 weeks while NMC application runs in parallel.",
   },
   {
-    num: 4,
+    num: "04",
     title: "NMC Eligibility Certificate",
-    icon: "🏥",
-    details: [
-      "Apply on the NMC website — mandatory for Indian students",
-      "Verify your qualification: NEET, PCB %, age",
-      "Processing time: 10–15 working days",
-      "We assist with the complete application process",
-    ],
+    body: "Mandatory step for all Indian students. We assist with the full NMC website application — NEET, PCB %, and age verification. Processing: 10–15 working days.",
   },
   {
-    num: 5,
+    num: "05",
     title: "Visa Application",
-    icon: "🛂",
-    details: [
-      "Country-specific visa requirements and documentation",
-      "Submit application at relevant embassy/consulate",
-      "Processing time: 2–6 weeks depending on country",
-      "Medical examinations if required (Russia, Kazakhstan, Philippines)",
-    ],
+    body: "Country-specific documentation and embassy submission. Processing varies: 2–6 weeks. Medical examination required for Russia, Kazakhstan, and Philippines.",
   },
   {
-    num: 6,
+    num: "06",
     title: "Pre-Departure Briefing",
-    icon: "🧳",
-    details: [
-      "Complete packing list and what NOT to bring",
-      "Currency exchange guidance and payment setup",
-      "Emergency contacts and what to do on arrival",
-      "FMGE preparation strategy — your first year study plan",
-    ],
+    body: "Complete packing list, currency exchange guidance, emergency contacts, and your FMGE preparation strategy — a study plan built before Day 1.",
   },
   {
-    num: 7,
+    num: "07",
     title: "Arrival & Settling In",
-    icon: "✈️",
-    details: [
-      "Airport pickup arranged (most partner universities)",
-      "Hostel/accommodation check-in assistance",
-      "University registration and orientation",
-      "Introduction to the Indian student community",
-    ],
+    body: "Airport pickup arranged at most partner universities. Hostel check-in, university registration, orientation, and introduction to the Indian student community.",
   },
   {
-    num: 8,
+    num: "08",
     title: "Ongoing Support",
-    icon: "🤝",
-    details: [
-      "Semester-wise check-ins throughout your MBBS",
-      "FMGE orientation sessions every year",
-      "Guidance for PG planning (NEET PG) as you near graduation",
-      "Emergency support — our team is always reachable",
-    ],
+    body: "Semester check-ins throughout your MBBS, FMGE orientation every year, PG planning as you near graduation, and emergency support — always reachable.",
   },
+];
+
+const timeline = [
+  { month: "March–April", step: "Start counseling, begin shortlisting" },
+  { month: "June", step: "NEET result → finalise university" },
+  { month: "July", step: "Apply to university + start NMC" },
+  { month: "August", step: "Receive offer letter, apply for visa" },
+  { month: "September", step: "Visa received, travel to university" },
+  { month: "October", step: "Orientation, classes begin" },
 ];
 
 const documents = [
@@ -109,62 +70,198 @@ const documents = [
   "30–40 passport-size photographs",
   "Birth Certificate (notarized)",
   "Medical Fitness Certificate (recent)",
-  "HIV Negative Certificate (for Russia, Kazakhstan, Philippines)",
-  "Police Clearance Certificate (for Russia, Kazakhstan, Philippines)",
+  "HIV Negative Certificate (Russia, Kazakhstan, Philippines)",
+  "Police Clearance Certificate (Russia, Kazakhstan, Philippines)",
   "NMC Eligibility Certificate",
   "Bank Statement / Education Loan Sanction Letter",
-];
-
-const timeline = [
-  { month: "March–April", activity: "Start counseling, begin shortlisting" },
-  { month: "May", activity: "Document collection begins" },
-  { month: "June", activity: "NEET result → finalize university" },
-  { month: "July", activity: "Apply to university, start NMC application" },
-  { month: "August", activity: "Receive offer letter, apply for visa" },
-  { month: "September", activity: "Visa received, travel to university" },
-  { month: "October", activity: "Orientation, classes begin" },
 ];
 
 export default function ProcessPage() {
   return (
     <>
-      {/* Hero */}
-      <section style={{ background: "#003366", paddingTop: "7rem", paddingBottom: "4rem" }}>
-        <div className="container-custom">
-          <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Admission Process" }]} />
-          <h1 className="text-white mb-4">The MBBS Abroad Admission Process</h1>
-          <p className="text-white/80 text-xl max-w-2xl">
-            The process is simpler than you think. Here&apos;s exactly what happens from your first
-            conversation with us to your first day at university.
+      {/* ── Hero ────────────────────────────────────────────────── */}
+      <section
+        style={{
+          background: "#003366",
+          paddingTop: "7rem",
+          paddingBottom: "5rem",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        {/* Grid-line texture */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "linear-gradient(#FFFFFF0A 1px, transparent 1px), linear-gradient(90deg, #FFFFFF0A 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* Teal left stripe */}
+        <div
+          style={{
+            position: "absolute",
+            left: 0,
+            top: 0,
+            bottom: 0,
+            width: "3px",
+            background: "#00C5A3",
+          }}
+        />
+
+        {/* Ghost "8" step number */}
+        <div
+          style={{
+            position: "absolute",
+            right: "clamp(1.5rem, 5vw, 5rem)",
+            top: "50%",
+            transform: "translateY(-50%)",
+            fontFamily: "var(--font-display)",
+            fontSize: "clamp(8rem, 20vw, 18rem)",
+            lineHeight: 1,
+            color: "rgba(255,255,255,0.04)",
+            userSelect: "none",
+            pointerEvents: "none",
+          }}
+        >
+          8
+        </div>
+
+        <div className="container-custom" style={{ position: "relative" }}>
+          <Breadcrumb
+            items={[{ label: "Home", href: "/" }, { label: "Process" }]}
+          />
+
+          {/* Section label */}
+          <p
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.58rem",
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "#00C5A3",
+              marginBottom: "1.25rem",
+            }}
+          >
+            Step by Step
+          </p>
+
+          <h1
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(2.5rem, 6vw, 5rem)",
+              lineHeight: 0.95,
+              letterSpacing: "-0.03em",
+              color: "#FFFFFF",
+              marginBottom: "1.25rem",
+              maxWidth: "700px",
+            }}
+          >
+            From NEET to University.
+          </h1>
+
+          <p
+            style={{
+              color: "rgba(255,255,255,0.6)",
+              fontSize: "clamp(1rem, 2vw, 1.125rem)",
+              lineHeight: 1.7,
+              maxWidth: "520px",
+            }}
+          >
+            Here&apos;s exactly what happens.
           </p>
         </div>
       </section>
 
-      {/* Steps */}
-      <section className="section-padding bg-white">
+      {/* ── 8 Process Steps ─────────────────────────────────────── */}
+      <section style={{ background: "#FFFFFF" }} className="section-padding">
         <div className="container-custom">
-          <div className="space-y-6">
-            {steps.map((step) => (
+          {/* Section label */}
+          <p
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.58rem",
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "#00C5A3",
+              marginBottom: "0.75rem",
+            }}
+          >
+            The Process
+          </p>
+          <h2
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
+              lineHeight: 1.05,
+              letterSpacing: "-0.02em",
+              color: "#0D0D0D",
+              marginBottom: "3rem",
+            }}
+          >
+            8 Steps to Your MBBS
+          </h2>
+
+          <div style={{ border: "1px solid #E8E8E8" }}>
+            {steps.map((step, idx) => (
               <div
                 key={step.num}
-                className="flex gap-6 p-6 bg-bg-light border border-border"
+                className="grid grid-cols-[64px_1fr]"
+                style={{
+                  borderBottom: idx < steps.length - 1 ? "1px solid #E8E8E8" : undefined,
+                }}
               >
-                <div className="flex flex-col items-center gap-2 shrink-0">
-                  <div className="w-12 h-12 bg-primary text-white flex items-center justify-center font-extrabold text-lg">
+                {/* Left: step number */}
+                <div
+                  style={{
+                    borderRight: "1px solid #E8E8E8",
+                    display: "flex",
+                    alignItems: "flex-start",
+                    justifyContent: "center",
+                    paddingTop: "1.5rem",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "0.75rem",
+                      fontWeight: 700,
+                      letterSpacing: "0.05em",
+                      color: "#00C5A3",
+                    }}
+                  >
                     {step.num}
-                  </div>
-                  <span className="text-2xl">{step.icon}</span>
+                  </span>
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-text-main font-bold text-xl mb-3">{step.title}</h3>
-                  <ul className="space-y-2">
-                    {step.details.map((d, i) => (
-                      <li key={i} className="flex items-start gap-2 text-text-muted text-sm">
-                        <CheckSquare className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                        {d}
-                      </li>
-                    ))}
-                  </ul>
+
+                {/* Right: content */}
+                <div style={{ padding: "1.5rem 1.75rem" }}>
+                  <h3
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontSize: "clamp(1.125rem, 2vw, 1.375rem)",
+                      lineHeight: 1.15,
+                      letterSpacing: "-0.015em",
+                      color: "#0D0D0D",
+                      marginBottom: "0.5rem",
+                    }}
+                  >
+                    {step.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: "var(--font-inter)",
+                      fontSize: "0.9rem",
+                      lineHeight: 1.75,
+                      color: "#4B5563",
+                    }}
+                  >
+                    {step.body}
+                  </p>
                 </div>
               </div>
             ))}
@@ -172,67 +269,207 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="section-padding bg-bg-light">
+      {/* ── Timeline Strip ──────────────────────────────────────── */}
+      <section style={{ background: "#F5F5F5" }} className="section-padding">
         <div className="container-custom">
-          <h2 className="text-text-main mb-8">Typical Admission Timeline (March–October)</h2>
-          <div className="max-w-2xl space-y-3">
-            {timeline.map((item, i) => (
-              <div key={i} className="flex items-start gap-4 p-4 bg-white border border-border">
-                <div className="w-8 h-8 bg-accent text-white flex items-center justify-center font-bold text-xs shrink-0">
-                  {i + 1}
-                </div>
-                <div>
-                  <p className="font-semibold text-text-main text-sm">{item.month}</p>
-                  <p className="text-text-muted text-sm">{item.activity}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Documents Checklist */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <h2 className="text-text-main mb-8">Documents Required</h2>
-          <div className="max-w-2xl">
-            <p className="text-text-muted mb-5">
-              This is the general checklist. Country-specific requirements vary (e.g., HIV test
-              required for Russia, Kazakhstan, Philippines). We provide a detailed country-specific
-              checklist for every student we work with.
-            </p>
-            <ul className="space-y-3">
-              {documents.map((doc, i) => (
-                <li key={i} className="flex items-start gap-3 p-4 bg-bg-light border border-border">
-                  <div className="w-5 h-5 border-2 border-primary rounded mt-0.5 shrink-0" />
-                  <span className="text-text-main text-sm">{doc}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="section-padding bg-surgical">
-        <div className="container-custom text-center">
-          <h2 className="text-white mb-4">Start Your Process Today</h2>
-          <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
-            The earlier you start, the more options you have. Talk to our doctors for a
-            personalised admission roadmap.
-          </p>
-          <a
-            href={whatsappLink("Hi, I want to start the MBBS abroad admission process. Please guide me.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-success text-white px-10 py-4 font-semibold text-lg transition-colors"
+          {/* Section label */}
+          <p
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.58rem",
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "#00C5A3",
+              marginBottom: "0.75rem",
+            }}
           >
-            <Phone className="w-5 h-5" />
-            Start Your Process
-          </a>
+            Typical Timeline
+          </p>
+          <h2
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
+              lineHeight: 1.05,
+              letterSpacing: "-0.02em",
+              color: "#0D0D0D",
+              marginBottom: "3rem",
+            }}
+          >
+            March to October
+          </h2>
+
+          {/* Horizontal scrollable timeline */}
+          <div style={{ overflowX: "auto" }}>
+            <div
+              className="grid grid-cols-6"
+              style={{ minWidth: "720px", border: "1px solid #E8E8E8" }}
+            >
+              {/* Month row */}
+              {timeline.map((item) => (
+                <div
+                  key={item.month}
+                  style={{
+                    borderRight: "1px solid #E8E8E8",
+                    padding: "1rem 1.25rem 0.75rem",
+                    background: "#003366",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "0.65rem",
+                      fontWeight: 700,
+                      letterSpacing: "0.12em",
+                      textTransform: "uppercase",
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    {item.month}
+                  </span>
+                </div>
+              ))}
+
+              {/* Teal dots separator row */}
+              {timeline.map((item) => (
+                <div
+                  key={`dot-${item.month}`}
+                  style={{
+                    borderRight: "1px solid #E8E8E8",
+                    background: "#F5F5F5",
+                    display: "flex",
+                    alignItems: "center",
+                    padding: "0 1.25rem",
+                    height: "20px",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "8px",
+                      height: "8px",
+                      borderRadius: "50%",
+                      background: "#00C5A3",
+                      flexShrink: 0,
+                    }}
+                  />
+                </div>
+              ))}
+
+              {/* Step row */}
+              {timeline.map((item) => (
+                <div
+                  key={`step-${item.month}`}
+                  style={{
+                    borderRight: "1px solid #E8E8E8",
+                    padding: "0.75rem 1.25rem 1.25rem",
+                    background: "#FFFFFF",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontFamily: "var(--font-inter)",
+                      fontSize: "0.8rem",
+                      lineHeight: 1.6,
+                      color: "#374151",
+                    }}
+                  >
+                    {item.step}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
+
+      {/* ── Documents Checklist ─────────────────────────────────── */}
+      <section style={{ background: "#FFFFFF" }} className="section-padding">
+        <div className="container-custom">
+          {/* Section label */}
+          <p
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.58rem",
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "#00C5A3",
+              marginBottom: "0.75rem",
+            }}
+          >
+            Documents Required
+          </p>
+          <h2
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
+              lineHeight: 1.05,
+              letterSpacing: "-0.02em",
+              color: "#0D0D0D",
+              marginBottom: "0.75rem",
+            }}
+          >
+            Your Document Checklist
+          </h2>
+          <p
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontSize: "0.9rem",
+              lineHeight: 1.75,
+              color: "#6B7280",
+              maxWidth: "560px",
+              marginBottom: "2.5rem",
+            }}
+          >
+            Country-specific requirements vary (e.g. HIV test required for Russia, Kazakhstan,
+            Philippines). We provide a detailed country-specific checklist for every student.
+          </p>
+
+          <div
+            className="grid grid-cols-1 md:grid-cols-2"
+            style={{ border: "1px solid #E8E8E8", maxWidth: "860px" }}
+          >
+            {documents.map((doc, idx) => (
+              <div
+                key={idx}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.875rem",
+                  padding: "0.875rem 1.25rem",
+                  borderBottom: "1px solid #E8E8E8",
+                  borderRight: idx % 2 === 0 ? "1px solid #E8E8E8" : undefined,
+                }}
+              >
+                {/* Checkbox square */}
+                <div
+                  style={{
+                    width: "16px",
+                    height: "16px",
+                    border: "1px solid #00C5A3",
+                    flexShrink: 0,
+                  }}
+                />
+                <span
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "0.72rem",
+                    letterSpacing: "0.02em",
+                    color: "#0D0D0D",
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {doc}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ─────────────────────────────────────────────────── */}
+      <CTABanner
+        headline="Ready to start your process?"
+        subtext="Talk to our doctors to get a personalised admission roadmap."
+      />
     </>
   );
 }

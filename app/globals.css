@@ -59,6 +59,12 @@
   .section-label-white { font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
   .teal-rule { display: block; width: 32px; height: 2px; background: #00C5A3; margin-top: 10px; }
   .surgical-rule { display: block; width: 32px; height: 2px; background: #003366; margin-top: 10px; }
+
+  /* Blog article grid */
+  .blog-grid-ruled { border-top: 1px solid #E8E8E8; border-left: 1px solid #E8E8E8; }
+  .blog-card-link { display: block; text-decoration: none; }
+  .blog-card { background: #FFFFFF; border-right: 1px solid #E8E8E8; border-bottom: 1px solid #E8E8E8; transition: border-color 0.15s; height: 100%; }
+  .blog-card-link:hover .blog-card { border-color: #003366; }
 }
 
 /* WhatsApp pulse */

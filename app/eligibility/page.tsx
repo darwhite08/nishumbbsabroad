@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Phone } from "lucide-react";
+import Link from "next/link";
+import { CheckCircle2 } from "lucide-react";
 import { countries } from "@/data/countries";
-import { whatsappLink } from "@/lib/utils";
+import CTABanner from "@/components/ui/CTABanner";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 
 export const metadata: Metadata = {
@@ -11,167 +12,548 @@ export const metadata: Metadata = {
   alternates: { canonical: "/eligibility" },
 };
 
+const criteria = [
+  {
+    title: "Age",
+    requirement: "17+",
+    note: "Minimum 17 years as of December 31 of the admission year. No upper age limit currently enforced.",
+  },
+  {
+    title: "Class 12 PCB",
+    requirement: "50% aggregate",
+    note: "Physics, Chemistry, Biology + English mandatory. SC/ST/OBC: minimum 40%.",
+  },
+  {
+    title: "NEET",
+    requirement: "Qualified",
+    note: "Mandatory since 2018 NMC regulation. No minimum score beyond qualification for most countries.",
+  },
+  {
+    title: "Stream",
+    requirement: "Science only",
+    note: "PCB (Physics, Chemistry, Biology) is mandatory. Arts or Commerce students are not eligible.",
+  },
+];
+
 const neetGuide = [
-  { range: "500–700", countries: "Russia (top unis), Georgia, Nepal, Philippines", notes: "Strong candidates — maximum options" },
-  { range: "400–500", countries: "Russia, Georgia, Kazakhstan, Philippines", notes: "Good range of quality universities" },
-  { range: "300–400", countries: "Kazakhstan, Uzbekistan, Bangladesh, Nepal", notes: "Solid options at the right universities" },
-  { range: "150–300", countries: "Kyrgyzstan, Uzbekistan", notes: "Budget destinations — commit to FMGE prep from Day 1" },
+  {
+    range: "500–700",
+    destinations: "Russia, Georgia, Nepal, Philippines",
+    label: "Strong candidates",
+  },
+  {
+    range: "400–500",
+    destinations: "Russia, Georgia, Kazakhstan, Philippines",
+    label: "Good range",
+  },
+  {
+    range: "300–400",
+    destinations: "Kazakhstan, Uzbekistan, Bangladesh, Nepal",
+    label: "Solid options",
+  },
+  {
+    range: "150–300",
+    destinations: "Kyrgyzstan, Uzbekistan",
+    label: "Budget destinations + FMGE focus",
+  },
 ];
 
 export default function EligibilityPage() {
   return (
     <>
-      {/* Hero */}
-      <section style={{ background: "#003366", paddingTop: "7rem", paddingBottom: "4rem" }}>
-        <div className="container-custom">
+      {/* ── 1. HERO ── */}
+      <section
+        style={{
+          background: "#003366",
+          paddingTop: "7rem",
+          paddingBottom: "4rem",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        {/* Grid-line texture */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+            pointerEvents: "none",
+          }}
+        />
+        {/* Ghost number */}
+        <div
+          style={{
+            position: "absolute",
+            right: "clamp(1rem,4vw,3rem)",
+            top: "1.5rem",
+            fontFamily: "var(--font-mono)",
+            fontSize: "clamp(8rem,16vw,14rem)",
+            fontWeight: 700,
+            lineHeight: 1,
+            color: "#fff",
+            opacity: 0.04,
+            letterSpacing: "-0.04em",
+            userSelect: "none",
+            pointerEvents: "none",
+          }}
+        >
+          4
+        </div>
+        {/* Teal left stripe */}
+        <div
+          style={{
+            position: "absolute",
+            left: 0,
+            top: 0,
+            bottom: 0,
+            width: "3px",
+            background: "#00C5A3",
+          }}
+        />
+
+        <div className="container-custom" style={{ position: "relative", zIndex: 1 }}>
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Eligibility" }]} />
-          <h1 className="text-white mb-4">Eligibility for MBBS Abroad</h1>
-          <p className="text-white/80 text-xl max-w-2xl">
-            Most Indian students with NEET qualification are eligible for MBBS abroad. Here&apos;s
-            everything you need to check.
+
+          {/* Label */}
+          <p
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.58rem",
+              fontWeight: 700,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              color: "#00C5A3",
+              marginBottom: "1.5rem",
+            }}
+          >
+            Eligibility
+          </p>
+
+          {/* H1 */}
+          <h1
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(2.5rem, 5.5vw, 5rem)",
+              lineHeight: 0.93,
+              letterSpacing: "-0.04em",
+              color: "#FFFFFF",
+              marginBottom: "1.25rem",
+              maxWidth: "700px",
+            }}
+          >
+            Are you eligible?
+          </h1>
+
+          {/* Italic teal sub */}
+          <p
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)",
+              fontStyle: "italic",
+              color: "#00C5A3",
+              marginBottom: "1.5rem",
+            }}
+          >
+            The answer is probably yes.
+          </p>
+
+          {/* Supporting copy */}
+          <p
+            style={{
+              color: "rgba(255,255,255,0.55)",
+              fontSize: "1rem",
+              lineHeight: 1.8,
+              maxWidth: "520px",
+            }}
+          >
+            Most Indian students with NEET qualification meet the criteria for MBBS abroad.
+            Below is everything you need to verify — criteria, NEET score guidance, and
+            country-specific requirements.
           </p>
         </div>
       </section>
 
-      {/* General Eligibility */}
-      <section className="section-padding bg-white">
+      {/* ── 2. GENERAL ELIGIBILITY ── */}
+      <section className="section-padding" style={{ background: "#FFFFFF" }}>
         <div className="container-custom">
-          <h2 className="text-text-main mb-6">General Eligibility (All Countries)</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-3xl">
-            {[
-              {
-                title: "Age",
-                req: "Minimum 17 years as of December 31 of the admission year",
-                note: "No upper age limit currently enforced.",
-              },
-              {
-                title: "Class 12",
-                req: "Physics, Chemistry, Biology + English. Minimum 50% aggregate (PCB).",
-                note: "SC/ST/OBC: minimum 40%.",
-              },
-              {
-                title: "NEET",
-                req: "Qualified (passing score) — mandatory since 2018 NMC regulation.",
-                note: "No minimum score required beyond qualification for most countries.",
-              },
-              {
-                title: "Stream",
-                req: "Science stream with PCB (Physics, Chemistry, Biology) mandatory.",
-                note: "Arts or Commerce students are not eligible.",
-              },
-            ].map((item) => (
-              <div key={item.title} className="bg-bg-light p-5 border border-border">
-                <h3 className="font-bold text-text-main mb-1">{item.title}</h3>
-                <p className="text-text-main text-sm mb-1">{item.req}</p>
-                <p className="text-text-muted text-xs italic">{item.note}</p>
+          {/* Section label + heading */}
+          <p
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.58rem",
+              fontWeight: 700,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              color: "#00C5A3",
+              marginBottom: "0.75rem",
+            }}
+          >
+            General Requirements
+          </p>
+          <h2
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(1.75rem,3vw,2.75rem)",
+              lineHeight: 1.0,
+              letterSpacing: "-0.025em",
+              color: "#0D0D0D",
+              marginBottom: "2.5rem",
+            }}
+          >
+            Eligibility for all countries
+          </h2>
+
+          {/* 4-col criteria cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" style={{ gap: "1px", background: "#E8E8E8" }}>
+            {criteria.map((item) => (
+              <div
+                key={item.title}
+                style={{
+                  background: "#FFFFFF",
+                  border: "1px solid #E8E8E8",
+                  padding: "2rem 1.5rem",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
+                  <CheckCircle2 style={{ width: "1.125rem", height: "1.125rem", color: "#00C5A3", flexShrink: 0 }} />
+                  <h3
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontSize: "1.125rem",
+                      letterSpacing: "-0.01em",
+                      color: "#0D0D0D",
+                    }}
+                  >
+                    {item.title}
+                  </h3>
+                </div>
+                <p
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "0.85rem",
+                    fontWeight: 700,
+                    color: "#003366",
+                    letterSpacing: "0.04em",
+                    marginBottom: "0.75rem",
+                  }}
+                >
+                  {item.requirement}
+                </p>
+                <p
+                  style={{
+                    fontSize: "0.8rem",
+                    color: "#6B7280",
+                    lineHeight: 1.65,
+                  }}
+                >
+                  {item.note}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Country-wise table */}
-      <section className="section-padding bg-bg-light">
+      {/* ── 3. NEET SCORE GUIDE ── */}
+      <section className="section-padding" style={{ background: "#F5F5F5" }}>
         <div className="container-custom">
-          <h2 className="text-text-main mb-6">Country-Wise Eligibility Requirements</h2>
-          <div className="overflow-x-auto border border-border">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="bg-primary text-white">
-                  <th className="text-left p-4">Country</th>
-                  <th className="text-center p-4">Min PCB %</th>
-                  <th className="text-center p-4">NEET Required</th>
-                  <th className="text-center p-4">IELTS/TOEFL</th>
-                  <th className="text-left p-4">Additional</th>
-                </tr>
-              </thead>
-              <tbody>
-                {countries.map((c, i) => (
-                  <tr key={c.slug} className={i % 2 === 0 ? "bg-white" : "bg-bg-light/50"}>
-                    <td className="p-4 font-medium text-text-main">
-                      {c.flag} {c.name}
-                    </td>
-                    <td className="p-4 text-center text-text-muted">50% (40% SC/ST/OBC)</td>
-                    <td className="p-4 text-center text-success font-semibold">Yes ✓</td>
-                    <td className="p-4 text-center text-text-muted">Not required</td>
-                    <td className="p-4 text-text-muted text-xs">
-                      {c.slug === "philippines"
-                        ? "English-speaking country — no language requirement"
-                        : c.slug === "nepal"
-                        ? "No visa for Indians. Some unis prefer NEET 300+"
-                        : c.slug === "bangladesh"
-                        ? "Easy travel, cultural similarity"
-                        : "Standard requirements apply"}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* NEET Score Guide */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <h2 className="text-text-main mb-4">NEET Score vs. Country Recommendation</h2>
-          <p className="text-text-muted mb-6 max-w-2xl">
-            Your NEET score alone doesn&apos;t determine your best destination. Budget, climate
-            preference, and career goals matter equally. Use this as a starting guide, not a final
-            answer.
+          {/* Section label + heading */}
+          <p
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.58rem",
+              fontWeight: 700,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              color: "#00C5A3",
+              marginBottom: "0.75rem",
+            }}
+          >
+            Score Guide
           </p>
+          <h2
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(1.75rem,3vw,2.75rem)",
+              lineHeight: 1.0,
+              letterSpacing: "-0.025em",
+              color: "#0D0D0D",
+              marginBottom: "2.5rem",
+            }}
+          >
+            NEET score vs. destination
+          </h2>
 
-          <div className="overflow-x-auto border border-border max-w-3xl">
-            <table className="w-full text-sm">
+          {/* Table */}
+          <div style={{ overflowX: "auto", border: "1px solid #E8E8E8", maxWidth: "860px" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: "var(--font-mono)" }}>
               <thead>
-                <tr className="bg-primary text-white">
-                  <th className="text-left p-4">NEET Score Range</th>
-                  <th className="text-left p-4">Recommended Destinations</th>
-                  <th className="text-left p-4">Notes</th>
+                <tr style={{ background: "#003366" }}>
+                  <th
+                    style={{
+                      padding: "1rem 1.25rem",
+                      textAlign: "left",
+                      color: "#FFFFFF",
+                      fontSize: "0.65rem",
+                      fontWeight: 700,
+                      letterSpacing: "0.1em",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    NEET Score
+                  </th>
+                  <th
+                    style={{
+                      padding: "1rem 1.25rem",
+                      textAlign: "left",
+                      color: "#FFFFFF",
+                      fontSize: "0.65rem",
+                      fontWeight: 700,
+                      letterSpacing: "0.1em",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    Recommended Destinations
+                  </th>
+                  <th
+                    style={{
+                      padding: "1rem 1.25rem",
+                      textAlign: "left",
+                      color: "#FFFFFF",
+                      fontSize: "0.65rem",
+                      fontWeight: 700,
+                      letterSpacing: "0.1em",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    Assessment
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {neetGuide.map((row, i) => (
-                  <tr key={row.range} className={i % 2 === 0 ? "bg-white" : "bg-bg-light/50"}>
-                    <td className="p-4 font-bold text-primary">{row.range}</td>
-                    <td className="p-4 text-text-main">{row.countries}</td>
-                    <td className="p-4 text-text-muted text-xs">{row.notes}</td>
+                  <tr key={row.range} style={{ background: i % 2 === 0 ? "#FFFFFF" : "#F8F8F8" }}>
+                    <td
+                      style={{
+                        padding: "1rem 1.25rem",
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "0.85rem",
+                        fontWeight: 700,
+                        color: "#003366",
+                        borderBottom: "1px solid #E8E8E8",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {row.range}
+                    </td>
+                    <td
+                      style={{
+                        padding: "1rem 1.25rem",
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "0.78rem",
+                        color: "#0D0D0D",
+                        borderBottom: "1px solid #E8E8E8",
+                      }}
+                    >
+                      {row.destinations}
+                    </td>
+                    <td
+                      style={{
+                        padding: "1rem 1.25rem",
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "0.72rem",
+                        color: "#6B7280",
+                        borderBottom: "1px solid #E8E8E8",
+                      }}
+                    >
+                      {row.label}
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          <div className="mt-6 p-5 bg-[#F5F5F5] border border-primary/20 max-w-2xl">
-            <p className="text-text-muted text-sm">
-              <strong className="text-text-main">Important:</strong> These are guidelines, not
-              rules. A student with a 280 NEET score and a ₹25L budget has a clear, viable path.
-              Talk to our doctors for a personalised assessment — we factor in your full profile,
-              not just your NEET score.
-            </p>
+          {/* Note */}
+          <p
+            style={{
+              marginTop: "1.25rem",
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.7rem",
+              color: "#6B7280",
+              letterSpacing: "0.02em",
+              maxWidth: "860px",
+              lineHeight: 1.7,
+            }}
+          >
+            Your NEET score is just one factor. Budget and career goals matter equally.
+          </p>
+        </div>
+      </section>
+
+      {/* ── 4. COUNTRY-WISE TABLE ── */}
+      <section className="section-padding" style={{ background: "#FFFFFF" }}>
+        <div className="container-custom">
+          {/* Section label + heading */}
+          <p
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.58rem",
+              fontWeight: 700,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              color: "#00C5A3",
+              marginBottom: "0.75rem",
+            }}
+          >
+            Country Requirements
+          </p>
+          <h2
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(1.75rem,3vw,2.75rem)",
+              lineHeight: 1.0,
+              letterSpacing: "-0.025em",
+              color: "#0D0D0D",
+              marginBottom: "2.5rem",
+            }}
+          >
+            Country-wise eligibility
+          </h2>
+
+          {/* Table */}
+          <div style={{ overflowX: "auto", border: "1px solid #E8E8E8" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse" }}>
+              <thead>
+                <tr style={{ background: "#003366" }}>
+                  {["Country", "Min PCB%", "NEET Required", "IELTS / TOEFL", "Duration", "Total Cost"].map((col) => (
+                    <th
+                      key={col}
+                      style={{
+                        padding: "1rem 1.25rem",
+                        textAlign: "left",
+                        color: "#FFFFFF",
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "0.62rem",
+                        fontWeight: 700,
+                        letterSpacing: "0.1em",
+                        textTransform: "uppercase",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {col}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {countries.map((c, i) => (
+                  <tr
+                    key={c.slug}
+                    style={{
+                      background: i % 2 === 0 ? "#FFFFFF" : "#F8F8F8",
+                      borderBottom: "1px solid #E8E8E8",
+                    }}
+                  >
+                    {/* Country name + flag + NMC badge */}
+                    <td style={{ padding: "1rem 1.25rem" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "0.625rem", flexWrap: "wrap" }}>
+                        <span style={{ fontSize: "1.125rem" }}>{c.flag}</span>
+                        <Link
+                          href={`/countries/${c.slug}`}
+                          style={{
+                            fontFamily: "var(--font-mono)",
+                            fontSize: "0.8rem",
+                            fontWeight: 700,
+                            color: "#003366",
+                            textDecoration: "none",
+                            letterSpacing: "0.02em",
+                          }}
+                        >
+                          {c.name}
+                        </Link>
+                        {c.nmcApproved && (
+                          <span className="nmc-badge-teal">NMC</span>
+                        )}
+                      </div>
+                    </td>
+                    {/* Min PCB% */}
+                    <td
+                      style={{
+                        padding: "1rem 1.25rem",
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "0.75rem",
+                        color: "#0D0D0D",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      50% (40% SC/ST/OBC)
+                    </td>
+                    {/* NEET Required */}
+                    <td
+                      style={{
+                        padding: "1rem 1.25rem",
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "0.75rem",
+                        fontWeight: 700,
+                        color: "#00C5A3",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      Yes ✓
+                    </td>
+                    {/* IELTS/TOEFL */}
+                    <td
+                      style={{
+                        padding: "1rem 1.25rem",
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "0.72rem",
+                        color: "#6B7280",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      Not required
+                    </td>
+                    {/* Duration */}
+                    <td
+                      style={{
+                        padding: "1rem 1.25rem",
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "0.75rem",
+                        color: "#0D0D0D",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {c.duration}
+                    </td>
+                    {/* Total Cost */}
+                    <td
+                      style={{
+                        padding: "1rem 1.25rem",
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "0.75rem",
+                        fontWeight: 700,
+                        color: "#003366",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {c.totalCost}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section-padding bg-surgical">
-        <div className="container-custom text-center">
-          <h2 className="text-white mb-4">Check Your Eligibility — Talk to Our Doctors</h2>
-          <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
-            A 5-minute WhatsApp conversation with our doctors will tell you exactly which
-            universities and countries match your profile.
-          </p>
-          <a
-            href={whatsappLink("Hi, I want to check my eligibility for MBBS abroad. My NEET score is ___.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-success text-white px-10 py-4 font-semibold text-lg transition-colors"
-          >
-            <Phone className="w-5 h-5" />
-            Check My Eligibility
-          </a>
-        </div>
-      </section>
+      {/* ── 5. CTA ── */}
+      <CTABanner
+        headline="Check your eligibility with a doctor."
+        subtext="One free call. Your NEET score, budget, and goals — we'll tell you exactly what fits."
+      />
     </>
   );
 }
