@@ -529,167 +529,105 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════
-          5. SPLIT FEATURE — Teal / White bold contrast
+          5. OUR DIFFERENCE — Dark navy, editorial
       ════════════════════════════════════════ */}
-      <section
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr",
-        }}
-        className="lg:grid-cols-2"
-      >
-        {/* Left — solid teal */}
-        <div
-          style={{
-            background: "#00C5A3",
-            padding: "clamp(5rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem)",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-          }}
-        >
-          <p
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.58rem",
-              fontWeight: 700,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: "rgba(255,255,255,0.6)",
-              marginBottom: "2rem",
-              whiteSpace: "nowrap",
-              display: "flex",
-              alignItems: "center",
-              gap: "0.75rem",
-            }}
-          >
-            <span style={{ opacity: 0.6 }}>03</span><span style={{ opacity: 0.6 }}>—</span><span>Our Difference</span>
-          </p>
-          <h2
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(2.25rem, 5vw, 4.5rem)",
-              lineHeight: 0.93,
-              letterSpacing: "-0.04em",
-              color: "#FFFFFF",
-              marginBottom: "2rem",
-            }}
-          >
-            Doctor-Led.
-            <br />
-            Not{" "}
-            <em style={{ fontStyle: "italic", color: "rgba(255,255,255,0.7)" }}>
-              Agent-Led.
-            </em>
-          </h2>
-          <div
-            style={{
-              width: "40px",
-              height: "3px",
-              background: "rgba(255,255,255,0.5)",
-              marginBottom: "2rem",
-            }}
-          />
-          <p
-            style={{
-              color: "rgba(255,255,255,0.7)",
-              fontSize: "1rem",
-              lineHeight: 1.75,
-              maxWidth: "420px",
-            }}
-          >
-            When a doctor guides you, the outcome shifts from closing a sale to
-            securing your future. That&apos;s not just a tagline — it&apos;s
-            the difference between a career and a mistake.
-          </p>
+      <section style={{ background: "#003366", position: "relative", overflow: "hidden" }}>
+
+        {/* Faded ghost number */}
+        <div style={{ position: "absolute", right: "clamp(1rem, 4vw, 3rem)", top: "2rem", fontFamily: "var(--font-mono)", fontSize: "clamp(6rem, 14vw, 11rem)", fontWeight: 700, lineHeight: 1, color: "#FFFFFF", opacity: 0.04, letterSpacing: "-0.04em", userSelect: "none", pointerEvents: "none" }}>
+          03
         </div>
 
-        {/* Right — white with bullet points */}
-        <div
-          style={{
-            background: "#FFFFFF",
-            padding: "clamp(5rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem)",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            borderLeft: "1px solid #E8E8E8",
-          }}
-        >
-          <p
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.58rem",
-              fontWeight: 700,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: "#6B7280",
-              marginBottom: "2rem",
-            }}
-          >
-            The contrast
-          </p>
-          {[
-            {
-              title: "We studied abroad — they didn't",
-              desc: "Every team member holds an MBBS from an NMC-approved foreign university. Agents have brochures. We have diplomas.",
-            },
-            {
-              title: "We earn zero university commission",
-              desc: "Our income is from student fees, not referral cuts. We recommend what is right for you — not what pays us the most.",
-            },
-            {
-              title: "FMGE planning starts pre-departure",
-              desc: "We hand you a year-wise study plan before your flight. Not after year 3 when panic sets in.",
-            },
-            {
-              title: "One point of contact throughout",
-              desc: "No passing you around. The counselor who signs you is reachable throughout your full degree.",
-            },
-          ].map((item) => (
-            <div
-              key={item.title}
-              style={{
-                display: "flex",
-                gap: "1.25rem",
-                marginBottom: "2rem",
-                paddingBottom: "2rem",
-                borderBottom: "1px solid #E8E8E8",
-              }}
-            >
-              <div
-                style={{
-                  width: "6px",
-                  height: "6px",
-                  background: "#00C5A3",
-                  flexShrink: 0,
-                  marginTop: "0.5rem",
-                }}
-              />
-              <div>
-                <p
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "clamp(1rem, 1.5vw, 1.25rem)",
-                    color: "#0D0D0D",
-                    lineHeight: 1.2,
-                    letterSpacing: "-0.01em",
-                    marginBottom: "0.5rem",
-                  }}
-                >
-                  {item.title}
+        <div className="container-custom" style={{ position: "relative", zIndex: 1 }}>
+
+          {/* Header */}
+          <div style={{ padding: "clamp(4rem, 7vw, 6rem) 0 3rem", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+            <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#00C5A3", marginBottom: "2rem", whiteSpace: "nowrap", display: "flex", alignItems: "center", gap: "0.75rem" }}>
+              <span style={{ opacity: 0.4 }}>03</span>
+              <span style={{ opacity: 0.4 }}>—</span>
+              <span>Our Difference</span>
+            </p>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: "3rem", alignItems: "end" }}>
+              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.5rem, 5vw, 4.75rem)", lineHeight: 0.92, letterSpacing: "-0.04em", color: "#FFFFFF" }}>
+                Doctor-Led.
+                <br />
+                <em style={{ color: "#00C5A3" }}>Not Agent-Led.</em>
+              </h2>
+              <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.9375rem", lineHeight: 1.8, borderLeft: "2px solid rgba(255,255,255,0.1)", paddingLeft: "1.75rem" }}>
+                When a doctor guides you, the outcome shifts from closing a sale to securing your future. That&apos;s not a tagline — it&apos;s the difference between a career and a mistake.
+              </p>
+            </div>
+          </div>
+
+          {/* 4 proof cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2" style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+            {[
+              { num: "01", title: "We studied abroad — they didn't", desc: "Every team member holds an MBBS from an NMC-approved foreign university. Agents have brochures. We have diplomas." },
+              { num: "02", title: "Zero university commission", desc: "Our income is from student fees, not referral cuts. We recommend what is right for you — not what pays us the most." },
+              { num: "03", title: "FMGE planning starts pre-departure", desc: "We hand you a year-wise FMGE study plan before your flight. Not after year 3 when panic sets in." },
+              { num: "04", title: "One point of contact, always", desc: "No passing you around. The counselor who signs you is reachable throughout your full 5–6 year degree." },
+            ].map((item, i) => (
+              <div key={item.num} className="group" style={{ padding: "2.75rem 0", position: "relative", borderBottom: i < 2 ? "1px solid rgba(255,255,255,0.08)" : "none", borderRight: i % 2 === 0 ? "1px solid rgba(255,255,255,0.08)" : "none" }}>
+                {/* Hover teal top accent */}
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: "#00C5A3", transform: "scaleX(0)", transformOrigin: "left", transition: "transform 0.3s ease" }} className="group-hover:scale-x-100" />
+
+                {/* Large faded number */}
+                <p style={{ fontFamily: "var(--font-mono)", fontSize: "3.5rem", fontWeight: 700, color: "rgba(255,255,255,0.04)", lineHeight: 1, letterSpacing: "-0.04em", marginBottom: "1rem", userSelect: "none" }}>
+                  {item.num}
                 </p>
-                <p
-                  style={{
-                    color: "#6B7280",
-                    fontSize: "0.875rem",
-                    lineHeight: 1.7,
-                  }}
-                >
+                <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#00C5A3", marginBottom: "0.875rem" }}>
+                  {item.num}
+                </p>
+                <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.125rem, 1.75vw, 1.5rem)", lineHeight: 1.15, letterSpacing: "-0.02em", color: "#FFFFFF", marginBottom: "0.875rem" }}>
+                  {item.title}
+                </h3>
+                <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.875rem", lineHeight: 1.75 }}>
                   {item.desc}
                 </p>
               </div>
+            ))}
+          </div>
+
+          {/* Comparison strip */}
+          <div className="grid grid-cols-1 lg:grid-cols-2" style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+            {/* Agents column */}
+            <div style={{ padding: "2rem 0", borderRight: "1px solid rgba(255,255,255,0.08)" }}>
+              <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.52rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.25)", marginBottom: "1rem" }}>Typical Agent</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.625rem" }}>
+                {["Brochure knowledge only", "University commissions", "FMGE as afterthought", "Unreachable post-admission"].map(t => (
+                  <div key={t} style={{ display: "flex", alignItems: "center", gap: "0.625rem" }}>
+                    <div style={{ width: "16px", height: "1px", background: "rgba(255,255,255,0.2)", flexShrink: 0 }} />
+                    <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "rgba(255,255,255,0.3)", letterSpacing: "0.03em", textDecoration: "line-through" }}>{t}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
+            {/* Worldwise column */}
+            <div style={{ padding: "2rem 0 2rem 0" }} className="lg:pl-8">
+              <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.52rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#00C5A3", marginBottom: "1rem" }}>Worldwise Education</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.625rem" }}>
+                {["MBBS degree from the same universities", "Student-fee only, zero commission", "FMGE roadmap before departure", "Same counselor, 6 years"].map(t => (
+                  <div key={t} style={{ display: "flex", alignItems: "center", gap: "0.625rem" }}>
+                    <div style={{ width: "8px", height: "8px", background: "#00C5A3", flexShrink: 0 }} />
+                    <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "rgba(255,255,255,0.75)", letterSpacing: "0.03em" }}>{t}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom CTA */}
+          <div style={{ padding: "2rem 0", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
+            <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", color: "rgba(255,255,255,0.25)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+              Free · No obligation · Doctor-led
+            </p>
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn-teal">
+              <Phone className="w-3.5 h-3.5" />
+              Talk to a Doctor
+            </a>
+          </div>
+
         </div>
       </section>
 
