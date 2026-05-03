@@ -621,7 +621,7 @@ export default function HomePage() {
                   style={{
                     position: "relative",
                     overflow: "hidden",
-                    height: "320px",
+                    height: "360px",
                   }}
                 >
                   <Image
@@ -629,6 +629,7 @@ export default function HomePage() {
                     alt={member.name}
                     fill
                     className="object-cover transition-all duration-500 grayscale group-hover:grayscale-0 group-hover:scale-105"
+                    style={{ objectPosition: "top center" }}
                   />
                   <div
                     style={{
