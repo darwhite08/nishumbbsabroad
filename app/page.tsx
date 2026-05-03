@@ -289,38 +289,30 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Feature rows — full-width numbered list */}
+          {/* Feature rows — simple 2-column: index | content */}
           <div>
             {features.map((f, idx) => (
-              <div key={f.num} className="group" style={{ display: "grid", gridTemplateColumns: "1fr", borderBottom: "1px solid #E8E8E8", cursor: "default", position: "relative" }} >
+              <div key={f.num} className="group hover:bg-[#FAFAFA] transition-colors duration-150"
+                style={{ display: "grid", gridTemplateColumns: "64px 1fr", borderBottom: idx < 3 ? "1px solid #E8E8E8" : "none", position: "relative" }}>
 
                 {/* Teal left hover bar */}
-                <div className="absolute left-0 top-0 bottom-0 w-0 group-hover:w-[3px] transition-all duration-300 bg-teal" style={{ background: "#00C5A3" }} />
+                <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 0, background: "#00C5A3", transition: "width 0.25s ease" }}
+                  className="group-hover:!w-[3px]" />
 
-                <div style={{ display: "grid", gridTemplateColumns: "5rem 1fr", gap: 0 }} className="lg:grid-cols-[5rem_40%_1fr]">
+                {/* Index */}
+                <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", paddingTop: "2.25rem", borderRight: "1px solid #E8E8E8" }}>
+                  <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.1em", color: "#00C5A3" }}>{f.num}</span>
+                </div>
 
-                  {/* Index number */}
-                  <div style={{ padding: "2.75rem 0", display: "flex", alignItems: "flex-start", justifyContent: "center", borderRight: "1px solid #E8E8E8" }}>
-                    <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.15em", color: "#00C5A3" }}>{f.num}</span>
-                  </div>
-
-                  {/* Title */}
-                  <div style={{ padding: "2.75rem 3rem 2.75rem 2.5rem", borderRight: "1px solid #E8E8E8", display: "flex", alignItems: "center" }} className="hidden lg:flex">
-                    <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.5rem, 2.5vw, 2.125rem)", lineHeight: 1.05, letterSpacing: "-0.025em", color: "#0A0A0A", transition: "color 0.2s" }} className="group-hover:text-[#003366]">
-                      {f.title}
-                    </h3>
-                  </div>
-
-                  {/* Body */}
-                  <div style={{ padding: "2.75rem 0 2.75rem 2.5rem", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-                    {/* Title (mobile only) */}
-                    <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.375rem", lineHeight: 1.1, letterSpacing: "-0.02em", color: "#0A0A0A", marginBottom: "0.75rem" }} className="lg:hidden">
-                      {f.title}
-                    </h3>
-                    <p style={{ color: "#6B7280", fontSize: "0.9375rem", lineHeight: 1.8, maxWidth: "520px" }}>
-                      {f.body}
-                    </p>
-                  </div>
+                {/* Content: title + rule + body — all in one column, always readable */}
+                <div style={{ padding: "2.25rem 2rem 2.25rem 2rem" }}>
+                  <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.25rem, 2vw, 1.875rem)", lineHeight: 1.1, letterSpacing: "-0.02em", color: "#0A0A0A", marginBottom: "0.75rem" }}>
+                    {f.title}
+                  </h3>
+                  <div style={{ width: "24px", height: "2px", background: "#00C5A3", marginBottom: "0.875rem" }} />
+                  <p style={{ color: "#6B7280", fontSize: "0.9375rem", lineHeight: 1.8 }}>
+                    {f.body}
+                  </p>
                 </div>
               </div>
             ))}
