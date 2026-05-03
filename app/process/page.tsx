@@ -129,7 +129,7 @@ export default function ProcessPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary pt-28 pb-16">
+      <section style={{ background: "#003366", paddingTop: "7rem", paddingBottom: "4rem" }}>
         <div className="container-custom">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Admission Process" }]} />
           <h1 className="text-white mb-4">The MBBS Abroad Admission Process</h1>
@@ -147,10 +147,10 @@ export default function ProcessPage() {
             {steps.map((step) => (
               <div
                 key={step.num}
-                className="flex gap-6 p-6 bg-bg-light rounded-2xl border border-border"
+                className="flex gap-6 p-6 bg-bg-light border border-border"
               >
                 <div className="flex flex-col items-center gap-2 shrink-0">
-                  <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-extrabold text-lg">
+                  <div className="w-12 h-12 bg-primary text-white flex items-center justify-center font-extrabold text-lg">
                     {step.num}
                   </div>
                   <span className="text-2xl">{step.icon}</span>
@@ -178,8 +178,8 @@ export default function ProcessPage() {
           <h2 className="text-text-main mb-8">Typical Admission Timeline (March–October)</h2>
           <div className="max-w-2xl space-y-3">
             {timeline.map((item, i) => (
-              <div key={i} className="flex items-start gap-4 p-4 bg-white rounded-xl border border-border">
-                <div className="w-8 h-8 bg-accent text-white rounded-full flex items-center justify-center font-bold text-xs shrink-0">
+              <div key={i} className="flex items-start gap-4 p-4 bg-white border border-border">
+                <div className="w-8 h-8 bg-accent text-white flex items-center justify-center font-bold text-xs shrink-0">
                   {i + 1}
                 </div>
                 <div>
@@ -204,7 +204,7 @@ export default function ProcessPage() {
             </p>
             <ul className="space-y-3">
               {documents.map((doc, i) => (
-                <li key={i} className="flex items-start gap-3 p-4 bg-bg-light rounded-xl border border-border">
+                <li key={i} className="flex items-start gap-3 p-4 bg-bg-light border border-border">
                   <div className="w-5 h-5 border-2 border-primary rounded mt-0.5 shrink-0" />
                   <span className="text-text-main text-sm">{doc}</span>
                 </li>
@@ -215,7 +215,7 @@ export default function ProcessPage() {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-gradient-to-br from-primary to-primary-light">
+      <section className="section-padding bg-surgical">
         <div className="container-custom text-center">
           <h2 className="text-white mb-4">Start Your Process Today</h2>
           <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
@@ -226,7 +226,7 @@ export default function ProcessPage() {
             href={whatsappLink("Hi, I want to start the MBBS abroad admission process. Please guide me.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-success text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-green-600 transition-colors shadow-xl"
+            className="inline-flex items-center gap-2 bg-success text-white px-10 py-4 font-semibold text-lg transition-colors"
           >
             <Phone className="w-5 h-5" />
             Start Your Process

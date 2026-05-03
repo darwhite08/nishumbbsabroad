@@ -39,7 +39,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary pt-28 pb-16">
+      <section style={{ background: "#003366", paddingTop: "7rem", paddingBottom: "4rem" }}>
         <div className="container-custom">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "About Us" }]} />
           <h1 className="text-white mb-4">About Worldwise Education</h1>
@@ -127,8 +127,8 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((v) => (
-              <div key={v.title} className="bg-bg-light rounded-2xl p-6 border border-border">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+              <div key={v.title} className="bg-bg-light p-6 border border-border">
+                <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mb-4">
                   <v.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="text-text-main font-semibold mb-2">{v.title}</h3>
@@ -167,7 +167,7 @@ export default function AboutPage() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="bg-white rounded-xl p-5 border border-border text-center"
+                className="bg-white p-5 border border-border text-center"
               >
                 <CheckCircle2 className="w-8 h-8 text-success mx-auto mb-2" />
                 <h3 className="font-semibold text-text-main text-sm mb-1">{item.title}</h3>

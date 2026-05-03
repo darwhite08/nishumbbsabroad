@@ -114,7 +114,7 @@ export default function UniversityPage({ params }: Props) {
             </div>
 
             {/* Quick info card */}
-            <div className="bg-bg-light rounded-2xl p-6 border border-border h-fit">
+            <div className="bg-bg-light p-6 border border-border h-fit">
               <h3 className="text-text-main font-semibold mb-4">Quick Info</h3>
               <div className="space-y-3 text-sm">
                 {[
@@ -139,7 +139,7 @@ export default function UniversityPage({ params }: Props) {
                 href={whatsappLink(u.whatsappMessage)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 flex items-center justify-center gap-2 bg-success text-white px-6 py-3 rounded-full font-semibold text-sm hover:bg-green-600 transition-colors w-full"
+                className="mt-6 flex items-center justify-center gap-2 bg-success text-white px-6 py-3 font-semibold text-sm transition-colors w-full"
               >
                 <Phone className="w-4 h-4" />
                 Apply Through Us
@@ -164,7 +164,7 @@ export default function UniversityPage({ params }: Props) {
       )}
 
       {/* CTA */}
-      <section className="section-padding bg-gradient-to-br from-primary to-primary-light">
+      <section className="section-padding bg-surgical">
         <div className="container-custom text-center">
           <h2 className="text-white mb-4">Interested in {u.name}?</h2>
           <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
@@ -174,7 +174,7 @@ export default function UniversityPage({ params }: Props) {
             href={whatsappLink(u.whatsappMessage)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-success text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-green-600 transition-colors shadow-xl"
+            className="inline-flex items-center gap-2 bg-success text-white px-10 py-4 font-semibold text-lg transition-colors"
           >
             <Phone className="w-5 h-5" />
             Apply Through Us

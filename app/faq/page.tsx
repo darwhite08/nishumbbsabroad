@@ -30,7 +30,7 @@ export default function FAQPage() {
       />
 
       {/* Hero */}
-      <section className="bg-primary pt-28 pb-16">
+      <section style={{ background: "#003366", paddingTop: "7rem", paddingBottom: "4rem" }}>
         <div className="container-custom">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "FAQ" }]} />
           <h1 className="text-white mb-4">Frequently Asked Questions</h1>
@@ -55,7 +55,7 @@ export default function FAQPage() {
                     {catFaqs.map((faq) => (
                       <details
                         key={faq.id}
-                        className="group bg-white rounded-xl border border-border overflow-hidden shadow-sm"
+                        className="group bg-white border border-border overflow-hidden"
                       >
                         <summary className="flex items-center justify-between p-5 cursor-pointer font-semibold text-text-main hover:text-primary transition-colors list-none">
                           {faq.question}

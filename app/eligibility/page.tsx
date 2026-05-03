@@ -22,7 +22,7 @@ export default function EligibilityPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary pt-28 pb-16">
+      <section style={{ background: "#003366", paddingTop: "7rem", paddingBottom: "4rem" }}>
         <div className="container-custom">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Eligibility" }]} />
           <h1 className="text-white mb-4">Eligibility for MBBS Abroad</h1>
@@ -60,7 +60,7 @@ export default function EligibilityPage() {
                 note: "Arts or Commerce students are not eligible.",
               },
             ].map((item) => (
-              <div key={item.title} className="bg-bg-light rounded-xl p-5 border border-border">
+              <div key={item.title} className="bg-bg-light p-5 border border-border">
                 <h3 className="font-bold text-text-main mb-1">{item.title}</h3>
                 <p className="text-text-main text-sm mb-1">{item.req}</p>
                 <p className="text-text-muted text-xs italic">{item.note}</p>
@@ -74,7 +74,7 @@ export default function EligibilityPage() {
       <section className="section-padding bg-bg-light">
         <div className="container-custom">
           <h2 className="text-text-main mb-6">Country-Wise Eligibility Requirements</h2>
-          <div className="overflow-x-auto rounded-2xl shadow-md border border-border">
+          <div className="overflow-x-auto border border-border">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-primary text-white">
@@ -121,7 +121,7 @@ export default function EligibilityPage() {
             answer.
           </p>
 
-          <div className="overflow-x-auto rounded-2xl shadow-md border border-border max-w-3xl">
+          <div className="overflow-x-auto border border-border max-w-3xl">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-primary text-white">
@@ -142,7 +142,7 @@ export default function EligibilityPage() {
             </table>
           </div>
 
-          <div className="mt-6 p-5 bg-blue-50 border border-primary/20 rounded-xl max-w-2xl">
+          <div className="mt-6 p-5 bg-[#F5F5F5] border border-primary/20 max-w-2xl">
             <p className="text-text-muted text-sm">
               <strong className="text-text-main">Important:</strong> These are guidelines, not
               rules. A student with a 280 NEET score and a ₹25L budget has a clear, viable path.
@@ -154,7 +154,7 @@ export default function EligibilityPage() {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-gradient-to-br from-primary to-primary-light">
+      <section className="section-padding bg-surgical">
         <div className="container-custom text-center">
           <h2 className="text-white mb-4">Check Your Eligibility — Talk to Our Doctors</h2>
           <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
@@ -165,7 +165,7 @@ export default function EligibilityPage() {
             href={whatsappLink("Hi, I want to check my eligibility for MBBS abroad. My NEET score is ___.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-success text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-green-600 transition-colors shadow-xl"
+            className="inline-flex items-center gap-2 bg-success text-white px-10 py-4 font-semibold text-lg transition-colors"
           >
             <Phone className="w-5 h-5" />
             Check My Eligibility

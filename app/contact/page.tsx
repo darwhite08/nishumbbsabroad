@@ -36,7 +36,7 @@ export default function ContactPage() {
       />
 
       {/* Hero */}
-      <section className="bg-primary pt-28 pb-16">
+      <section style={{ background: "#003366", paddingTop: "7rem", paddingBottom: "4rem" }}>
         <div className="container-custom">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
           <h1 className="text-white mb-4">Let&apos;s Talk</h1>
@@ -52,8 +52,8 @@ export default function ContactPage() {
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {/* WhatsApp card */}
-            <div className="bg-white rounded-2xl p-8 shadow-md border border-border flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mb-5">
+            <div className="bg-white p-8 border border-border flex flex-col items-center text-center">
+              <div className="w-16 h-16 bg-green-50 flex items-center justify-center mb-5">
                 <Phone className="w-8 h-8 text-success" />
               </div>
               <h2 className="text-text-main mb-2">Chat on WhatsApp</h2>
@@ -65,7 +65,7 @@ export default function ContactPage() {
                 href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-success text-white px-8 py-3.5 rounded-full font-semibold hover:bg-green-600 transition-colors"
+                className="flex items-center gap-2 bg-success text-white px-8 py-3.5 font-semibold transition-colors"
               >
                 <Phone className="w-4 h-4" />
                 Open WhatsApp
@@ -76,8 +76,8 @@ export default function ContactPage() {
             </div>
 
             {/* Instagram card */}
-            <div className="bg-white rounded-2xl p-8 shadow-md border border-border flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-pink-50 rounded-full flex items-center justify-center mb-5">
+            <div className="bg-white p-8 border border-border flex flex-col items-center text-center">
+              <div className="w-16 h-16 bg-pink-50 flex items-center justify-center mb-5">
                 <Instagram className="w-8 h-8 text-pink-500" />
               </div>
               <h2 className="text-text-main mb-2">Message on Instagram</h2>
@@ -89,7 +89,7 @@ export default function ContactPage() {
                 href={instagramLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white px-8 py-3.5 rounded-full font-semibold hover:opacity-90 transition-opacity"
+                className="flex items-center gap-2 bg-[#C13584] text-white px-8 py-3.5 font-semibold hover:opacity-90 transition-opacity"
               >
                 <Instagram className="w-4 h-4" />
                 Open Instagram
@@ -101,7 +101,7 @@ export default function ContactPage() {
           </div>
 
           {/* Additional info */}
-          <div className="max-w-3xl mx-auto mt-8 bg-white rounded-2xl p-6 shadow-sm border border-border">
+          <div className="max-w-3xl mx-auto mt-8 bg-white p-6 border border-border">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               <div className="flex items-start gap-3">
                 <Clock className="w-5 h-5 text-primary mt-0.5 shrink-0" />

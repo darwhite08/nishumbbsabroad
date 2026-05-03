@@ -87,7 +87,7 @@ export default function BlogPostPage({ params }: Props) {
               { label: post.title },
             ]}
           />
-          <span className="bg-accent text-white text-xs font-semibold px-3 py-1 rounded-full mb-4 inline-block">
+          <span className="bg-accent text-white text-xs font-semibold px-3 py-1 mb-4 inline-block">
             {post.category}
           </span>
           <h1 className="text-white max-w-3xl">{post.title}</h1>
@@ -122,7 +122,7 @@ export default function BlogPostPage({ params }: Props) {
               </p>
 
               {/* Mid-article CTA */}
-              <div className="my-8 p-5 bg-bg-light rounded-xl border border-border flex flex-col sm:flex-row items-center gap-4">
+              <div className="my-8 p-5 bg-bg-light border border-border flex flex-col sm:flex-row items-center gap-4">
                 <div className="flex-1">
                   <p className="font-semibold text-text-main">Have questions about this topic?</p>
                   <p className="text-text-muted text-sm">
@@ -133,7 +133,7 @@ export default function BlogPostPage({ params }: Props) {
                   href={whatsappLink()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="shrink-0 flex items-center gap-2 bg-success text-white px-6 py-2.5 rounded-full font-semibold text-sm hover:bg-green-600 transition-colors"
+                  className="shrink-0 flex items-center gap-2 bg-success text-white px-6 py-2.5 font-semibold text-sm transition-colors"
                 >
                   <Phone className="w-4 h-4" />
                   WhatsApp Us
@@ -147,7 +147,7 @@ export default function BlogPostPage({ params }: Props) {
               />
 
               {/* End CTA */}
-              <div className="mt-10 p-6 bg-gradient-to-r from-primary to-primary-light rounded-2xl text-center">
+              <div className="mt-10 p-6 bg-surgical text-center">
                 <h3 className="text-white font-bold text-lg mb-2">
                   Ready to Take the Next Step?
                 </h3>
@@ -158,7 +158,7 @@ export default function BlogPostPage({ params }: Props) {
                   href={whatsappLink()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-success text-white px-8 py-3 rounded-full font-semibold text-sm hover:bg-green-600 transition-colors"
+                  className="inline-flex items-center gap-2 bg-success text-white px-8 py-3 font-semibold text-sm transition-colors"
                 >
                   <Phone className="w-4 h-4" />
                   WhatsApp Us
@@ -177,13 +177,13 @@ export default function BlogPostPage({ params }: Props) {
             {/* Sidebar */}
             <aside className="lg:col-span-1">
               <div className="sticky top-24 space-y-6">
-                <div className="bg-bg-light rounded-xl p-5 border border-border">
+                <div className="bg-bg-light p-5 border border-border">
                   <h3 className="font-bold text-text-main mb-3 text-sm">About the Author</h3>
                   <p className="font-semibold text-text-main text-sm">{post.author}</p>
                   <p className="text-text-muted text-xs mt-0.5">{post.authorRole}</p>
                 </div>
 
-                <div className="bg-success/10 border border-success/20 rounded-xl p-5">
+                <div className="bg-success/10 border border-success/20 p-5">
                   <h3 className="font-bold text-text-main mb-2 text-sm">Free Counseling</h3>
                   <p className="text-text-muted text-xs mb-3">
                     Talk to a doctor who has been where you are.
@@ -192,7 +192,7 @@ export default function BlogPostPage({ params }: Props) {
                     href={whatsappLink()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 bg-success text-white px-4 py-2.5 rounded-full font-semibold text-xs hover:bg-green-600 transition-colors"
+                    className="flex items-center justify-center gap-2 bg-success text-white px-4 py-2.5 font-semibold text-xs transition-colors"
                   >
                     <Phone className="w-3.5 h-3.5" />
                     WhatsApp Us
@@ -214,7 +214,7 @@ export default function BlogPostPage({ params }: Props) {
                 <Link
                   key={rp.slug}
                   href={`/blog/${rp.slug}`}
-                  className="group block bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden border border-border"
+                  className="group block bg-white transition-all duration-200 overflow-hidden border border-border"
                 >
                   <div className="relative h-36 overflow-hidden">
                     <Image

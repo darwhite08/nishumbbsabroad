@@ -19,7 +19,7 @@ export default function BlogPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary pt-28 pb-16">
+      <section style={{ background: "#003366", paddingTop: "7rem", paddingBottom: "4rem" }}>
         <div className="container-custom">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
           <h1 className="text-white mb-4">MBBS Abroad Blog</h1>
@@ -39,7 +39,7 @@ export default function BlogPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group block bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden border border-border"
+                className="group block bg-white transition-all duration-200 overflow-hidden border border-border"
               >
                 <div className="relative h-48 overflow-hidden">
                   <Image
@@ -49,7 +49,7 @@ export default function BlogPage() {
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute top-3 left-3">
-                    <span className="bg-accent text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                    <span className="bg-accent text-white text-xs font-semibold px-2.5 py-1">
                       {post.category}
                     </span>
                   </div>
@@ -92,7 +92,7 @@ export default function BlogPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group block bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden border border-border"
+                className="group block bg-white transition-all duration-200 overflow-hidden border border-border"
               >
                 <div className="relative h-40 overflow-hidden">
                   <Image
@@ -102,7 +102,7 @@ export default function BlogPage() {
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute top-2 left-2">
-                    <span className="bg-primary text-white text-xs font-medium px-2 py-0.5 rounded-full">
+                    <span className="bg-primary text-white text-xs font-medium px-2 py-0.5">
                       {post.category}
                     </span>
                   </div>

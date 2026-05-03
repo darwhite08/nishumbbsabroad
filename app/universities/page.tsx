@@ -16,7 +16,7 @@ export default function UniversitiesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary pt-28 pb-16">
+      <section style={{ background: "#003366", paddingTop: "7rem", paddingBottom: "4rem" }}>
         <div className="container-custom">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Universities" }]} />
           <h1 className="text-white mb-4">NMC-Approved Universities Abroad</h1>

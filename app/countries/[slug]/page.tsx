@@ -91,7 +91,7 @@ export default function CountryPage({ params }: Props) {
             ].map((s) => (
               <div
                 key={s.label}
-                className="bg-white/15 backdrop-blur-sm rounded-xl px-4 py-2 border border-white/20"
+                className="bg-white/15 backdrop-blur-sm px-4 py-2 border border-white/20"
               >
                 <p className="text-white/70 text-xs">{s.label}</p>
                 <p className="text-white font-semibold text-sm">{s.value}</p>
@@ -103,7 +103,7 @@ export default function CountryPage({ params }: Props) {
             href={whatsappLink(country.whatsappMessage)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-success text-white px-8 py-3.5 rounded-full font-semibold mt-6 hover:bg-green-600 transition-colors"
+            className="inline-flex items-center gap-2 bg-success text-white px-8 py-3.5 font-semibold mt-6 transition-colors"
           >
             <Phone className="w-4 h-4" />
             Talk to Us About {country.name}
@@ -117,7 +117,7 @@ export default function CountryPage({ params }: Props) {
           <h2 className="text-text-main mb-8">Why {country.name} for MBBS?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {country.whyChoose.map((item) => (
-              <div key={item.title} className="flex items-start gap-4 p-5 bg-bg-light rounded-xl border border-border">
+              <div key={item.title} className="flex items-start gap-4 p-5 bg-bg-light border border-border">
                 <CheckCircle2 className="w-5 h-5 text-success mt-0.5 shrink-0" />
                 <div>
                   <h3 className="font-semibold text-text-main mb-1">{item.title}</h3>
@@ -133,7 +133,7 @@ export default function CountryPage({ params }: Props) {
       <section className="section-padding bg-bg-light">
         <div className="container-custom">
           <h2 className="text-text-main mb-6">Eligibility for {country.name}</h2>
-          <div className="max-w-2xl overflow-x-auto rounded-xl border border-border shadow-sm">
+          <div className="max-w-2xl overflow-x-auto border border-border">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-primary text-white">
@@ -180,7 +180,7 @@ export default function CountryPage({ params }: Props) {
       <section className="section-padding bg-bg-light">
         <div className="container-custom">
           <h2 className="text-text-main mb-6">Fee Structure — {country.name}</h2>
-          <div className="overflow-x-auto rounded-xl border border-border shadow-sm max-w-3xl">
+          <div className="overflow-x-auto border border-border max-w-3xl">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-primary text-white">
@@ -216,8 +216,8 @@ export default function CountryPage({ params }: Props) {
           <h2 className="text-text-main mb-8">Admission Timeline — {country.name}</h2>
           <div className="max-w-2xl space-y-3">
             {country.admissionTimeline.map((item, i) => (
-              <div key={i} className="flex items-start gap-4 p-4 bg-bg-light rounded-xl border border-border">
-                <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm shrink-0">
+              <div key={i} className="flex items-start gap-4 p-4 bg-bg-light border border-border">
+                <div className="w-8 h-8 bg-primary text-white flex items-center justify-center font-bold text-sm shrink-0">
                   {i + 1}
                 </div>
                 <div>
@@ -236,7 +236,7 @@ export default function CountryPage({ params }: Props) {
           <h2 className="text-text-main mb-6">Life in {country.name}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl">
             {Object.entries(country.lifeAbroad).map(([key, val]) => (
-              <div key={key} className="bg-white rounded-xl p-5 border border-border">
+              <div key={key} className="bg-white p-5 border border-border">
                 <h3 className="font-semibold text-text-main capitalize mb-2">{key}</h3>
                 <p className="text-text-muted text-sm">{val}</p>
               </div>
@@ -248,7 +248,7 @@ export default function CountryPage({ params }: Props) {
       {/* FMGE Note */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <div className="max-w-2xl bg-blue-50 border border-primary/20 rounded-2xl p-6">
+          <div className="max-w-2xl bg-[#F5F5F5] border border-primary/20 p-6">
             <h2 className="text-text-main mb-3">FMGE/NExT Preparation from {country.name}</h2>
             <p className="text-text-muted leading-relaxed">{country.fmgeNote}</p>
           </div>
@@ -277,7 +277,7 @@ export default function CountryPage({ params }: Props) {
             {country.faqs.map((faq, i) => (
               <details
                 key={i}
-                className="group bg-bg-light rounded-xl border border-border overflow-hidden"
+                className="group bg-bg-light border border-border overflow-hidden"
               >
                 <summary className="flex items-center justify-between p-5 cursor-pointer font-semibold text-text-main hover:text-primary transition-colors list-none">
                   {faq.question}
@@ -293,7 +293,7 @@ export default function CountryPage({ params }: Props) {
       </section>
 
       {/* Bottom CTA */}
-      <section className="section-padding bg-gradient-to-br from-primary to-primary-light">
+      <section className="section-padding bg-surgical">
         <div className="container-custom text-center">
           <h2 className="text-white mb-4">Ready to Study MBBS in {country.name}?</h2>
           <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
@@ -307,7 +307,7 @@ export default function CountryPage({ params }: Props) {
             href={whatsappLink(country.whatsappMessage)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-success text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-green-600 transition-colors shadow-xl"
+            className="inline-flex items-center gap-2 bg-success text-white px-10 py-4 font-semibold text-lg transition-colors"
           >
             <Phone className="w-5 h-5" />
             Talk to Us About {country.name}

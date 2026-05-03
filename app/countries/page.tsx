@@ -15,7 +15,7 @@ export default function CountriesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary pt-28 pb-16">
+      <section style={{ background: "#003366", paddingTop: "7rem", paddingBottom: "4rem" }}>
         <div className="container-custom">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Countries" }]} />
           <h1 className="text-white mb-4">Choose Your Destination</h1>
@@ -49,7 +49,7 @@ export default function CountriesPage() {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <h2 className="text-text-main mb-8 text-center">Quick Country Comparison</h2>
-          <div className="overflow-x-auto rounded-2xl shadow-md border border-border">
+          <div className="overflow-x-auto border border-border">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-primary text-white">
