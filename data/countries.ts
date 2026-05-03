@@ -437,7 +437,7 @@ export const countries: Country[] = [
     climate: "Tropical, warm year-round",
     nmcApproved: true,
     tagline: "US-Style Curriculum, USMLE Ready",
-    heroImage: "https://images.unsplash.com/photo-1519544801976-22f3600d79a8?w=1200&q=80",
+    heroImage: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=1200&q=80",
     whyChoose: [
       { icon: "Globe", title: "US-Style Curriculum", description: "Philippines follows the American medical education model. Ideal for students considering USMLE or international practice." },
       { icon: "Languages", title: "English-First Country", description: "English is an official language. No language barrier whatsoever." },

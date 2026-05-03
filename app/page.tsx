@@ -71,7 +71,7 @@ const countryPhotos: Record<string, string> = {
   nepal:
     "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&q=80",
   philippines:
-    "https://images.unsplash.com/photo-1519544801976-22f3600d79a8?w=800&q=80",
+    "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=800&q=80",
 };
 
 const marqueeItems = [

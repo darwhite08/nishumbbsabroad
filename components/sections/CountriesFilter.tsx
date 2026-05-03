@@ -39,7 +39,7 @@ const countryPhotos: Record<string, string> = {
   kyrgyzstan:  "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=800&q=80",
   bangladesh:  "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=800&q=80",
   nepal:       "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&q=80",
-  philippines: "https://images.unsplash.com/photo-1519544801976-22f3600d79a8?w=800&q=80",
+  philippines: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=800&q=80",
 };
 
 interface Props {
