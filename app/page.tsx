@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Phone, Instagram, ArrowRight, CheckCircle } from "lucide-react";
+import { Phone, Instagram, ArrowRight, CheckCircle, Star } from "lucide-react";
 import { whatsappLink, instagramLink } from "@/lib/utils";
 import { countries } from "@/data/countries";
 import { team } from "@/data/team";
@@ -10,152 +10,586 @@ import { faqs } from "@/data/faqs";
 
 export const metadata: Metadata = {
   title: "Worldwise Education — For the Doctors, By the Doctors",
-  description: "Premium MBBS abroad consultancy. Doctor-led guidance for NMC-approved universities in Russia, Georgia, Kazakhstan and 5 more countries. Free counseling.",
+  description:
+    "Premium MBBS abroad consultancy. Doctor-led guidance for NMC-approved universities in Russia, Georgia, Kazakhstan and 5 more countries. Free counseling.",
   alternates: { canonical: "/" },
 };
 
 const stats = [
   { value: "20L+", label: "NEET candidates / year" },
-  { value: "52K",  label: "Govt. seats available" },
-  { value: "8",    label: "Countries covered" },
+  { value: "52K", label: "Govt. seats available" },
+  { value: "8", label: "Countries covered" },
   { value: "500+", label: "Students placed" },
 ];
 
 const features = [
-  { num: "01", title: "Doctor-Led Counseling", body: "Every counselor holds an MBBS from a foreign university. We have sat exactly where you are sitting right now." },
-  { num: "02", title: "NMC / WDOMS Compliant", body: "We only recommend universities that are fully NMC-approved and WDOMS-listed. Your practice rights in India are non-negotiable." },
-  { num: "03", title: "End-to-End Support", body: "University selection → visa → airport pickup → FMGE coaching strategy. We stay in touch throughout your degree." },
-  { num: "04", title: "FMGE from Day One", body: "We hand you a year-wise FMGE preparation roadmap before you board your flight — not as an afterthought." },
+  {
+    num: "01",
+    title: "Doctor-Led Counseling",
+    body: "Every counselor holds an MBBS from a foreign university. We have sat exactly where you are sitting right now.",
+  },
+  {
+    num: "02",
+    title: "NMC / WDOMS Compliant",
+    body: "We only recommend universities that are fully NMC-approved and WDOMS-listed. Your practice rights in India are non-negotiable.",
+  },
+  {
+    num: "03",
+    title: "End-to-End Support",
+    body: "University selection → visa → airport pickup → FMGE coaching strategy. We stay in touch throughout your degree.",
+  },
+  {
+    num: "04",
+    title: "FMGE from Day One",
+    body: "We hand you a year-wise FMGE preparation roadmap before you board your flight — not as an afterthought.",
+  },
 ];
 
 const feeRows = [
-  { label: "Total Cost",       india: "₹60L – ₹1 Cr+",        abroad: "₹18L – ₹55L" },
-  { label: "Capitation Fee",   india: "₹20–50L (unreceipted)", abroad: "Zero" },
-  { label: "NMC Recognition",  india: "Yes",                   abroad: "Yes (approved unis)" },
-  { label: "Language",         india: "English",               abroad: "English" },
-  { label: "Duration",         india: "5.5 years",             abroad: "5–6 years" },
+  { label: "Total Cost", india: "₹60L – ₹1 Cr+", abroad: "₹18L – ₹55L" },
+  { label: "Capitation Fee", india: "₹20–50L (unreceipted)", abroad: "Zero" },
+  { label: "NMC Recognition", india: "Yes", abroad: "Yes (approved unis)" },
+  { label: "Language", india: "English", abroad: "English" },
+  { label: "Duration", india: "5.5 years", abroad: "5–6 years" },
 ];
 
 const countryPhotos: Record<string, string> = {
-  russia:      "https://images.unsplash.com/photo-1513326738677-b964603b136d?w=800&q=80",
-  georgia:     "https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800&q=80",
-  kazakhstan:  "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-  uzbekistan:  "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=800&q=80",
-  kyrgyzstan:  "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=800&q=80",
-  bangladesh:  "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=800&q=80",
-  nepal:       "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&q=80",
-  philippines: "https://images.unsplash.com/photo-1519544801976-22f3600d79a8?w=800&q=80",
+  russia:
+    "https://images.unsplash.com/photo-1513326738677-b964603b136d?w=800&q=80",
+  georgia:
+    "https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800&q=80",
+  kazakhstan:
+    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+  uzbekistan:
+    "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=800&q=80",
+  kyrgyzstan:
+    "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=800&q=80",
+  bangladesh:
+    "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=800&q=80",
+  nepal:
+    "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&q=80",
+  philippines:
+    "https://images.unsplash.com/photo-1519544801976-22f3600d79a8?w=800&q=80",
 };
 
+const marqueeItems = [
+  "NMC Approved",
+  "WDOMS Listed",
+  "Doctor Led",
+  "500+ Students",
+  "Free Counseling",
+  "8 Countries",
+  "FMGE Support",
+  "Zero Capitation",
+];
+
 export default function HomePage() {
-  const featuredTeam = team.filter(m => m.featured);
-  const featuredTestimonials = testimonials.filter(t => t.featured).slice(0, 6);
+  const featuredTeam = team.filter((m) => m.featured);
+  const featuredTestimonials = testimonials.filter((t) => t.featured).slice(0, 6);
   const homeFaqs = faqs.slice(0, 6);
 
   return (
     <>
       {/* ════════════════════════════════════════
-          HERO — surgical blue, editorial serif
+          1. HERO — Near-black charcoal, editorial split
       ════════════════════════════════════════ */}
-      <section className="relative min-h-screen flex flex-col justify-end overflow-hidden" style={{ background: "#003366" }}>
-        {/* Background architectural photo */}
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?w=1920&q=90"
-            alt="Modern university architecture"
-            fill priority
-            className="object-cover"
-            style={{ mixBlendMode: "luminosity", opacity: 0.18 }}
-          />
-        </div>
+      <section
+        style={{ background: "#0D0D0D", position: "relative", overflow: "hidden", minHeight: "100vh", display: "flex", flexDirection: "column" }}
+      >
+        {/* Teal left accent stripe */}
+        <div
+          style={{
+            position: "absolute",
+            left: 0,
+            top: 0,
+            bottom: 0,
+            width: "4px",
+            background: "#00C5A3",
+            zIndex: 10,
+          }}
+        />
 
-        {/* Top decorative grid line */}
-        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "rgba(255,255,255,0.08)" }} />
+        {/* Main content grid */}
+        <div
+          style={{
+            flex: 1,
+            display: "grid",
+            gridTemplateColumns: "1fr",
+            position: "relative",
+          }}
+          className="lg:grid lg:grid-cols-[40%_60%]"
+        >
+          {/* Left column */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              padding: "clamp(2rem, 5vw, 5rem) clamp(1.5rem, 4vw, 4rem)",
+              paddingLeft: "clamp(2rem, 5vw, 5rem)",
+              position: "relative",
+              zIndex: 5,
+            }}
+          >
+            {/* Top tag */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "1rem",
+                marginBottom: "3rem",
+                marginTop: "4rem",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.6rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "rgba(255,255,255,0.35)",
+                }}
+              >
+                Worldwise Education
+              </span>
+              <div
+                style={{
+                  flex: 1,
+                  height: "1px",
+                  background: "rgba(255,255,255,0.08)",
+                  maxWidth: "80px",
+                }}
+              />
+              <span
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.55rem",
+                  color: "rgba(255,255,255,0.2)",
+                  letterSpacing: "0.1em",
+                }}
+              >
+                EST. 2024
+              </span>
+            </div>
 
-        {/* Teal accent bar — left */}
-        <div className="absolute left-0 top-0 bottom-0 w-1" style={{ background: "#00C5A3" }} />
+            {/* Main headline */}
+            <div style={{ marginBottom: "2rem" }}>
+              <h1
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(3rem, 6vw, 5.5rem)",
+                  lineHeight: 0.9,
+                  letterSpacing: "-0.04em",
+                  color: "#FFFFFF",
+                  margin: 0,
+                  marginBottom: "0.15em",
+                }}
+              >
+                For the
+              </h1>
+              <h1
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(3rem, 6vw, 5.5rem)",
+                  lineHeight: 0.9,
+                  letterSpacing: "-0.04em",
+                  color: "#FFFFFF",
+                  margin: 0,
+                  marginBottom: "0.25em",
+                }}
+              >
+                Doctors.
+              </h1>
+              <h2
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(2.5rem, 5vw, 4.75rem)",
+                  lineHeight: 0.9,
+                  letterSpacing: "-0.04em",
+                  color: "#00C5A3",
+                  fontStyle: "italic",
+                  margin: 0,
+                  marginBottom: "0.15em",
+                }}
+              >
+                By the
+              </h2>
+              <h2
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(2.5rem, 5vw, 4.75rem)",
+                  lineHeight: 0.9,
+                  letterSpacing: "-0.04em",
+                  color: "#00C5A3",
+                  fontStyle: "italic",
+                  margin: 0,
+                }}
+              >
+                Doctors.
+              </h2>
+            </div>
 
-        <div className="relative container-custom pb-0 pt-32">
-          {/* Index tag */}
-          <div className="flex items-center gap-4 mb-12">
-            <span className="section-label-white">Worldwise Education</span>
-            <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.1)" }} />
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", color: "rgba(255,255,255,0.3)", letterSpacing: "0.1em" }}>EST. 2024</span>
-          </div>
-
-          {/* Headline */}
-          <div className="max-w-5xl mb-0">
-            <h1 className="heading-brutal-xl heading-white mb-0" style={{ fontSize: "clamp(3.5rem, 9vw, 8rem)" }}>
-              For the Doctors.
-            </h1>
-            <h1 className="heading-brutal-xl mb-6" style={{ fontSize: "clamp(3.5rem, 9vw, 8rem)", color: "#00C5A3", fontFamily: "var(--font-display)", lineHeight: 0.93, letterSpacing: "-0.04em", fontStyle: "italic" }}>
-              By the Doctors.
-            </h1>
-            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "clamp(1rem, 1.5vw, 1.25rem)", lineHeight: 1.6, maxWidth: "480px", marginBottom: "2.5rem" }}>
-              MBBS abroad counseling from doctors who have studied at the same universities they recommend. Free. No obligation.
+            {/* Sub copy */}
+            <p
+              style={{
+                color: "rgba(255,255,255,0.45)",
+                fontSize: "clamp(0.875rem, 1.2vw, 1.0625rem)",
+                lineHeight: 1.7,
+                maxWidth: "400px",
+                marginBottom: "2.5rem",
+                fontFamily: "var(--font-inter)",
+              }}
+            >
+              MBBS abroad counseling from doctors who have studied at the same
+              universities they recommend. Free. No obligation.
             </p>
-            <div className="flex flex-wrap gap-3 mb-16">
-              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn-teal">
+
+            {/* CTA buttons */}
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem", marginBottom: "3rem" }}>
+              <a
+                href={whatsappLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-teal"
+              >
                 <Phone className="w-3.5 h-3.5" />
                 Talk to a Doctor
               </a>
-              <Link href="/countries" className="btn-outline-white">
+              <Link
+                href="/countries"
+                className="btn-outline-white"
+              >
                 Explore Destinations
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
+
+            {/* Trust badges row */}
+            <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap" }}>
+              {["NMC ✓", "WDOMS ✓", "Doctor-Led ✓"].map((badge) => (
+                <span
+                  key={badge}
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "0.55rem",
+                    fontWeight: 700,
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    color: "#00C5A3",
+                    border: "1px solid rgba(0,197,163,0.3)",
+                    padding: "4px 10px",
+                  }}
+                >
+                  {badge}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Right column — architectural photo */}
+          <div
+            style={{
+              position: "relative",
+              overflow: "hidden",
+              minHeight: "60vh",
+            }}
+            className="hidden lg:block"
+          >
+            <Image
+              src="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=1400&q=90"
+              alt="Modern university architecture"
+              fill
+              priority
+              className="object-cover"
+              style={{ objectPosition: "center 30%" }}
+            />
+            {/* Gradient overlay — blends left edge into charcoal */}
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background:
+                  "linear-gradient(to right, #0D0D0D 0%, rgba(13,13,13,0.3) 30%, rgba(13,13,13,0.05) 100%)",
+              }}
+            />
+            {/* Bottom fade */}
+            <div
+              style={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: "200px",
+                background: "linear-gradient(to top, #0D0D0D 0%, transparent 100%)",
+              }}
+            />
+            {/* Floating stat card */}
+            <div
+              style={{
+                position: "absolute",
+                bottom: "80px",
+                right: "40px",
+                background: "rgba(13,13,13,0.85)",
+                border: "1px solid rgba(0,197,163,0.3)",
+                padding: "1.25rem 1.5rem",
+                backdropFilter: "blur(10px)",
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.55rem",
+                  color: "#00C5A3",
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  marginBottom: "0.5rem",
+                }}
+              >
+                Students placed
+              </p>
+              <p
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "2.75rem",
+                  color: "white",
+                  lineHeight: 1,
+                  letterSpacing: "-0.04em",
+                }}
+              >
+                500+
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Stats bar — grid ruled */}
-        <div className="relative grid grid-cols-2 md:grid-cols-4" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+        {/* Stats bar — grid ruled bottom */}
+        <div
+          style={{
+            borderTop: "1px solid rgba(255,255,255,0.07)",
+            display: "grid",
+            gridTemplateColumns: "repeat(4, 1fr)",
+          }}
+        >
           {stats.map((s, i) => (
-            <div key={s.label} className="py-7 px-8" style={{ borderRight: i < 3 ? "1px solid rgba(255,255,255,0.08)" : "none" }}>
-              <p className="mono-stat mono-stat-white mb-1">{s.value}</p>
-              <p className="mono-label-white">{s.label}</p>
+            <div
+              key={s.label}
+              style={{
+                padding: "1.75rem clamp(1.5rem, 4vw, 2.5rem)",
+                borderRight:
+                  i < 3 ? "1px solid rgba(255,255,255,0.07)" : "none",
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "clamp(1.5rem, 2.5vw, 2.25rem)",
+                  fontWeight: 700,
+                  color: "#FFFFFF",
+                  lineHeight: 1,
+                  letterSpacing: "-0.02em",
+                  marginBottom: "0.35rem",
+                }}
+              >
+                {s.value}
+              </p>
+              <p
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.6rem",
+                  fontWeight: 400,
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  color: "rgba(255,255,255,0.35)",
+                }}
+              >
+                {s.label}
+              </p>
             </div>
           ))}
         </div>
       </section>
 
       {/* ════════════════════════════════════════
-          INTRO STRIP
+          2. MARQUEE STRIP — deep navy
       ════════════════════════════════════════ */}
-      <div style={{ background: "#00C5A3", borderTop: "1px solid #009E84", borderBottom: "1px solid #009E84" }}>
-        <div className="container-custom py-4">
-          <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "white", textAlign: "center" }}>
-            NMC Approved &nbsp;·&nbsp; WDOMS Listed &nbsp;·&nbsp; Doctor-Led &nbsp;·&nbsp; 8 Countries &nbsp;·&nbsp; Free Counseling &nbsp;·&nbsp; 500+ Students Placed &nbsp;·&nbsp; FMGE Support from Day 1
-          </p>
+      <div
+        style={{
+          background: "#003366",
+          overflow: "hidden",
+          borderBottom: "1px solid rgba(255,255,255,0.06)",
+          position: "relative",
+        }}
+      >
+        <div className="marquee-track" style={{ padding: "1rem 0" }}>
+          {[...marqueeItems, ...marqueeItems].map((item, i) => (
+            <span
+              key={i}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "1.25rem",
+                paddingRight: "1.25rem",
+                whiteSpace: "nowrap",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.7rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "rgba(255,255,255,0.85)",
+                }}
+              >
+                {item}
+              </span>
+              <span
+                style={{
+                  display: "inline-block",
+                  width: "6px",
+                  height: "6px",
+                  borderRadius: "50%",
+                  background: "#00C5A3",
+                  flexShrink: 0,
+                }}
+              />
+            </span>
+          ))}
         </div>
       </div>
 
       {/* ════════════════════════════════════════
-          WHY WORLDWISE — 4-column brutalist grid
+          3. WHY WORLDWISE — Cream / bento grid
       ════════════════════════════════════════ */}
-      <section className="section-padding" style={{ background: "#F8F9FA", borderBottom: "1px solid #E2E4E8" }}>
+      <section
+        style={{
+          background: "#FAF8F4",
+          padding: "clamp(4rem, 8vw, 7rem) 0",
+          borderBottom: "1px solid #E8E4DC",
+        }}
+      >
         <div className="container-custom">
-          <div className="flex items-end justify-between mb-12 pb-8" style={{ borderBottom: "1px solid #E2E4E8" }}>
+          {/* Section header */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "flex-end",
+              justifyContent: "space-between",
+              marginBottom: "3rem",
+              paddingBottom: "2rem",
+              borderBottom: "1px solid #E8E4DC",
+              flexWrap: "wrap",
+              gap: "1.5rem",
+            }}
+          >
             <div>
-              <p className="section-label mb-3">Why Worldwise</p>
-              <h2 className="heading-brutal-lg" style={{ maxWidth: "420px" }}>
+              <p
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.6rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  color: "#00C5A3",
+                  marginBottom: "0.75rem",
+                }}
+              >
+                Why Worldwise
+              </p>
+              <h2
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(2rem, 4vw, 3.5rem)",
+                  lineHeight: 0.98,
+                  letterSpacing: "-0.03em",
+                  color: "#0D0D0D",
+                  maxWidth: "480px",
+                }}
+              >
                 The consultancy that&apos;s actually{" "}
-                <span style={{ fontStyle: "italic", color: "#003366" }}>been there</span>
+                <em style={{ color: "#003366", fontStyle: "italic" }}>
+                  been there
+                </em>
               </h2>
             </div>
-            <p style={{ color: "#6B7280", fontSize: "0.875rem", maxWidth: "300px", lineHeight: 1.7 }} className="hidden md:block">
-              Most consultancies are run by sales professionals. Every doctor on our team has an MBBS from a foreign university.
+            <p
+              style={{
+                color: "#6B7280",
+                fontSize: "0.875rem",
+                maxWidth: "300px",
+                lineHeight: 1.75,
+              }}
+              className="hidden md:block"
+            >
+              Most consultancies are run by sales professionals. Every doctor on
+              our team has an MBBS from a foreign university.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-ruled">
-            {features.map((f) => (
-              <div key={f.num} className="p-8">
-                <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.15em", color: "#00C5A3", marginBottom: "1.5rem" }}>
+          {/* Bento grid */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(1, 1fr)",
+              gap: "1px",
+              background: "#E8E4DC",
+            }}
+            className="md:grid-cols-2 lg:grid-cols-4"
+          >
+            {/* Large feature card — first card, deep navy */}
+            {features.map((f, idx) => (
+              <div
+                key={f.num}
+                style={{
+                  padding: "2.5rem",
+                  background: idx === 0 ? "#003366" : "#FFFFFF",
+                  position: "relative",
+                }}
+              >
+                <p
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "0.6rem",
+                    fontWeight: 700,
+                    letterSpacing: "0.15em",
+                    color: "#00C5A3",
+                    marginBottom: "1.75rem",
+                  }}
+                >
                   {f.num}
                 </p>
-                <h3 className="heading-brutal-md mb-4" style={{ fontSize: "1.125rem" }}>{f.title}</h3>
-                <div className="teal-rule mb-4" />
-                <p style={{ color: "#6B7280", fontSize: "0.875rem", lineHeight: 1.7 }}>{f.body}</p>
+                <h3
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontSize: "clamp(1.25rem, 2vw, 1.625rem)",
+                    lineHeight: 1.05,
+                    letterSpacing: "-0.02em",
+                    color: idx === 0 ? "#FFFFFF" : "#0D0D0D",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  {f.title}
+                </h3>
+                <div
+                  style={{
+                    width: "28px",
+                    height: "2px",
+                    background: "#00C5A3",
+                    marginBottom: "1rem",
+                  }}
+                />
+                <p
+                  style={{
+                    color:
+                      idx === 0 ? "rgba(255,255,255,0.55)" : "#6B7280",
+                    fontSize: "0.875rem",
+                    lineHeight: 1.75,
+                  }}
+                >
+                  {f.body}
+                </p>
               </div>
             ))}
           </div>
@@ -163,62 +597,192 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════
-          COUNTRIES — architectural photo grid
+          4. COUNTRIES — Pure white, full photo cards
       ════════════════════════════════════════ */}
-      <section className="section-padding" style={{ background: "#fff", borderBottom: "1px solid #E2E4E8" }}>
+      <section
+        style={{
+          background: "#FFFFFF",
+          padding: "clamp(4rem, 8vw, 7rem) 0",
+          borderBottom: "1px solid #E2E4E8",
+        }}
+      >
         <div className="container-custom">
-          <div className="flex items-end justify-between mb-12 pb-8" style={{ borderBottom: "1px solid #E2E4E8" }}>
+          {/* Header */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "flex-end",
+              justifyContent: "space-between",
+              marginBottom: "3rem",
+              paddingBottom: "2rem",
+              borderBottom: "1px solid #E2E4E8",
+              flexWrap: "wrap",
+              gap: "1rem",
+            }}
+          >
             <div>
-              <p className="section-label mb-3">Destinations</p>
-              <h2 className="heading-brutal-lg">8 NMC-Approved <span style={{ fontStyle: "italic" }}>Countries</span></h2>
+              <p
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.6rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  color: "#00C5A3",
+                  marginBottom: "0.75rem",
+                }}
+              >
+                Destinations
+              </p>
+              <h2
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(2rem, 4vw, 3.5rem)",
+                  lineHeight: 0.98,
+                  letterSpacing: "-0.03em",
+                  color: "#0D0D0D",
+                }}
+              >
+                8 NMC-Approved{" "}
+                <em style={{ fontStyle: "italic" }}>Countries</em>
+              </h2>
             </div>
             <Link href="/countries" className="btn-outline hidden md:inline-flex">
               Compare All <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 grid-ruled">
+          {/* Country grid — full photo cards */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(1, 1fr)",
+              gap: "1px",
+              background: "#E2E4E8",
+            }}
+            className="sm:grid-cols-2 lg:grid-cols-4"
+          >
             {countries.map((country) => (
-              <Link key={country.slug} href={`/countries/${country.slug}`}
-                className="card-brutal block group" style={{ textDecoration: "none" }}>
-                {/* Photo */}
-                <div className="relative overflow-hidden" style={{ height: "180px" }}>
-                  <Image
-                    src={countryPhotos[country.slug] ?? "https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80"}
-                    alt={country.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  {/* Photo overlay */}
-                  <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(0,51,102,0.2) 0%, rgba(0,51,102,0.6) 100%)" }} />
-                  {/* NMC badge on photo */}
-                  <div className="absolute top-3 right-3">
-                    <span className="nmc-badge-teal">NMC ✓</span>
-                  </div>
-                  {/* Country name on photo */}
-                  <div className="absolute bottom-4 left-4">
-                    <p className="heading-brutal-md heading-white" style={{ fontSize: "1.375rem" }}>
-                      {country.flag} {country.name}
-                    </p>
-                  </div>
+              <Link
+                key={country.slug}
+                href={`/countries/${country.slug}`}
+                style={{ textDecoration: "none", display: "block", position: "relative", overflow: "hidden", aspectRatio: "3/4", background: "#0D0D0D" }}
+                className="group"
+              >
+                {/* Full-bleed photo */}
+                <Image
+                  src={
+                    countryPhotos[country.slug] ??
+                    "https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80"
+                  }
+                  alt={country.name}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                {/* Gradient overlay */}
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background:
+                      "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%)",
+                    transition: "opacity 0.3s",
+                  }}
+                />
+                {/* Teal border on hover */}
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    border: "3px solid #00C5A3",
+                    opacity: 0,
+                    transition: "opacity 0.25s",
+                    zIndex: 2,
+                  }}
+                  className="group-hover:opacity-100"
+                />
+                {/* NMC badge */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "1rem",
+                    right: "1rem",
+                    zIndex: 3,
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "0.5rem",
+                      fontWeight: 700,
+                      letterSpacing: "0.12em",
+                      textTransform: "uppercase",
+                      color: "#fff",
+                      background: "#00C5A3",
+                      border: "1px solid #009E84",
+                      padding: "3px 8px",
+                    }}
+                  >
+                    NMC ✓
+                  </span>
                 </div>
-                {/* Card body */}
-                <div className="p-5">
-                  <div className="flex items-center justify-between mb-3" style={{ borderBottom: "1px solid #E2E4E8", paddingBottom: "12px" }}>
-                    <div>
-                      <p className="mono-label">Total Cost</p>
-                      <p className="mono-fee text-base mt-0.5">{country.totalCost}</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="mono-label">Duration</p>
-                      <p style={{ fontFamily: "var(--font-mono)", fontWeight: 700, fontSize: "0.875rem", color: "#0A0A0A", marginTop: 2 }}>{country.duration}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#6B7280" }}>
-                      {country.language} Medium
-                    </p>
-                    <ArrowRight className="w-3.5 h-3.5 text-surgical group-hover:translate-x-1 transition-transform" />
+                {/* Content at bottom */}
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    padding: "1.5rem",
+                    zIndex: 3,
+                  }}
+                >
+                  <p
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)",
+                      color: "white",
+                      lineHeight: 1.05,
+                      letterSpacing: "-0.02em",
+                      marginBottom: "0.5rem",
+                    }}
+                  >
+                    {country.flag} {country.name}
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "0.7rem",
+                      fontWeight: 700,
+                      color: "#00C5A3",
+                      letterSpacing: "0.02em",
+                    }}
+                  >
+                    {country.totalCost}
+                  </p>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      marginTop: "0.75rem",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "0.55rem",
+                        letterSpacing: "0.1em",
+                        textTransform: "uppercase",
+                        color: "rgba(255,255,255,0.5)",
+                      }}
+                    >
+                      {country.duration}
+                    </span>
+                    <ArrowRight
+                      className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                      style={{ color: "#00C5A3" }}
+                    />
                   </div>
                 </div>
               </Link>
@@ -228,16 +792,217 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════
-          TEAM — editorial photo treatment
+          5. SPLIT FEATURE — Teal / White bold contrast
       ════════════════════════════════════════ */}
-      <section className="section-padding" style={{ background: "#003366", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+      <section
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr",
+        }}
+        className="lg:grid-cols-2"
+      >
+        {/* Left — solid teal */}
+        <div
+          style={{
+            background: "#00C5A3",
+            padding: "clamp(4rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem)",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
+        >
+          <p
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.6rem",
+              fontWeight: 700,
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              color: "rgba(255,255,255,0.6)",
+              marginBottom: "2rem",
+            }}
+          >
+            Our Difference
+          </p>
+          <h2
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(2.25rem, 5vw, 4.5rem)",
+              lineHeight: 0.93,
+              letterSpacing: "-0.04em",
+              color: "#FFFFFF",
+              marginBottom: "2rem",
+            }}
+          >
+            Doctor-Led.
+            <br />
+            Not{" "}
+            <em style={{ fontStyle: "italic", color: "rgba(255,255,255,0.7)" }}>
+              Agent-Led.
+            </em>
+          </h2>
+          <div
+            style={{
+              width: "40px",
+              height: "3px",
+              background: "rgba(255,255,255,0.5)",
+              marginBottom: "2rem",
+            }}
+          />
+          <p
+            style={{
+              color: "rgba(255,255,255,0.7)",
+              fontSize: "1rem",
+              lineHeight: 1.75,
+              maxWidth: "420px",
+            }}
+          >
+            When a doctor guides you, the outcome shifts from closing a sale to
+            securing your future. That&apos;s not just a tagline — it&apos;s
+            the difference between a career and a mistake.
+          </p>
+        </div>
+
+        {/* Right — white with bullet points */}
+        <div
+          style={{
+            background: "#FFFFFF",
+            padding: "clamp(4rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem)",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            borderLeft: "1px solid #E2E4E8",
+          }}
+        >
+          <p
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.6rem",
+              fontWeight: 700,
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              color: "#6B7280",
+              marginBottom: "2rem",
+            }}
+          >
+            The contrast
+          </p>
+          {[
+            {
+              title: "We studied abroad — they didn't",
+              desc: "Every team member holds an MBBS from an NMC-approved foreign university. Agents have brochures. We have diplomas.",
+            },
+            {
+              title: "We earn zero university commission",
+              desc: "Our income is from student fees, not referral cuts. We recommend what is right for you — not what pays us the most.",
+            },
+            {
+              title: "FMGE planning starts pre-departure",
+              desc: "We hand you a year-wise study plan before your flight. Not after year 3 when panic sets in.",
+            },
+            {
+              title: "One point of contact throughout",
+              desc: "No passing you around. The counselor who signs you is reachable throughout your full degree.",
+            },
+          ].map((item) => (
+            <div
+              key={item.title}
+              style={{
+                display: "flex",
+                gap: "1.25rem",
+                marginBottom: "2rem",
+                paddingBottom: "2rem",
+                borderBottom: "1px solid #F0EFED",
+              }}
+            >
+              <div
+                style={{
+                  width: "6px",
+                  height: "6px",
+                  background: "#00C5A3",
+                  flexShrink: 0,
+                  marginTop: "0.5rem",
+                }}
+              />
+              <div>
+                <p
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontSize: "clamp(1rem, 1.5vw, 1.25rem)",
+                    color: "#0D0D0D",
+                    lineHeight: 1.2,
+                    letterSpacing: "-0.01em",
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  {item.title}
+                </p>
+                <p
+                  style={{
+                    color: "#6B7280",
+                    fontSize: "0.875rem",
+                    lineHeight: 1.7,
+                  }}
+                >
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+          6. TEAM — Charcoal, editorial grayscale
+      ════════════════════════════════════════ */}
+      <section
+        style={{
+          background: "#1A1A1A",
+          padding: "clamp(4rem, 8vw, 7rem) 0",
+          borderBottom: "1px solid rgba(255,255,255,0.06)",
+        }}
+      >
         <div className="container-custom">
-          <div className="flex items-end justify-between mb-12 pb-8" style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+          {/* Header */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "flex-end",
+              justifyContent: "space-between",
+              marginBottom: "3rem",
+              paddingBottom: "2rem",
+              borderBottom: "1px solid rgba(255,255,255,0.07)",
+              flexWrap: "wrap",
+              gap: "1rem",
+            }}
+          >
             <div>
-              <p className="section-label-white mb-3">Our Team</p>
-              <h2 className="heading-brutal-lg heading-white">
+              <p
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.6rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  color: "rgba(255,255,255,0.35)",
+                  marginBottom: "0.75rem",
+                }}
+              >
+                Our Team
+              </p>
+              <h2
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(2rem, 4vw, 3.5rem)",
+                  lineHeight: 0.98,
+                  letterSpacing: "-0.03em",
+                  color: "#FFFFFF",
+                }}
+              >
                 Doctors who&apos;ve{" "}
-                <span style={{ fontStyle: "italic", color: "#00C5A3" }}>lived it</span>
+                <em style={{ fontStyle: "italic", color: "#00C5A3" }}>
+                  lived it
+                </em>
               </h2>
             </div>
             <Link href="/about" className="btn-outline-white hidden md:inline-flex">
@@ -245,22 +1010,106 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3" style={{ border: "1px solid rgba(255,255,255,0.08)" }}>
+          {/* Team grid */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(1, 1fr)",
+              border: "1px solid rgba(255,255,255,0.07)",
+            }}
+            className="md:grid-cols-3"
+          >
             {featuredTeam.map((member, i) => (
-              <div key={member.id} className="group" style={{ borderRight: i < 2 ? "1px solid rgba(255,255,255,0.08)" : "none" }}>
-                <div className="relative overflow-hidden" style={{ height: "280px" }}>
-                  <Image src={member.photo} alt={member.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500 saturate-0 group-hover:saturate-100" />
-                  <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(0,51,102,0.1) 0%, rgba(0,51,102,0.8) 100%)" }} />
-                  <div className="absolute bottom-4 left-5 right-5">
-                    <p style={{ fontFamily: "var(--font-display)", fontSize: "1.25rem", color: "white", lineHeight: 1.1 }}>{member.name}</p>
-                    <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", color: "#00C5A3", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: 4 }}>{member.role}</p>
+              <div
+                key={member.id}
+                className="group"
+                style={{
+                  borderRight:
+                    i < featuredTeam.length - 1
+                      ? "1px solid rgba(255,255,255,0.07)"
+                      : "none",
+                  borderBottom: "1px solid rgba(255,255,255,0.07)",
+                }}
+              >
+                {/* Photo — grayscale → colour on hover */}
+                <div
+                  style={{
+                    position: "relative",
+                    overflow: "hidden",
+                    height: "300px",
+                  }}
+                >
+                  <Image
+                    src={member.photo}
+                    alt={member.name}
+                    fill
+                    className="object-cover transition-all duration-500 grayscale group-hover:grayscale-0 group-hover:scale-105"
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      background:
+                        "linear-gradient(to bottom, rgba(26,26,26,0.05) 0%, rgba(26,26,26,0.75) 100%)",
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: "1.25rem",
+                      left: "1.25rem",
+                      right: "1.25rem",
+                    }}
+                  >
+                    <p
+                      style={{
+                        fontFamily: "var(--font-display)",
+                        fontSize: "1.375rem",
+                        color: "white",
+                        lineHeight: 1.1,
+                        letterSpacing: "-0.01em",
+                      }}
+                    >
+                      {member.name}
+                    </p>
+                    <p
+                      style={{
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "0.58rem",
+                        color: "#00C5A3",
+                        letterSpacing: "0.12em",
+                        textTransform: "uppercase",
+                        marginTop: "4px",
+                      }}
+                    >
+                      {member.role}
+                    </p>
                   </div>
                 </div>
-                <div className="p-5">
-                  <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "rgba(255,255,255,0.5)", letterSpacing: "0.06em", marginBottom: 8 }}>
+                {/* Bio */}
+                <div style={{ padding: "1.25rem 1.5rem" }}>
+                  <p
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "0.6rem",
+                      color: "rgba(255,255,255,0.3)",
+                      letterSpacing: "0.08em",
+                      marginBottom: "0.6rem",
+                    }}
+                  >
                     {member.qualification} · {member.university}, {member.country}
                   </p>
-                  <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.8125rem", lineHeight: 1.65, display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+                  <p
+                    style={{
+                      color: "rgba(255,255,255,0.45)",
+                      fontSize: "0.8125rem",
+                      lineHeight: 1.65,
+                      display: "-webkit-box",
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                    }}
+                  >
                     {member.bio}
                   </p>
                 </div>
@@ -271,58 +1120,242 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════
-          FEE COMPARISON — structured table
+          7. FEE COMPARISON — Warm cream
       ════════════════════════════════════════ */}
-      <section className="section-padding" style={{ background: "#F8F9FA", borderBottom: "1px solid #E2E4E8" }}>
+      <section
+        style={{
+          background: "#FAF8F4",
+          padding: "clamp(4rem, 8vw, 7rem) 0",
+          borderBottom: "1px solid #E8E4DC",
+        }}
+      >
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr",
+              gap: "4rem",
+              alignItems: "start",
+            }}
+            className="lg:grid-cols-2"
+          >
+            {/* Left — editorial heading */}
             <div>
-              <p className="section-label mb-3">The Numbers</p>
-              <h2 className="heading-brutal-lg mb-6">
+              <p
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.6rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  color: "#00C5A3",
+                  marginBottom: "0.75rem",
+                }}
+              >
+                The Numbers
+              </p>
+              <h2
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(2rem, 4vw, 3.5rem)",
+                  lineHeight: 0.98,
+                  letterSpacing: "-0.03em",
+                  color: "#0D0D0D",
+                  marginBottom: "1.5rem",
+                }}
+              >
                 MBBS abroad is the{" "}
-                <span style={{ fontStyle: "italic", color: "#003366" }}>rational choice</span>
+                <em style={{ fontStyle: "italic", color: "#003366" }}>
+                  rational choice
+                </em>
               </h2>
-              <div className="teal-rule mb-6" />
-              <p style={{ color: "#6B7280", lineHeight: 1.75, marginBottom: "2rem", fontSize: "0.9375rem" }}>
-                Indian private colleges charge ₹60L–₹1Cr+ — with ₹20–50L in capitation fees paid
-                under the table. MBBS abroad has no capitation, no donations, no hidden charges.
+              <div
+                style={{
+                  width: "32px",
+                  height: "2px",
+                  background: "#00C5A3",
+                  marginBottom: "1.5rem",
+                }}
+              />
+              <p
+                style={{
+                  color: "#6B7280",
+                  lineHeight: 1.75,
+                  marginBottom: "2rem",
+                  fontSize: "0.9375rem",
+                }}
+              >
+                Indian private colleges charge ₹60L–₹1Cr+ — with ₹20–50L in
+                capitation fees paid under the table. MBBS abroad has no
+                capitation, no donations, no hidden charges.
               </p>
               {[
                 "60–95% cheaper than Indian private colleges",
                 "Zero capitation or donation fees",
                 "Degree valid in India after FMGE/NExT",
                 "Same NEET PG eligibility as Indian graduates",
-              ].map(item => (
-                <div key={item} className="flex items-start gap-3 mb-3">
-                  <CheckCircle className="w-4 h-4 text-teal flex-shrink-0 mt-0.5" style={{ color: "#00C5A3" }} />
-                  <p style={{ fontSize: "0.875rem", color: "#2C2C2C", fontWeight: 500 }}>{item}</p>
+              ].map((item) => (
+                <div
+                  key={item}
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "0.75rem",
+                    marginBottom: "0.875rem",
+                  }}
+                >
+                  <CheckCircle
+                    className="w-4 h-4 flex-shrink-0"
+                    style={{ color: "#00C5A3", marginTop: "2px" }}
+                  />
+                  <p
+                    style={{
+                      fontSize: "0.875rem",
+                      color: "#2C2C2C",
+                      fontWeight: 500,
+                    }}
+                  >
+                    {item}
+                  </p>
                 </div>
               ))}
             </div>
 
-            {/* Table */}
-            <div style={{ border: "1px solid #E2E4E8" }}>
-              <div className="grid grid-cols-3" style={{ borderBottom: "1px solid #E2E4E8" }}>
-                <div className="p-4 bg-surgical">
-                  <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.575rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)" }}>Factor</p>
+            {/* Right — styled comparison card (not a table) */}
+            <div
+              style={{
+                background: "#FFFFFF",
+                border: "1px solid #E8E4DC",
+                overflow: "hidden",
+              }}
+            >
+              {/* Card header — two columns */}
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "auto 1fr 1fr",
+                  background: "#0D0D0D",
+                }}
+              >
+                <div style={{ padding: "1rem 1.25rem" }}>
+                  <p
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "0.55rem",
+                      fontWeight: 700,
+                      letterSpacing: "0.12em",
+                      textTransform: "uppercase",
+                      color: "rgba(255,255,255,0.3)",
+                    }}
+                  >
+                    Factor
+                  </p>
                 </div>
-                <div className="p-4 bg-surgical" style={{ borderLeft: "1px solid rgba(255,255,255,0.1)" }}>
-                  <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.575rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)" }}>India Private</p>
+                <div
+                  style={{
+                    padding: "1rem 1.25rem",
+                    borderLeft: "1px solid rgba(255,255,255,0.07)",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "0.55rem",
+                      fontWeight: 700,
+                      letterSpacing: "0.12em",
+                      textTransform: "uppercase",
+                      color: "rgba(255,255,255,0.3)",
+                      textDecoration: "line-through",
+                    }}
+                  >
+                    India Private
+                  </p>
                 </div>
-                <div className="p-4" style={{ background: "#00C5A3", borderLeft: "1px solid rgba(255,255,255,0.2)" }}>
-                  <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.575rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "white" }}>MBBS Abroad ✓</p>
+                <div
+                  style={{
+                    padding: "1rem 1.25rem",
+                    background: "#00C5A3",
+                    borderLeft: "1px solid rgba(255,255,255,0.2)",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "0.55rem",
+                      fontWeight: 700,
+                      letterSpacing: "0.12em",
+                      textTransform: "uppercase",
+                      color: "white",
+                    }}
+                  >
+                    MBBS Abroad ✓
+                  </p>
                 </div>
               </div>
+
+              {/* Rows */}
               {feeRows.map((row, i) => (
-                <div key={row.label} className="grid grid-cols-3" style={{ borderBottom: i < feeRows.length - 1 ? "1px solid #E2E4E8" : "none", background: i % 2 === 0 ? "#fff" : "#F8F9FA" }}>
-                  <div className="p-4" style={{ borderRight: "1px solid #E2E4E8" }}>
-                    <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.675rem", fontWeight: 700, color: "#0A0A0A", letterSpacing: "0.02em" }}>{row.label}</p>
+                <div
+                  key={row.label}
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "auto 1fr 1fr",
+                    borderTop: "1px solid #F0EFED",
+                    background: i % 2 === 0 ? "#FFFFFF" : "#FAF8F4",
+                  }}
+                >
+                  <div
+                    style={{
+                      padding: "1rem 1.25rem",
+                      borderRight: "1px solid #F0EFED",
+                      minWidth: "110px",
+                    }}
+                  >
+                    <p
+                      style={{
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "0.65rem",
+                        fontWeight: 700,
+                        color: "#0A0A0A",
+                        letterSpacing: "0.02em",
+                      }}
+                    >
+                      {row.label}
+                    </p>
                   </div>
-                  <div className="p-4" style={{ borderRight: "1px solid #E2E4E8" }}>
-                    <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "#6B7280" }}>{row.india}</p>
+                  <div
+                    style={{
+                      padding: "1rem 1.25rem",
+                      borderRight: "1px solid #F0EFED",
+                    }}
+                  >
+                    <p
+                      style={{
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "0.7rem",
+                        color: "#9CA3AF",
+                        textDecoration: "line-through",
+                      }}
+                    >
+                      {row.india}
+                    </p>
                   </div>
-                  <div className="p-4" style={{ background: "rgba(0,197,163,0.04)" }}>
-                    <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", fontWeight: 700, color: "#003366" }}>{row.abroad}</p>
+                  <div
+                    style={{
+                      padding: "1rem 1.25rem",
+                      background: "rgba(0,197,163,0.05)",
+                    }}
+                  >
+                    <p
+                      style={{
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "0.7rem",
+                        fontWeight: 700,
+                        color: "#003366",
+                      }}
+                    >
+                      {row.abroad}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -332,34 +1365,149 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════
-          TESTIMONIALS — editorial quote cards
+          8. TESTIMONIALS — Deep navy
       ════════════════════════════════════════ */}
-      <section className="section-padding" style={{ background: "#fff", borderBottom: "1px solid #E2E4E8" }}>
+      <section
+        style={{
+          background: "#003366",
+          padding: "clamp(4rem, 8vw, 7rem) 0",
+          borderBottom: "1px solid rgba(255,255,255,0.06)",
+        }}
+      >
         <div className="container-custom">
-          <div className="flex items-end justify-between mb-12 pb-8" style={{ borderBottom: "1px solid #E2E4E8" }}>
-            <div>
-              <p className="section-label mb-3">Student Stories</p>
-              <h2 className="heading-brutal-lg">Real students. <span style={{ fontStyle: "italic" }}>Real words.</span></h2>
-            </div>
+          {/* Header */}
+          <div
+            style={{
+              marginBottom: "3rem",
+              paddingBottom: "2rem",
+              borderBottom: "1px solid rgba(255,255,255,0.07)",
+            }}
+          >
+            <p
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.6rem",
+                fontWeight: 700,
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                color: "rgba(255,255,255,0.4)",
+                marginBottom: "0.75rem",
+              }}
+            >
+              Student Stories
+            </p>
+            <h2
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "clamp(2rem, 4vw, 3.5rem)",
+                lineHeight: 0.98,
+                letterSpacing: "-0.03em",
+                color: "#FFFFFF",
+              }}
+            >
+              Real students.{" "}
+              <em style={{ fontStyle: "italic", color: "#00C5A3" }}>
+                Real words.
+              </em>
+            </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-ruled">
-            {featuredTestimonials.map((t) => (
-              <div key={t.id} className="p-7 flex flex-col">
-                {/* Large quote mark */}
-                <p style={{ fontFamily: "var(--font-display)", fontSize: "4rem", color: "#E2E4E8", lineHeight: 0.8, marginBottom: "1rem", userSelect: "none" }}>&ldquo;</p>
+          {/* Testimonial grid */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(1, 1fr)",
+              border: "1px solid rgba(255,255,255,0.07)",
+            }}
+            className="md:grid-cols-2 lg:grid-cols-3"
+          >
+            {featuredTestimonials.map((t, i) => (
+              <div
+                key={t.id}
+                style={{
+                  padding: "2.25rem",
+                  display: "flex",
+                  flexDirection: "column",
+                  borderRight:
+                    (i + 1) % 3 !== 0
+                      ? "1px solid rgba(255,255,255,0.07)"
+                      : "none",
+                  borderBottom: "1px solid rgba(255,255,255,0.07)",
+                }}
+              >
+                {/* Big quote mark */}
+                <p
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontSize: "5rem",
+                    color: "rgba(0,197,163,0.25)",
+                    lineHeight: 0.75,
+                    marginBottom: "1.25rem",
+                    userSelect: "none",
+                  }}
+                >
+                  &ldquo;
+                </p>
                 {/* Stars */}
-                <div className="flex gap-0.5 mb-4">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <span key={i} style={{ color: i < t.rating ? "#00C5A3" : "#E2E4E8", fontSize: "0.75rem" }}>★</span>
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "2px",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  {Array.from({ length: 5 }).map((_, idx) => (
+                    <Star
+                      key={idx}
+                      className="w-3.5 h-3.5"
+                      style={{
+                        fill: idx < t.rating ? "#F59E0B" : "transparent",
+                        color: idx < t.rating ? "#F59E0B" : "rgba(255,255,255,0.15)",
+                      }}
+                    />
                   ))}
                 </div>
-                <blockquote style={{ color: "#2C2C2C", fontSize: "0.9375rem", lineHeight: 1.7, flex: 1, marginBottom: "1.5rem" }}>
+                {/* Quote text */}
+                <blockquote
+                  style={{
+                    color: "rgba(255,255,255,0.7)",
+                    fontSize: "0.9375rem",
+                    lineHeight: 1.75,
+                    flex: 1,
+                    marginBottom: "1.5rem",
+                    fontFamily: "var(--font-inter)",
+                  }}
+                >
                   {t.quote}
                 </blockquote>
-                <div style={{ borderTop: "1px solid #E2E4E8", paddingTop: "1rem" }}>
-                  <p style={{ fontFamily: "var(--font-display)", fontSize: "1rem", color: "#0A0A0A", marginBottom: 2 }}>{t.studentName}</p>
-                  <p className="mono-label">{t.currentYear} · {t.university}</p>
+                {/* Attrib */}
+                <div
+                  style={{
+                    borderTop: "1px solid rgba(255,255,255,0.07)",
+                    paddingTop: "1rem",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontSize: "1.0625rem",
+                      color: "#FFFFFF",
+                      marginBottom: "3px",
+                    }}
+                  >
+                    {t.studentName}
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "0.58rem",
+                      letterSpacing: "0.1em",
+                      textTransform: "uppercase",
+                      color: "#00C5A3",
+                    }}
+                  >
+                    {t.currentYear} · {t.university}
+                  </p>
                 </div>
               </div>
             ))}
@@ -368,34 +1516,124 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════
-          FAQ — two-column layout
+          9. FAQ — White, sticky sidebar, accordion
       ════════════════════════════════════════ */}
-      <section className="section-padding" style={{ background: "#F8F9FA", borderBottom: "1px solid #E2E4E8" }}>
+      <section
+        style={{
+          background: "#FFFFFF",
+          padding: "clamp(4rem, 8vw, 7rem) 0",
+          borderBottom: "1px solid #E2E4E8",
+        }}
+      >
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-4" style={{ position: "sticky", top: "100px", alignSelf: "start" }}>
-              <p className="section-label mb-3">FAQ</p>
-              <h2 className="heading-brutal-lg mb-5">Questions we hear <span style={{ fontStyle: "italic" }}>every day</span></h2>
-              <div className="teal-rule mb-6" />
-              <p style={{ color: "#6B7280", fontSize: "0.875rem", lineHeight: 1.75, marginBottom: "1.5rem" }}>
-                Honest answers from doctors who have been through the full process.
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr",
+              gap: "3rem",
+            }}
+            className="lg:grid-cols-12"
+          >
+            {/* Left sticky sidebar */}
+            <div
+              className="lg:col-span-4"
+              style={{ position: "sticky", top: "100px", alignSelf: "start" }}
+            >
+              <p
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.6rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  color: "#00C5A3",
+                  marginBottom: "0.75rem",
+                }}
+              >
+                FAQ
+              </p>
+              <h2
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(1.75rem, 3.5vw, 3rem)",
+                  lineHeight: 0.98,
+                  letterSpacing: "-0.03em",
+                  color: "#0D0D0D",
+                  marginBottom: "1.25rem",
+                }}
+              >
+                Questions we hear{" "}
+                <em style={{ fontStyle: "italic" }}>every day</em>
+              </h2>
+              <div
+                style={{
+                  width: "32px",
+                  height: "2px",
+                  background: "#00C5A3",
+                  marginBottom: "1.25rem",
+                }}
+              />
+              <p
+                style={{
+                  color: "#6B7280",
+                  fontSize: "0.875rem",
+                  lineHeight: 1.75,
+                  marginBottom: "1.75rem",
+                }}
+              >
+                Honest answers from doctors who have been through the full
+                process.
               </p>
               <Link href="/faq" className="btn-surgical" style={{ display: "inline-flex" }}>
                 All 30+ FAQs <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
+
+            {/* Right accordion */}
             <div className="lg:col-span-8">
               {homeFaqs.map((faq) => (
-                <details key={faq.id} className="group" style={{ borderBottom: "1px solid #E2E4E8" }}>
-                  <summary className="flex items-center justify-between py-5 cursor-pointer list-none gap-4"
-                    style={{ fontFamily: "var(--font-display)", fontSize: "1.0625rem", color: "#0A0A0A" }}>
+                <details
+                  key={faq.id}
+                  className="group"
+                  style={{ borderBottom: "1px solid #E2E4E8" }}
+                >
+                  <summary
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      padding: "1.375rem 0",
+                      cursor: "pointer",
+                      listStyle: "none",
+                      gap: "1rem",
+                      fontFamily: "var(--font-display)",
+                      fontSize: "1.0625rem",
+                      color: "#0A0A0A",
+                      lineHeight: 1.3,
+                    }}
+                  >
                     {faq.question}
-                    <span className="mono-label flex-shrink-0 group-open:text-teal transition-colors" style={{ color: "#00C5A3" }}>
+                    <span
+                      style={{
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "1.25rem",
+                        color: "#00C5A3",
+                        flexShrink: 0,
+                        lineHeight: 1,
+                      }}
+                    >
                       <span className="group-open:hidden">+</span>
                       <span className="hidden group-open:inline">−</span>
                     </span>
                   </summary>
-                  <div style={{ paddingBottom: "1.25rem", color: "#6B7280", fontSize: "0.9375rem", lineHeight: 1.75 }}>
+                  <div
+                    style={{
+                      paddingBottom: "1.375rem",
+                      color: "#6B7280",
+                      fontSize: "0.9375rem",
+                      lineHeight: 1.75,
+                    }}
+                  >
                     {faq.answer}
                   </div>
                 </details>
@@ -406,48 +1644,191 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════
-          FINAL CTA — surgical blue
+          10. FINAL CTA — Charcoal left / Teal right
       ════════════════════════════════════════ */}
-      <section style={{ background: "#003366", position: "relative", overflow: "hidden" }}>
-        {/* Teal left accent */}
-        <div className="absolute left-0 top-0 bottom-0 w-1" style={{ background: "#00C5A3" }} />
+      <section
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr",
+          position: "relative",
+          overflow: "hidden",
+        }}
+        className="lg:grid-cols-2"
+      >
+        {/* Left — charcoal */}
+        <div
+          style={{
+            background: "#0D0D0D",
+            padding: "clamp(4rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem)",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            position: "relative",
+          }}
+        >
+          {/* Teal left stripe */}
+          <div
+            style={{
+              position: "absolute",
+              left: 0,
+              top: 0,
+              bottom: 0,
+              width: "4px",
+              background: "#00C5A3",
+            }}
+          />
+          <p
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.6rem",
+              fontWeight: 700,
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              color: "rgba(255,255,255,0.3)",
+              marginBottom: "1.5rem",
+            }}
+          >
+            Free Counseling
+          </p>
+          <h2
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(3.5rem, 8vw, 7rem)",
+              lineHeight: 0.88,
+              letterSpacing: "-0.05em",
+              color: "#FFFFFF",
+              marginBottom: "2rem",
+            }}
+          >
+            Ready?
+          </h2>
+          <p
+            style={{
+              color: "rgba(255,255,255,0.45)",
+              fontSize: "1rem",
+              lineHeight: 1.75,
+              maxWidth: "380px",
+            }}
+          >
+            Talk to a doctor who has sat exactly where you are. No pressure. No
+            commission-driven advice. Just honest guidance.
+          </p>
+        </div>
 
-        <div className="container-custom py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="section-label-white mb-4">Free Counseling</p>
-              <h2 className="heading-brutal-lg heading-white mb-6">
-                Ready to start your{" "}
-                <span style={{ fontStyle: "italic", color: "#00C5A3" }}>medical journey?</span>
-              </h2>
-              <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "1rem", lineHeight: 1.75, maxWidth: "420px" }}>
-                Talk to a doctor who has sat exactly where you are. No pressure. No commission-driven advice. Just honest guidance.
-              </p>
-            </div>
+        {/* Right — teal */}
+        <div
+          style={{
+            background: "#00C5A3",
+            padding: "clamp(4rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem)",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
+        >
+          <p
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.6rem",
+              fontWeight: 700,
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              color: "rgba(255,255,255,0.6)",
+              marginBottom: "2rem",
+            }}
+          >
+            Start now — it&apos;s free
+          </p>
 
-            <div style={{ border: "1px solid rgba(255,255,255,0.12)", padding: "2rem" }}>
-              <div className="flex flex-col gap-4 mb-6">
-                <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn-teal justify-center">
-                  <Phone className="w-4 h-4" />
-                  Talk to Us on WhatsApp
-                </a>
-                <a href={instagramLink()} target="_blank" rel="noopener noreferrer" className="btn-outline-white justify-center">
-                  <Instagram className="w-4 h-4" />
-                  Find Us on Instagram
-                </a>
-              </div>
-              <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", color: "rgba(255,255,255,0.25)", letterSpacing: "0.12em", textTransform: "uppercase", textAlign: "center" }}>
-                Free · No Obligation · Mon–Sat 9am–8pm IST
-              </p>
-            </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "1.75rem" }}>
+            <a
+              href={whatsappLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "10px",
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.75rem",
+                fontWeight: 700,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                background: "#FFFFFF",
+                color: "#0D0D0D",
+                padding: "16px 32px",
+                border: "none",
+                textDecoration: "none",
+                cursor: "pointer",
+                transition: "all 0.15s",
+              }}
+            >
+              <Phone className="w-4 h-4" />
+              Talk to Us on WhatsApp
+            </a>
+            <a
+              href={instagramLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "10px",
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.75rem",
+                fontWeight: 700,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                background: "transparent",
+                color: "white",
+                padding: "15px 31px",
+                border: "2px solid rgba(255,255,255,0.5)",
+                textDecoration: "none",
+                cursor: "pointer",
+                transition: "all 0.15s",
+              }}
+            >
+              <Instagram className="w-4 h-4" />
+              Find Us on Instagram
+            </a>
           </div>
+
+          <p
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.58rem",
+              color: "rgba(255,255,255,0.55)",
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+            }}
+          >
+            Free · No Obligation · Mon–Sat 9am–8pm IST
+          </p>
         </div>
 
         {/* JSON-LD */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([
-          { "@context": "https://schema.org", "@type": "Organization", name: "Worldwise Education", url: "https://nishumbbsabroad.com", description: "Doctor-led MBBS abroad consultancy for Indian students." },
-          { "@context": "https://schema.org", "@type": "WebSite", name: "Worldwise Education", url: "https://nishumbbsabroad.com" },
-        ]) }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: "Worldwise Education",
+                url: "https://nishumbbsabroad.com",
+                description:
+                  "Doctor-led MBBS abroad consultancy for Indian students.",
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                name: "Worldwise Education",
+                url: "https://nishumbbsabroad.com",
+              },
+            ]),
+          }}
+        />
       </section>
     </>
   );

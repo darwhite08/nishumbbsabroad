@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Phone, Instagram, MapPin, Clock } from "lucide-react";
 import { whatsappLink, instagramLink } from "@/lib/utils";
