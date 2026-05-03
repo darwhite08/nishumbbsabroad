@@ -409,7 +409,7 @@ export default function HomePage() {
               <Link
                 key={country.slug}
                 href={`/countries/${country.slug}`}
-                style={{ textDecoration: "none", display: "block", position: "relative", overflow: "hidden", aspectRatio: "3/4", background: "#0D0D0D" }}
+                style={{ textDecoration: "none", display: "block", position: "relative", overflow: "hidden", height: "260px", background: "#0D0D0D" }}
                 className="group"
               >
                 {/* Full-bleed photo */}
