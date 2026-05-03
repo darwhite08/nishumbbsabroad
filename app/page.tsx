@@ -742,59 +742,144 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          8. TESTIMONIALS — Navy, large editorial cards
+          8. TESTIMONIALS — Premium editorial with photos + tags
       ═══════════════════════════════════════════ */}
-      <section style={{ background: "#003366", borderBottom: "1px solid rgba(255,255,255,0.06)", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", right: "clamp(1rem,4vw,3rem)", top: "2rem", fontFamily: "var(--font-mono)", fontSize: "clamp(6rem,14vw,11rem)", fontWeight: 700, lineHeight: 1, color: "#fff", opacity: 0.04, letterSpacing: "-0.04em", userSelect: "none", pointerEvents: "none" }}>06</div>
-        {/* Subtle dot grid */}
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
+      <section style={{ background: "#0D0D0D", borderBottom: "1px solid rgba(255,255,255,0.06)", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", right: "clamp(1rem,4vw,3rem)", top: "2rem", fontFamily: "var(--font-mono)", fontSize: "clamp(6rem,14vw,11rem)", fontWeight: 700, lineHeight: 1, color: "#fff", opacity: 0.03, letterSpacing: "-0.04em", userSelect: "none", pointerEvents: "none" }}>06</div>
+        {/* Subtle grid lines */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)", backgroundSize: "60px 60px", pointerEvents: "none" }} />
 
         <div className="container-custom" style={{ position: "relative", zIndex: 1 }}>
+
           {/* Header */}
-          <div style={{ padding: "clamp(4rem,7vw,6rem) 0 3rem", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-            <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", marginBottom: "2rem", display: "flex", alignItems: "center", gap: "0.75rem" }}>
-              <span style={{ opacity: 0.6 }}>06</span><span style={{ opacity: 0.6 }}>—</span><span>Student Stories</span>
+          <div style={{ padding: "clamp(4rem,7vw,6rem) 0 3rem", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+            <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: "2rem", display: "flex", alignItems: "center", gap: "0.75rem" }}>
+              <span style={{ opacity: 0.5 }}>06</span><span style={{ opacity: 0.5 }}>—</span><span>Student Stories</span>
             </p>
             <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: "3rem", alignItems: "end" }}>
               <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.25rem,4.5vw,4rem)", lineHeight: 0.95, letterSpacing: "-0.035em", color: "#FFFFFF" }}>
                 Real students.<br />
                 <em style={{ color: "#00C5A3" }}>Real words.</em>
               </h2>
-              <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.9375rem", lineHeight: 1.8, borderLeft: "2px solid rgba(255,255,255,0.1)", paddingLeft: "1.75rem" }}>
-                Unscripted. Unedited. Every student you see here was counseled by a doctor who studied at the same university they now attend.
+              <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.9375rem", lineHeight: 1.8, borderLeft: "2px solid rgba(255,255,255,0.08)", paddingLeft: "1.75rem" }}>
+                Every person you read here was counseled by a doctor who studied at the same university they now attend.
               </p>
             </div>
           </div>
 
-          {/* Testimonial grid — pure Tailwind, no inline gridTemplateColumns */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-            {featuredTestimonials.map((t, i) => (
-              <div key={t.id} style={{ padding: "2.5rem 0", borderBottom: "1px solid rgba(255,255,255,0.07)", borderRight: "1px solid rgba(255,255,255,0.07)", position: "relative" }}
-                className={i % 3 === 2 ? "lg:!border-r-0" : ""}>
+          {/* Featured card — large horizontal */}
+          {featuredTestimonials.slice(0, 1).map((t) => (
+            <div key={t.id} className="grid grid-cols-1 lg:grid-cols-2" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+              {/* Photo */}
+              <div style={{ position: "relative", overflow: "hidden", height: "340px" }} className="lg:h-auto">
+                {t.photo && (
+                  <Image src={t.photo} alt={t.studentName} fill className="object-cover grayscale" style={{ objectPosition: "top center" }} />
+                )}
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,51,102,0.5) 100%)" }} />
+                {/* Tag */}
+                <div style={{ position: "absolute", top: "1.5rem", left: "1.5rem" }}>
+                  <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#fff", background: "#00C5A3", border: "1px solid #009E84", padding: "4px 10px" }}>{t.tag}</span>
+                </div>
+              </div>
+              {/* Quote */}
+              <div style={{ padding: "3rem 2.5rem", display: "flex", flexDirection: "column", justifyContent: "center", borderLeft: "1px solid rgba(255,255,255,0.07)" }}>
+                <p style={{ fontFamily: "var(--font-display)", fontSize: "5rem", color: "rgba(0,197,163,0.2)", lineHeight: 0.7, marginBottom: "1.5rem", userSelect: "none" }}>&ldquo;</p>
+                <div style={{ display: "flex", gap: "2px", marginBottom: "1.5rem" }}>
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="w-4 h-4" style={{ fill: i < t.rating ? "#F59E0B" : "transparent", color: i < t.rating ? "#F59E0B" : "rgba(255,255,255,0.1)" }} />
+                  ))}
+                </div>
+                <blockquote style={{ fontFamily: "var(--font-inter)", fontSize: "1.0625rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.8, marginBottom: "2rem" }}>
+                  {t.quote}
+                </blockquote>
+                <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "1.25rem" }}>
+                  <p style={{ fontFamily: "var(--font-display)", fontSize: "1.125rem", color: "#FFFFFF" }}>{t.studentName}</p>
+                  <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", color: "#00C5A3", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: "4px", fontWeight: 700 }}>{t.currentYear} · {t.university || t.country}</p>
+                </div>
+              </div>
+            </div>
+          ))}
 
-                {/* Large decorative quote */}
-                <p style={{ fontFamily: "var(--font-display)", fontSize: "6rem", color: "rgba(0,197,163,0.15)", lineHeight: 0.7, marginBottom: "1.5rem", userSelect: "none" }}>&ldquo;</p>
+          {/* Grid — remaining 5 testimonials */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+            {featuredTestimonials.slice(1).map((t, i) => (
+              <div key={t.id} style={{ padding: "2rem 0", borderBottom: "1px solid rgba(255,255,255,0.06)", borderRight: "1px solid rgba(255,255,255,0.06)" }}>
+
+                {/* Top row: photo + name + tag */}
+                <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
+                  {t.photo ? (
+                    <div style={{ width: "52px", height: "52px", borderRadius: "50%", overflow: "hidden", border: "2px solid rgba(0,197,163,0.3)", flexShrink: 0, position: "relative" }}>
+                      <Image src={t.photo} alt={t.studentName} fill className="object-cover grayscale" style={{ objectPosition: "top center" }} />
+                    </div>
+                  ) : (
+                    <div style={{ width: "52px", height: "52px", borderRadius: "50%", background: "#003366", border: "2px solid rgba(0,197,163,0.3)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <span style={{ fontFamily: "var(--font-display)", fontSize: "1.25rem", color: "#00C5A3" }}>{t.studentName[0]}</span>
+                    </div>
+                  )}
+                  <div style={{ flex: 1 }}>
+                    <p style={{ fontFamily: "var(--font-display)", fontSize: "1rem", color: "#FFFFFF", lineHeight: 1.1, marginBottom: "3px" }}>{t.studentName}</p>
+                    <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", color: "#00C5A3", letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 700 }}>{t.currentYear}</p>
+                  </div>
+                  <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.5rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#fff", background: t.tag === "Parent" ? "#003366" : t.tag === "FMGE Graduate" ? "#003366" : "rgba(0,197,163,0.2)", border: `1px solid ${t.tag === "Parent" ? "rgba(0,51,102,0.5)" : "#00C5A3"}`, padding: "3px 8px", flexShrink: 0 }}>{t.tag}</span>
+                </div>
 
                 {/* Stars */}
-                <div style={{ display: "flex", gap: "3px", marginBottom: "1.25rem" }}>
+                <div style={{ display: "flex", gap: "2px", marginBottom: "1rem" }}>
                   {Array.from({ length: 5 }).map((_, idx) => (
-                    <Star key={idx} className="w-3.5 h-3.5" style={{ fill: idx < t.rating ? "#F59E0B" : "transparent", color: idx < t.rating ? "#F59E0B" : "rgba(255,255,255,0.12)" }} />
+                    <Star key={idx} className="w-3 h-3" style={{ fill: idx < t.rating ? "#F59E0B" : "transparent", color: idx < t.rating ? "#F59E0B" : "rgba(255,255,255,0.1)" }} />
                   ))}
                 </div>
 
-                <blockquote style={{ color: "rgba(255,255,255,0.85)", fontSize: "0.9375rem", lineHeight: 1.8, flex: 1, marginBottom: "2rem", fontFamily: "var(--font-inter)" }}>
-                  {t.quote}
+                <blockquote style={{ fontFamily: "var(--font-inter)", fontSize: "0.875rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.8 }}>
+                  &ldquo;{t.quote}&rdquo;
                 </blockquote>
-
-                <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "1.25rem" }}>
-                  <p style={{ fontFamily: "var(--font-display)", fontSize: "1.0625rem", color: "#FFFFFF", marginBottom: "4px" }}>{t.studentName}</p>
-                  <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.575rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#00C5A3", fontWeight: 700 }}>{t.currentYear} · {t.country}</p>
-                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* ═══════════════════════════════════════════
+          8.5 YOUTUBE VIDEO SECTION
+      ═══════════════════════════════════════════ */}
+      <section style={{ background: "#FFFFFF", borderBottom: "1px solid #E8E8E8", padding: "clamp(4rem,7vw,6rem) 0" }}>
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: "4rem", alignItems: "center" }}>
+            {/* Left — copy */}
+            <div>
+              <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#00C5A3", marginBottom: "1.5rem", display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                <span style={{ opacity: 0.35 }}>—</span><span>Watch. Decide.</span>
+              </p>
+              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem,4vw,3.25rem)", lineHeight: 1.0, letterSpacing: "-0.03em", color: "#0A0A0A", marginBottom: "1.25rem" }}>
+                Hear it from the<br />
+                <em style={{ color: "#003366" }}>doctors themselves.</em>
+              </h2>
+              <div style={{ width: "32px", height: "2px", background: "#00C5A3", marginBottom: "1.25rem" }} />
+              <p style={{ color: "#6B7280", fontSize: "0.9375rem", lineHeight: 1.8, marginBottom: "2rem" }}>
+                Dr. Nishu Yadav, Dr. Lokesh Attri, and Dr. Bindu Tyagi walk you through the MBBS abroad journey — country selection, FMGE preparation, visa process, and what life really looks like abroad.
+              </p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
+                {["MBBS Abroad Guide", "FMGE Preparation", "Student Life", "Country Reviews"].map(tag => (
+                  <span key={tag} style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: "#003366", border: "1px solid #E8E8E8", padding: "5px 12px" }}>{tag}</span>
+                ))}
+              </div>
+            </div>
+
+            {/* Right — YouTube embed placeholder */}
+            <div style={{ position: "relative", aspectRatio: "16/9", background: "#0D0D0D", border: "1px solid #E8E8E8", overflow: "hidden" }}>
+              {/* Replace src with real YouTube embed URL */}
+              <iframe
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                title="Worldwise Education — MBBS Abroad Guide"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none" }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* ═══════════════════════════════════════════
           9. FAQ — White, editorial sidebar + clean accordion
