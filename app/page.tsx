@@ -118,7 +118,7 @@ export default function HomePage() {
 
           {/* Label row */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "2.5rem" }}>
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)" }}>
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)" }}>
               Worldwise Education
             </span>
             <div style={{ width: "40px", height: "1px", background: "rgba(0,197,163,0.5)" }} />
@@ -259,9 +259,9 @@ export default function HomePage() {
       ════════════════════════════════════════ */}
       <section style={{ background: "#FFFFFF", borderBottom: "1px solid #E8E8E8", position: "relative", overflow: "hidden" }}>
 
-        {/* Ghost number — enormous barely-visible background decoration */}
-        <div style={{ position: "absolute", right: "-2rem", top: "50%", transform: "translateY(-50%)", fontFamily: "var(--font-display)", fontSize: "clamp(16rem, 30vw, 28rem)", lineHeight: 1, color: "#F5F5F5", letterSpacing: "-0.06em", userSelect: "none", pointerEvents: "none", zIndex: 0 }}>
-          4
+        {/* Faded section number */}
+        <div style={{ position: "absolute", right: "clamp(1rem, 4vw, 3rem)", top: "3rem", fontFamily: "var(--font-mono)", fontSize: "clamp(6rem, 14vw, 11rem)", fontWeight: 700, lineHeight: 1, color: "#0A0A0A", opacity: 0.04, letterSpacing: "-0.04em", userSelect: "none", pointerEvents: "none", zIndex: 0 }}>
+          01
         </div>
 
         {/* Teal top accent */}
@@ -272,8 +272,10 @@ export default function HomePage() {
           {/* Header row */}
           <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "2rem", padding: "5rem 0 4rem", borderBottom: "1px solid #E8E8E8" }} className="lg:grid-cols-[55%_45%]">
             <div>
-              <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#00C5A3", marginBottom: "1.75rem" }}>
-                Why Worldwise Education
+              <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#00C5A3", marginBottom: "1.75rem", whiteSpace: "nowrap", display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                <span style={{ opacity: 0.35 }}>01</span>
+                <span style={{ opacity: 0.35 }}>—</span>
+                <span>Why Worldwise Education</span>
               </p>
               <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.5rem, 5vw, 4.5rem)", lineHeight: 0.93, letterSpacing: "-0.035em", color: "#0A0A0A" }}>
                 The consultancy that&apos;s<br />
@@ -356,8 +358,13 @@ export default function HomePage() {
           background: "#F5F5F5",
           padding: "clamp(5rem, 8vw, 7rem) 0",
           borderBottom: "1px solid #E8E8E8",
+          position: "relative",
+          overflow: "hidden",
         }}
       >
+        {/* Faded section number */}
+        <div style={{ position: "absolute", right: "clamp(1rem, 4vw, 3rem)", top: "2rem", fontFamily: "var(--font-mono)", fontSize: "clamp(6rem, 14vw, 11rem)", fontWeight: 700, lineHeight: 1, color: "#0A0A0A", opacity: 0.04, letterSpacing: "-0.04em", userSelect: "none", pointerEvents: "none" }}>02</div>
+
         <div className="container-custom">
           {/* Header */}
           <div
@@ -373,18 +380,8 @@ export default function HomePage() {
             }}
           >
             <div>
-              <p
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "0.58rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  color: "#00C5A3",
-                  marginBottom: "0.75rem",
-                }}
-              >
-                Destinations
+              <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#00C5A3", marginBottom: "0.75rem", whiteSpace: "nowrap", display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                <span style={{ opacity: 0.35 }}>02</span><span style={{ opacity: 0.35 }}>—</span><span>Destinations</span>
               </p>
               <h2
                 style={{
@@ -568,13 +565,17 @@ export default function HomePage() {
               fontFamily: "var(--font-mono)",
               fontSize: "0.58rem",
               fontWeight: 700,
-              letterSpacing: "0.2em",
+              letterSpacing: "0.1em",
               textTransform: "uppercase",
               color: "rgba(255,255,255,0.6)",
               marginBottom: "2rem",
+              whiteSpace: "nowrap",
+              display: "flex",
+              alignItems: "center",
+              gap: "0.75rem",
             }}
           >
-            Our Difference
+            <span style={{ opacity: 0.6 }}>03</span><span style={{ opacity: 0.6 }}>—</span><span>Our Difference</span>
           </p>
           <h2
             style={{
@@ -631,7 +632,7 @@ export default function HomePage() {
               fontFamily: "var(--font-mono)",
               fontSize: "0.58rem",
               fontWeight: 700,
-              letterSpacing: "0.2em",
+              letterSpacing: "0.1em",
               textTransform: "uppercase",
               color: "#6B7280",
               marginBottom: "2rem",
@@ -712,8 +713,12 @@ export default function HomePage() {
           background: "#1A1A1A",
           padding: "clamp(5rem, 8vw, 7rem) 0",
           borderBottom: "1px solid rgba(255,255,255,0.06)",
+          position: "relative",
+          overflow: "hidden",
         }}
       >
+        {/* Faded section number */}
+        <div style={{ position: "absolute", right: "clamp(1rem, 4vw, 3rem)", top: "2rem", fontFamily: "var(--font-mono)", fontSize: "clamp(6rem, 14vw, 11rem)", fontWeight: 700, lineHeight: 1, color: "#FFFFFF", opacity: 0.04, letterSpacing: "-0.04em", userSelect: "none", pointerEvents: "none" }}>04</div>
         <div className="container-custom">
           {/* Header */}
           <div
@@ -734,13 +739,17 @@ export default function HomePage() {
                   fontFamily: "var(--font-mono)",
                   fontSize: "0.58rem",
                   fontWeight: 700,
-                  letterSpacing: "0.2em",
+                  letterSpacing: "0.1em",
                   textTransform: "uppercase",
                   color: "rgba(255,255,255,0.35)",
                   marginBottom: "0.75rem",
+                  whiteSpace: "nowrap",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.75rem",
                 }}
               >
-                Our Team
+                <span style={{ opacity: 0.5 }}>04</span><span style={{ opacity: 0.5 }}>—</span><span>Our Team</span>
               </p>
               <h2
                 style={{
@@ -872,15 +881,18 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════
-          7. FEE COMPARISON — Warm cream
+          7. FEE COMPARISON
       ════════════════════════════════════════ */}
       <section
         style={{
           background: "#FFFFFF",
           padding: "clamp(5rem, 8vw, 7rem) 0",
           borderBottom: "1px solid #E8E8E8",
+          position: "relative",
+          overflow: "hidden",
         }}
       >
+        <div style={{ position: "absolute", right: "clamp(1rem, 4vw, 3rem)", top: "2rem", fontFamily: "var(--font-mono)", fontSize: "clamp(6rem, 14vw, 11rem)", fontWeight: 700, lineHeight: 1, color: "#0A0A0A", opacity: 0.04, letterSpacing: "-0.04em", userSelect: "none", pointerEvents: "none" }}>05</div>
         <div className="container-custom">
           <div
             style={{
@@ -898,13 +910,17 @@ export default function HomePage() {
                   fontFamily: "var(--font-mono)",
                   fontSize: "0.58rem",
                   fontWeight: 700,
-                  letterSpacing: "0.2em",
+                  letterSpacing: "0.1em",
                   textTransform: "uppercase",
                   color: "#00C5A3",
                   marginBottom: "0.75rem",
+                  whiteSpace: "nowrap",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.75rem",
                 }}
               >
-                The Numbers
+                <span style={{ opacity: 0.35 }}>05</span><span style={{ opacity: 0.35 }}>—</span><span>The Numbers</span>
               </p>
               <h2
                 style={{
@@ -1124,8 +1140,11 @@ export default function HomePage() {
           background: "#003366",
           padding: "clamp(5rem, 8vw, 7rem) 0",
           borderBottom: "1px solid rgba(255,255,255,0.06)",
+          position: "relative",
+          overflow: "hidden",
         }}
       >
+        <div style={{ position: "absolute", right: "clamp(1rem, 4vw, 3rem)", top: "2rem", fontFamily: "var(--font-mono)", fontSize: "clamp(6rem, 14vw, 11rem)", fontWeight: 700, lineHeight: 1, color: "#FFFFFF", opacity: 0.05, letterSpacing: "-0.04em", userSelect: "none", pointerEvents: "none" }}>06</div>
         <div className="container-custom">
           {/* Header */}
           <div
@@ -1135,18 +1154,8 @@ export default function HomePage() {
               borderBottom: "1px solid rgba(255,255,255,0.07)",
             }}
           >
-            <p
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.58rem",
-                fontWeight: 700,
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.4)",
-                marginBottom: "0.75rem",
-              }}
-            >
-              Student Stories
+            <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", marginBottom: "0.75rem", whiteSpace: "nowrap", display: "flex", alignItems: "center", gap: "0.75rem" }}>
+              <span style={{ opacity: 0.6 }}>06</span><span style={{ opacity: 0.6 }}>—</span><span>Student Stories</span>
             </p>
             <h2
               style={{
@@ -1275,8 +1284,11 @@ export default function HomePage() {
           background: "#F5F5F5",
           padding: "clamp(5rem, 8vw, 7rem) 0",
           borderBottom: "1px solid #E8E8E8",
+          position: "relative",
+          overflow: "hidden",
         }}
       >
+        <div style={{ position: "absolute", right: "clamp(1rem, 4vw, 3rem)", top: "2rem", fontFamily: "var(--font-mono)", fontSize: "clamp(6rem, 14vw, 11rem)", fontWeight: 700, lineHeight: 1, color: "#0A0A0A", opacity: 0.04, letterSpacing: "-0.04em", userSelect: "none", pointerEvents: "none" }}>07</div>
         <div className="container-custom">
           <div
             style={{
@@ -1296,13 +1308,17 @@ export default function HomePage() {
                   fontFamily: "var(--font-mono)",
                   fontSize: "0.58rem",
                   fontWeight: 700,
-                  letterSpacing: "0.2em",
+                  letterSpacing: "0.1em",
                   textTransform: "uppercase",
                   color: "#00C5A3",
                   marginBottom: "0.75rem",
+                  whiteSpace: "nowrap",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.75rem",
                 }}
               >
-                FAQ
+                <span style={{ opacity: 0.35 }}>07</span><span style={{ opacity: 0.35 }}>—</span><span>FAQ</span>
               </p>
               <h2
                 style={{
@@ -1434,7 +1450,7 @@ export default function HomePage() {
               fontFamily: "var(--font-mono)",
               fontSize: "0.58rem",
               fontWeight: 700,
-              letterSpacing: "0.2em",
+              letterSpacing: "0.1em",
               textTransform: "uppercase",
               color: "rgba(255,255,255,0.3)",
               marginBottom: "1.5rem",
@@ -1482,7 +1498,7 @@ export default function HomePage() {
               fontFamily: "var(--font-mono)",
               fontSize: "0.58rem",
               fontWeight: 700,
-              letterSpacing: "0.2em",
+              letterSpacing: "0.1em",
               textTransform: "uppercase",
               color: "rgba(255,255,255,0.6)",
               marginBottom: "2rem",
