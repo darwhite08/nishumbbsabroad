@@ -21,9 +21,12 @@ export const metadata: Metadata = {
   keywords: ["mbbs abroad", "mbbs consultancy", "nmc approved universities", "mbbs russia", "mbbs georgia"],
   authors: [{ name: "Worldwise Education" }],
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/images/logo_512.png", type: "image/png", sizes: "512x512" },
+    ],
     shortcut: "/favicon.ico",
-    apple: "/images/logo_512.png",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     type: "website", locale: "en_IN", siteName: "Worldwise Education",
