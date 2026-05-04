@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import Image from "next/image";
-import { Phone, Mail, User, CheckCircle2, Calendar, ChevronDown, Loader2, ArrowRight } from "lucide-react";
+import { Phone, User, CheckCircle2, Calendar, ChevronDown, Loader2, ArrowRight } from "lucide-react";
 import emailjs from "@emailjs/browser";
 
 const doctors = [
@@ -27,7 +27,7 @@ const doctors = [
   {
     id: "bindu",
     name: "Dr. Bindu Tyagi",
-    role: "MBBS Abroad & FMG Counselor",
+    role: "Co-Founder & MBBS Abroad Counselor",
     university: "Ternopil National Medical University",
     specialty: "MBBS abroad for girls, Ukraine/Eastern Europe",
     photo: "/images/bindu_tyagi.jpg",
@@ -56,7 +56,7 @@ export default function BookingForm() {
   const formRef = useRef<HTMLFormElement>(null);
 
   const [form, setForm] = useState({
-    name: "", email: "", phone: "", neet: "", budget: "", preferredDate: "", preferredTime: "", message: "",
+    name: "", phone: "", neet: "", budget: "", preferredDate: "", preferredTime: "", message: "",
   });
 
   const doctor = doctors.find(d => d.id === selectedDoctor);
@@ -71,10 +71,8 @@ export default function BookingForm() {
 
     const params = {
       to_name: form.name,
-      to_email: form.email,
       from_name: "Worldwise Education",
       student_name: form.name,
-      student_email: form.email,
       student_phone: form.phone,
       neet_score: form.neet,
       budget: form.budget,
@@ -83,7 +81,6 @@ export default function BookingForm() {
       preferred_date: form.preferredDate,
       preferred_time: form.preferredTime,
       message: form.message || "No additional message.",
-      reply_to: form.email,
     };
 
     await emailjs.send(serviceId, teamTemplate, params, pubKey);
@@ -168,13 +165,13 @@ export default function BookingForm() {
           Booking confirmed!
         </h2>
         <p style={{ color: "#6B7280", fontSize: "0.9375rem", lineHeight: 1.8, maxWidth: "480px", margin: "0 auto 0.75rem" }}>
-          We&apos;ve received your request. <strong style={{ color: "#0A0A0A" }}>{doctor?.name}</strong> will reach out to <strong style={{ color: "#0A0A0A" }}>{form.email}</strong> within <strong style={{ color: "#0A0A0A" }}>2 hours</strong> with the Google Meet link for your session.
+          We&apos;ve received your request. <strong style={{ color: "#0A0A0A" }}>{doctor?.name}</strong> will contact you on <strong style={{ color: "#0A0A0A" }}>{form.phone}</strong> within <strong style={{ color: "#0A0A0A" }}>2 hours</strong> with the Google Meet link for your session.
         </p>
         <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", color: "#9CA3AF", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "2rem" }}>
           Check your spam folder if you don&apos;t see it in 2 hours.
         </p>
         <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-          <button onClick={() => { setStep(1); setSelectedDoctor(""); setStatus("idle"); setForm({ name:"",email:"",phone:"",neet:"",budget:"",preferredDate:"",preferredTime:"",message:"" }); }}
+          <button onClick={() => { setStep(1); setSelectedDoctor(""); setStatus("idle"); setForm({ name:"",phone:"",neet:"",budget:"",preferredDate:"",preferredTime:"",message:"" }); }}
             className="btn-outline" style={{ cursor: "pointer" }}>
             Book Another Call
           </button>
@@ -224,21 +221,6 @@ export default function BookingForm() {
             <div style={{ position: "relative" }}>
               <User size={14} style={{ position: "absolute", left: "0.75rem", top: "50%", transform: "translateY(-50%)", color: "#9CA3AF" }} />
               <input required value={form.name} onChange={e => update("name", e.target.value)} placeholder="Your full name"
-                style={{ width: "100%", paddingLeft: "2.25rem", paddingRight: "0.75rem", paddingTop: "0.625rem", paddingBottom: "0.625rem", border: "1px solid #E8E8E8", background: "#F8F9FA", fontFamily: "var(--font-inter)", fontSize: "0.875rem", color: "#0A0A0A", outline: "none", transition: "border-color 0.15s", boxSizing: "border-box" }}
-                onFocus={e => e.target.style.borderColor = "#003366"}
-                onBlur={e => e.target.style.borderColor = "#E8E8E8"}
-              />
-            </div>
-          </div>
-
-          {/* Email */}
-          <div style={{ background: "#FFFFFF", padding: "1.25rem" }}>
-            <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#6B7280", marginBottom: "0.5rem" }}>
-              Email Address *
-            </label>
-            <div style={{ position: "relative" }}>
-              <Mail size={14} style={{ position: "absolute", left: "0.75rem", top: "50%", transform: "translateY(-50%)", color: "#9CA3AF" }} />
-              <input required type="email" value={form.email} onChange={e => update("email", e.target.value)} placeholder="your@email.com"
                 style={{ width: "100%", paddingLeft: "2.25rem", paddingRight: "0.75rem", paddingTop: "0.625rem", paddingBottom: "0.625rem", border: "1px solid #E8E8E8", background: "#F8F9FA", fontFamily: "var(--font-inter)", fontSize: "0.875rem", color: "#0A0A0A", outline: "none", transition: "border-color 0.15s", boxSizing: "border-box" }}
                 onFocus={e => e.target.style.borderColor = "#003366"}
                 onBlur={e => e.target.style.borderColor = "#E8E8E8"}
@@ -347,8 +329,8 @@ export default function BookingForm() {
           </div>
         )}
 
-        <button type="submit" disabled={!form.name || !form.email || !form.phone || !form.preferredDate || !form.preferredTime || status === "sending"}
-          className="btn-surgical" style={{ width: "100%", justifyContent: "center", opacity: (!form.name || !form.email || !form.phone || !form.preferredDate || !form.preferredTime) ? 0.5 : 1, cursor: (!form.name || !form.email || !form.phone || !form.preferredDate || !form.preferredTime) ? "not-allowed" : "pointer" }}>
+        <button type="submit" disabled={!form.name || !form.phone || !form.preferredDate || !form.preferredTime || status === "sending"}
+          className="btn-surgical" style={{ width: "100%", justifyContent: "center", opacity: (!form.name || !form.phone || !form.preferredDate || !form.preferredTime) ? 0.5 : 1, cursor: (!form.name || !form.phone || !form.preferredDate || !form.preferredTime) ? "not-allowed" : "pointer" }}>
           {status === "sending" ? (
             <><Loader2 size={14} className="animate-spin" /> Sending booking...</>
           ) : (
@@ -357,7 +339,7 @@ export default function BookingForm() {
         </button>
 
         <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", color: "#9CA3AF", letterSpacing: "0.06em", textAlign: "center", marginTop: "0.875rem" }}>
-          Free · No obligation · Google Meet link sent to your email within 2 hours
+          Free · No obligation · Google Meet link sent via WhatsApp/call within 2 hours
         </p>
       </form>
     </div>

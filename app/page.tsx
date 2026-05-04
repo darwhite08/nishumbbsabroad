@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const stats = [
   { value: "20L+", label: "NEET candidates / year" },
   { value: "52K", label: "Govt. seats available" },
-  { value: "8", label: "Countries covered" },
+  { value: "6", label: "Countries covered" },
   { value: "500+", label: "Students placed" },
 ];
 
@@ -166,7 +166,7 @@ export default function HomePage() {
         <div className="hidden lg:block" style={{ position: "absolute", bottom: "80px", right: "48px", background: "rgba(13,13,13,0.9)", border: "1px solid rgba(0,197,163,0.25)", padding: "1.25rem 1.75rem", backdropFilter: "blur(12px)", zIndex: 10 }}>
           <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.52rem", color: "#00C5A3", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: "0.5rem" }}>Students placed</p>
           <p style={{ fontFamily: "var(--font-display)", fontSize: "2.5rem", color: "white", lineHeight: 1, letterSpacing: "-0.04em" }}>500+</p>
-          <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.52rem", color: "rgba(255,255,255,0.3)", letterSpacing: "0.08em", marginTop: "0.25rem" }}>Across 8 countries</p>
+          <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.52rem", color: "rgba(255,255,255,0.3)", letterSpacing: "0.08em", marginTop: "0.25rem" }}>Across 6 countries</p>
         </div>
 
         {/* Stats bar */}
@@ -327,7 +327,7 @@ export default function HomePage() {
             <div style={{ display: "flex", gap: "2.5rem", flexWrap: "wrap" }}>
               {[
                 { val: "500+", label: "Students placed" },
-                { val: "8",    label: "Countries" },
+                { val: "6",    label: "Countries" },
                 { val: "4",    label: "Doctor counselors" },
                 { val: "100%", label: "NMC compliant" },
               ].map((s) => (
@@ -388,7 +388,7 @@ export default function HomePage() {
                   color: "#0D0D0D",
                 }}
               >
-                8 NMC-Approved{" "}
+                6 NMC-Approved{" "}
                 <em style={{ fontStyle: "italic" }}>Countries</em>
               </h2>
             </div>
@@ -957,7 +957,7 @@ export default function HomePage() {
                 Talk to a doctor who has sat exactly where you are. No pressure. No commission-driven advice. Just honest guidance from someone who has lived it.
               </p>
               <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-                {[{ val: "500+", label: "Students" }, { val: "8", label: "Countries" }, { val: "3", label: "Doctors" }].map(s => (
+                {[{ val: "500+", label: "Students" }, { val: "6", label: "Countries" }, { val: "3", label: "Doctors" }].map(s => (
                   <div key={s.label} style={{ paddingRight: "1.5rem", borderRight: "1px solid rgba(255,255,255,0.08)" }}>
                     <p style={{ fontFamily: "var(--font-mono)", fontSize: "1.5rem", fontWeight: 700, color: "#00C5A3", lineHeight: 1, letterSpacing: "-0.02em" }}>{s.val}</p>
                     <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", color: "rgba(255,255,255,0.3)", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: "3px" }}>{s.label}</p>

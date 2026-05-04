@@ -40,7 +40,7 @@ export const team: TeamMember[] = [
     qualification: "MBBS",
     university: "Ternopil National Medical University",
     country: "Ukraine",
-    role: "MBBS Abroad & FMG Counselor",
+    role: "Co-Founder & MBBS Abroad Counselor",
     bio: "Dr. Bindu Tyagi completed her medical education at Ternopil National Medical University. She brings a student-focused approach to counseling, helping aspirants navigate MBBS abroad and FMGE preparation with clarity. She is especially committed to guiding students — particularly girls — on safety, academics, and adapting to life overseas.",
     photo: "/images/bindu_tyagi.jpg",
     featured: true,

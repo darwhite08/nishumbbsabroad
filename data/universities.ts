@@ -454,62 +454,6 @@ export const universities: University[] = [
     recommended: false,
   },
 
-  // ── BANGLADESH ──────────────────────────────────────────────────
-
-  {
-    slug: "dhaka-national-medical-college",
-    name: "Dhaka National Medical College",
-    countrySlug: "bangladesh",
-    country: "Bangladesh",
-    city: "Dhaka",
-    established: 1994,
-    annualFee: "₹5,50,000",
-    totalFee: "₹27,50,000",
-    nmcApproved: true,
-    fmgePassRate: "~50%",
-    mediumOfInstruction: "English",
-    overview: "DNMC is a reputed medical college in Dhaka with good infrastructure and clinical training facilities, popular among Indian students for its proximity to India.",
-    highlights: [
-      "Close to India — easy family visits",
-      "Cultural familiarity with Indian students",
-      "Good clinical exposure at Dhaka hospitals",
-      "FMGE pass rate ~50%",
-      "NMC approved",
-    ],
-    image: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=800&q=80",
-    whatsappMessage: "Hi, I want to know more about Dhaka National Medical College.",
-    stars: 4,
-    recommended: true,
-  },
-
-  // ── NEPAL ────────────────────────────────────────────────────────
-
-  {
-    slug: "kathmandu-university-school-of-medical-sciences",
-    name: "Kathmandu University School of Medical Sciences",
-    countrySlug: "nepal",
-    country: "Nepal",
-    city: "Dhulikhel",
-    established: 1994,
-    annualFee: "₹7,00,000",
-    totalFee: "₹38,50,000",
-    nmcApproved: true,
-    fmgePassRate: "~60%",
-    ranking: "Top 5 Medical Colleges in Nepal",
-    mediumOfInstruction: "English",
-    overview: "KUSMS is one of Nepal's premier medical institutions, known for high-quality education and one of the best FMGE pass rates among MBBS abroad destinations.",
-    highlights: [
-      "One of Nepal's top medical colleges",
-      "FMGE pass rate ~60% — excellent",
-      "No visa required for Indian students",
-      "Strong clinical training at Dhulikhel Hospital",
-      "NMC approved",
-    ],
-    image: "https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?w=800&q=80",
-    whatsappMessage: "Hi, I want to know more about Kathmandu University School of Medical Sciences.",
-    stars: 5,
-    recommended: true,
-  },
 
   // ── PHILIPPINES ─────────────────────────────────────────────────
 

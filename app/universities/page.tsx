@@ -9,7 +9,7 @@ import { CheckCircle2, ArrowRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "NMC-Approved Universities for MBBS Abroad — Complete List 2026",
   description:
-    "Browse NMC-approved universities across 8 countries for MBBS abroad. Russia, Georgia, Kazakhstan, Uzbekistan, Kyrgyzstan, Bangladesh, Nepal, Philippines.",
+    "Browse NMC-approved universities across 6 countries for MBBS abroad. Russia, Georgia, Kazakhstan, Uzbekistan, Kyrgyzstan, Philippines.",
   alternates: { canonical: "/universities" },
 };
 
@@ -111,7 +111,7 @@ export default function UniversitiesPage() {
             }}
           >
             We work with carefully selected, NMC-approved, WDOMS-listed universities
-            across 8 countries. Every university has been evaluated by our team of
+            across 6 countries. Every university has been evaluated by our team of
             doctors.
           </p>
 
@@ -128,7 +128,7 @@ export default function UniversitiesPage() {
           >
             {[
               { stat: `${universities.length}+`, label: "Universities" },
-              { stat: "8", label: "Countries" },
+              { stat: "6", label: "Countries" },
               { stat: "100%", label: "NMC Compliant" },
             ].map(({ stat, label }) => (
               <div

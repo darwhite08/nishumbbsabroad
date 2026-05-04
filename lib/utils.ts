@@ -14,6 +14,6 @@ export function whatsappLink(message?: string): string {
 }
 
 export function instagramLink(): string {
-  const handle = process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE ?? "nishumbbsabroad";
-  return `https://instagram.com/${handle}`;
+  const handle = process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE ?? "world.wiseeducation";
+  return `https://www.instagram.com/${handle}/`;
 }
