@@ -83,7 +83,7 @@ export default function ContactPage() {
               <h2 className="text-text-main mb-2">Message on Instagram</h2>
               <p className="text-text-muted mb-6 text-sm leading-relaxed">
                 DM us for quick answers and to see real student stories from our community across
-                6 countries.
+                7 countries.
               </p>
               <a
                 href={instagramLink()}

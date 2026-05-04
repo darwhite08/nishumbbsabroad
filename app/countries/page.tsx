@@ -8,7 +8,7 @@ import CTABanner from "@/components/ui/CTABanner";
 import { whatsappLink } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Best Countries for MBBS Abroad — 6 NMC-Approved Destinations",
+  title: "Best Countries for MBBS Abroad — 7 NMC-Approved Destinations",
   description:
     "Compare 8 NMC-approved MBBS abroad destinations — Russia, Georgia, Kazakhstan, Uzbekistan, Kyrgyzstan, Philippines. Filter by budget, duration and more.",
   alternates: { canonical: "/countries" },
@@ -52,7 +52,7 @@ export default function CountriesPage() {
         <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "60px 60px", pointerEvents: "none" }} />
 
         {/* Ghost number */}
-        <div style={{ position: "absolute", right: "clamp(1rem,4vw,3rem)", top: "50%", transform: "translateY(-50%)", fontFamily: "var(--font-mono)", fontSize: "clamp(10rem,20vw,18rem)", fontWeight: 700, lineHeight: 1, color: "#fff", opacity: 0.04, letterSpacing: "-0.04em", userSelect: "none", pointerEvents: "none" }}>6</div>
+        <div style={{ position: "absolute", right: "clamp(1rem,4vw,3rem)", top: "50%", transform: "translateY(-50%)", fontFamily: "var(--font-mono)", fontSize: "clamp(10rem,20vw,18rem)", fontWeight: 700, lineHeight: 1, color: "#fff", opacity: 0.04, letterSpacing: "-0.04em", userSelect: "none", pointerEvents: "none" }}>7</div>
 
         {/* Teal left stripe */}
         <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "3px", background: "#00C5A3", zIndex: 2 }} />
@@ -74,13 +74,13 @@ export default function CountriesPage() {
             <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.75rem" }}>
               <span style={{ width: "40px", height: "1px", background: "rgba(0,197,163,0.6)" }} />
               <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#00C5A3" }}>
-                6 NMC-Approved Destinations
+                7 NMC-Approved Destinations
               </span>
             </div>
 
             {/* BIG heading — two clear lines */}
             <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(3.25rem, 7.5vw, 7rem)", lineHeight: 0.92, letterSpacing: "-0.04em", color: "#FFFFFF", marginBottom: "0.1em" }}>
-              6 countries.
+              7 countries.
             </h1>
             <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(3.25rem, 7.5vw, 7rem)", lineHeight: 0.92, letterSpacing: "-0.04em", color: "#00C5A3", fontStyle: "italic", marginBottom: "2rem" }}>
               Find yours.
@@ -116,7 +116,7 @@ export default function CountriesPage() {
           <div className="container-custom">
             <div className="grid grid-cols-2 sm:grid-cols-4">
               {[
-                { val: "6",        label: "Countries" },
+                { val: "7",        label: "Countries" },
                 { val: "100%",     label: "NMC Approved" },
                 { val: "₹15L–55L", label: "Cost Range" },
                 { val: "5–6 yrs",  label: "Duration" },
@@ -171,7 +171,7 @@ export default function CountriesPage() {
             </p>
             <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: "3rem", alignItems: "end" }}>
               <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem,4vw,3.5rem)", lineHeight: 0.95, letterSpacing: "-0.035em", color: "#FFFFFF" }}>
-                6 countries.<br />
+                7 countries.<br />
                 <em style={{ color: "#00C5A3" }}>One right answer.</em>
               </h2>
               <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.9375rem", lineHeight: 1.8, borderLeft: "2px solid rgba(255,255,255,0.08)", paddingLeft: "1.75rem" }}>

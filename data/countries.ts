@@ -371,6 +371,62 @@ export const countries: Country[] = [
     ],
     whatsappMessage: "Hi, I'm interested in MBBS in Philippines. Please guide me.",
   },
+  // ── SERBIA ──────────────────────────────────────────────────────
+  {
+    slug: "serbia", durationYears: 4, budgetMin: 8, budgetMax: 20, internshipIncluded: false,
+    name: "Serbia",
+    flag: "🇷🇸",
+    duration: "3–4 years",
+    feeRangePerYear: "€1,000–€2,100/year",
+    totalCost: "€4,000–€10,000",
+    language: "English",
+    climate: "Continental, warm summers, cold winters",
+    nmcApproved: true,
+    tagline: "European Degree, Gateway to EU Jobs",
+    heroImage: "/images/alfa_bk_1.jpg",
+    whyChoose: [
+      { icon: "Globe", title: "EU/Schengen Access", description: "Study in Europe with access to conferences and job opportunities across the EU and Schengen countries." },
+      { icon: "IndianRupee", title: "Most Affordable European Option", description: "Bachelor's from €1,000/year (girls) or €1,950/year (boys). The most affordable European university option for Indian students." },
+      { icon: "Briefcase", title: "Job Support in UAE & Germany", description: "Worldwise Education helps students find part-time jobs while studying and full-time jobs in UAE and Germany after graduation." },
+      { icon: "Shield", title: "Recognised Degree", description: "12th marksheet equivalence and recognition handled. Degree recognised for European and international career paths." },
+    ],
+    eligibility: [
+      { criteria: "10th Certificate", requirement: "Secondary School Certificate" },
+      { criteria: "12th Certificate", requirement: "Higher Secondary Certificate" },
+      { criteria: "Passport", requirement: "Valid passport required" },
+      { criteria: "NEET", requirement: "Required for medical programs" },
+    ],
+    feeStructure: [
+      { year: "Application + Setup", tuition: "€1,000 (company)", hostel: "€150/mo", misc: "€700 (one-time)", total: "€1,700 + tuition" },
+      { year: "Tuition (Bachelor Girls)", tuition: "€1,000/year", hostel: "€150/mo", misc: "Visa €400", total: "~€3,600/year all-in" },
+      { year: "Tuition (Bachelor Boys)", tuition: "€1,950/year", hostel: "€150/mo", misc: "Visa €400", total: "~€4,150/year all-in" },
+      { year: "Tuition (Masters Girls)", tuition: "€1,200/year", hostel: "€150/mo", misc: "Visa €400", total: "~€3,400/year all-in" },
+      { year: "Tuition (Masters Boys)", tuition: "€2,100/year", hostel: "€150/mo", misc: "Visa €400", total: "~€4,300/year all-in" },
+    ],
+    admissionTimeline: [
+      { month: "Apply anytime", step: "Submit documents and application" },
+      { month: "Within 2 weeks", step: "Receive admission letter from university" },
+      { month: "After fee payment", step: "Invitation letter issued" },
+      { month: "2–4 weeks", step: "Visa processing" },
+      { month: "On arrival", step: "Airport pickup + accommodation setup" },
+    ],
+    lifeAbroad: {
+      climate: "Continental climate — warm summers (25–30°C), cold winters (−5°C). Pleasant spring and autumn.",
+      food: "Serbian food is meat-heavy but affordable. Indian restaurants available in Belgrade. Self-cooking is common.",
+      safety: "Serbia is a safe European country with low crime rates. Belgrade is a modern, vibrant city.",
+      transport: "Good bus and rail network. Belgrade has excellent public transport. Europe easily accessible by train.",
+      currency: "Serbian Dinar (RSD). Monthly living expenses ~€250–€350 (accommodation + food).",
+    },
+    fmgeNote: "Serbia universities are not primarily MBBS programs — they offer bachelor's and master's degrees in various fields through Alfa BK University, and medicine through University of Kragujevac. Students targeting FMGE/Indian medical practice should consult our doctors about eligibility.",
+    faqs: [
+      { question: "What programs are available in Serbia?", answer: "Bachelor's and Master's programs at Alfa BK University (various fields), and Medicine at University of Kragujevac. Both are in Belgrade/Kragujevac — accessible European cities." },
+      { question: "What is the total cost of studying in Serbia?", answer: "Bachelor's (girls): ~€1,000/year tuition. Bachelor's (boys): ~€1,950/year. Masters: €1,200–€2,100/year. Plus ~€150/month accommodation and €150/month food. One-time company charge: €1,000." },
+      { question: "Can I work while studying in Serbia?", answer: "Yes! Worldwise Education helps students find part-time jobs while studying, and assists with placement in UAE and Germany after graduation." },
+      { question: "Is the degree from Serbia recognised internationally?", answer: "Yes. Serbian university degrees are recognised across Europe. Worldwise handles 12th marksheet equivalence and recognition as part of the package." },
+      { question: "How long is the visa processing?", answer: "Typically 2–4 weeks. Worldwise Education handles all visa documentation as part of the €500 visa processing service." },
+    ],
+    whatsappMessage: "Hi, I'm interested in studying in Serbia (Alfa BK / Kragujevac). Please guide me.",
+  },
 ];
 
 export function getCountryBySlug(slug: string): Country | undefined {
