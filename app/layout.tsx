@@ -20,12 +20,18 @@ export const metadata: Metadata = {
   description: "Premium MBBS abroad consultancy. Doctor-led guidance for NMC-approved universities in Russia, Georgia, Kazakhstan and 5 more countries.",
   keywords: ["mbbs abroad", "mbbs consultancy", "nmc approved universities", "mbbs russia", "mbbs georgia"],
   authors: [{ name: "Worldwise Education" }],
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/images/logo_512.png",
+  },
   openGraph: {
     type: "website", locale: "en_IN", siteName: "Worldwise Education",
     title: "Worldwise Education — For the Doctors, By the Doctors",
     description: "Doctor-led MBBS abroad consultancy. Free counseling from doctors who studied at the same universities they recommend.",
+    images: [{ url: "/images/logo_512.png", width: 512, height: 512, alt: "Worldwise Education Logo" }],
   },
-  twitter: { card: "summary_large_image", title: "Worldwise Education", description: "Doctor-led MBBS abroad consultancy." },
+  twitter: { card: "summary_large_image", title: "Worldwise Education", description: "Doctor-led MBBS abroad consultancy.", images: ["/images/logo_512.png"] },
   robots: { index: true, follow: true },
 };
 

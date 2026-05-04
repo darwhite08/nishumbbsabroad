@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Instagram, MapPin, Clock } from "lucide-react";
 import { whatsappLink, instagramLink } from "@/lib/utils";
 import { countries } from "@/data/countries";
@@ -18,9 +19,8 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-4" style={{ borderRight: "1px solid rgba(255,255,255,0.06)", paddingRight: "2.5rem" }}>
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-8 h-8 bg-surgical flex items-center justify-center"
-                style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", fontWeight: 700, color: "white", letterSpacing: "0.05em", border: "1px solid #004488" }}>
-                WE
+              <div style={{ width: "48px", height: "48px", flexShrink: 0, position: "relative" }}>
+                <Image src="/images/logo.png" alt="Worldwise Education" fill className="object-contain" />
               </div>
               <div>
                 <p style={{ fontFamily: "var(--font-display)", fontSize: "14px", color: "white", lineHeight: 1.1 }}>Worldwise Education</p>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Phone } from "lucide-react";
 import { whatsappLink } from "@/lib/utils";
 
@@ -54,23 +55,15 @@ export default function Navbar() {
               textDecoration: "none",
             }}
           >
-            {/* Logo mark */}
-            <div
-              style={{
-                width: "34px",
-                height: "34px",
-                background: "#003366",
-                border: "1px solid rgba(0,197,163,0.4)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexShrink: 0,
-                position: "relative",
-              }}
-            >
-              {/* Teal corner accent */}
-              <div style={{ position: "absolute", top: 0, right: 0, width: "6px", height: "6px", background: "#00C5A3" }} />
-              <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.52rem", fontWeight: 700, color: "white", letterSpacing: "0.05em" }}>WE</span>
+            {/* Real logo */}
+            <div style={{ width: "44px", height: "44px", flexShrink: 0, position: "relative" }}>
+              <Image
+                src="/images/logo.png"
+                alt="Worldwise Education"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
 
             {/* Wordmark */}
