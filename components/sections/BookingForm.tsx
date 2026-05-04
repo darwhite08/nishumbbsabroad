@@ -178,7 +178,7 @@ export default function BookingForm() {
             className="btn-outline" style={{ cursor: "pointer" }}>
             Book Another Call
           </button>
-          <a href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "919999999999"}?text=Hi, I just booked a call with ${doctor?.name}. My name is ${form.name}.`} target="_blank" rel="noopener noreferrer" className="btn-teal">
+          <a href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "917011079984"}?text=Hi, I just booked a call with ${doctor?.name}. My name is ${form.name}.`} target="_blank" rel="noopener noreferrer" className="btn-teal">
             <Phone size={13} />
             Ping on WhatsApp Too
           </a>

@@ -68,9 +68,15 @@
 
 ---
 
+## Workflow Rules (Permanent)
+- Always update this file after completing any task
+- Before every `git push`: run `npx tsc --noEmit` → `npm run lint` → `npm run build` → Playwright smoke tests
+
+---
+
 ## Pending (Can Do Without Client)
 
-- [ ] Test suite (Playwright e2e)
+- [ ] Test suite (Playwright e2e) — planned, not yet installed
 - [ ] Lighthouse performance audit
 - [ ] Update site URL in .env.local to worldwiseducation.in
 - [ ] Contact page update (has placeholder WhatsApp number reference)

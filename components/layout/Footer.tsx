@@ -8,8 +8,8 @@ import { countries } from "@/data/countries";
 
 export default function Footer() {
   const year = new Date().getFullYear();
-  const waNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "919999999999";
-  const igHandle = process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE ?? "nishumbbsabroad";
+  const waNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "917011079984";
+  const igHandle = process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE ?? "world.wiseeducation";
 
   return (
     <footer style={{ background: "#0A0A0A", borderTop: "4px solid #00C5A3" }}>

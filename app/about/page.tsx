@@ -315,7 +315,7 @@ export default function AboutPage() {
                     src={member.photo}
                     alt={member.name}
                     fill
-                    style={{ objectFit: "cover", objectPosition: "top center" }}
+                    style={{ objectFit: "cover", objectPosition: member.imagePosition ?? "top center" }}
                   />
                   {/* Dark gradient overlay */}
                   <div

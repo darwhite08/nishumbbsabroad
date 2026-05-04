@@ -53,14 +53,14 @@ All section lock/unlock status is tracked in `docs/section-permissions.md`. Alwa
 6. **Check section permissions** before any UI change (`docs/section-permissions.md`)
 
 ## Placeholder Values (Until Client Provides)
-- WhatsApp: `919999999999`
-- Instagram: `nishumbbsabroad`
+- WhatsApp: `917011079984`
+- Instagram: `world.wiseeducation`
 - Company name: `Worldwise Education`
 - Office: `New Delhi, India`
 
 ## WhatsApp Link Format
 ```
-https://wa.me/919999999999?text=Hi%2C+I%27m+interested+in+MBBS+abroad.+Can+you+guide+me%3F
+https://wa.me/917011079984?text=Hi%2C+I%27m+interested+in+MBBS+abroad.+Can+you+guide+me%3F
 ```
 
 ## Site Map

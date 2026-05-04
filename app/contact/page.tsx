@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const waNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "919999999999";
+  const waNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "917011079984";
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -100,7 +100,7 @@ export default function ContactPage() {
                 Open Instagram
               </a>
               <p className="text-text-muted text-xs mt-4">
-                @{process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE ?? "nishumbbsabroad"}
+                @{process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE ?? "world.wiseeducation"}
               </p>
             </div>
           </div>

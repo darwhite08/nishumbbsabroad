@@ -629,7 +629,7 @@ export default function HomePage() {
                     alt={member.name}
                     fill
                     className="object-cover transition-all duration-500 grayscale group-hover:grayscale-0 group-hover:scale-105"
-                    style={{ objectPosition: "top center" }}
+                    style={{ objectPosition: member.imagePosition ?? "top center" }}
                   />
                   {/* Stronger gradient so name/role always readable */}
                   <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.88) 100%)" }} />

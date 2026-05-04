@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function whatsappLink(message?: string): string {
-  const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "919999999999";
+  const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "917011079984";
   const text = encodeURIComponent(
     message ?? "Hi, I'm interested in MBBS abroad. Can you guide me?"
   );
