@@ -1,74 +1,79 @@
 # Project Progress
 
-## Status: IN PROGRESS
-**Last Updated:** 2026-05-03
+## Status: LIVE 🚀
+**Last Updated:** 2026-05-04
+**Live URL:** https://worldwiseducation.in
 
 ---
 
 ## Completed
 
-- [x] Project folder created, git remote set
-- [x] `docs/requirements.md` reviewed
-- [x] `CLAUDE.md` written with full context
-- [x] `PROGRESS.md` initialized
-- [x] Next.js 14 project scaffolded
-- [x] Tailwind CSS configured with custom design tokens
-- [x] shadcn/ui initialized
-- [x] `.env.local` with placeholder values
-- [x] `/data/countries.ts` — all 8 countries
-- [x] `/data/universities.ts` — 3–4 universities per country (skeleton data)
-- [x] `/data/team.ts` — placeholder team members
-- [x] `/data/testimonials.ts` — placeholder testimonials
-- [x] `/data/faqs.ts` — 30+ questions across 7 categories
-- [x] `/data/blog-posts.ts` — 10 launch blog posts (stub content)
-- [x] `lib/utils.ts` — cn() + WhatsApp link helpers
-- [x] Navbar component (sticky, transparent → solid, mobile drawer)
-- [x] Footer component (4-column layout)
-- [x] WhatsApp floating button (pulse animation)
-- [x] CTABanner reusable component
-- [x] CountryCard component
-- [x] UniversityCard component
-- [x] TestimonialCard component
-- [x] TeamMemberCard component
-- [x] StatsCounter component (scroll-triggered count-up)
-- [x] Breadcrumb component
-- [x] Homepage (`/`) — all sections
-- [x] About page (`/about`)
-- [x] Countries listing page (`/countries`)
-- [x] Country dynamic pages (`/countries/[slug]`) — all 8
-- [x] Universities listing page (`/universities`)
-- [x] University dynamic pages (`/universities/[slug]`)
-- [x] Admission Process page (`/process`)
-- [x] Eligibility page (`/eligibility`)
-- [x] FAQ page (`/faq`) with JSON-LD
-- [x] Contact page (`/contact`)
-- [x] Blog listing page (`/blog`)
-- [x] Blog post dynamic page (`/blog/[slug]`)
-- [x] Global layout with metadata
-- [x] `generateMetadata()` on all pages
-- [x] JSON-LD structured data (Organization, FAQPage, Article, BreadcrumbList)
-- [x] `sitemap.ts` auto-generated
-- [x] `robots.ts`
-- [x] Initial git commit
+### Infrastructure
+- [x] Next.js 14 App Router, Tailwind CSS, DM Serif Display, Space Mono, Framer Motion
+- [x] Custom domain: worldwiseducation.in (SSL active ✅)
+- [x] Vercel deployment (auto-deploy on push to main)
+- [x] Nameservers: ns1.vercel-dns.com / ns2.vercel-dns.com
+- [x] Sitemap, robots.txt, JSON-LD structured data
+- [x] Section permissions system (docs/section-permissions.md)
+
+### Design System
+- [x] Modern Medical Brutalism — Surgical Blue #003366, Teal #00C5A3, Charcoal #0D0D0D
+- [x] Real logo: transparent PNG, favicon.ico, apple-touch-icon.png
+- [x] Space Mono (stats/labels), DM Serif Display (headings), Inter (body)
+- [x] Sharp corners, 1px grid borders, no shadows
+
+### Landing Page (FULLY LOCKED — 11 sections)
+- [x] Hero — charcoal, full-bleed photo, serif headline, stats bar
+- [x] Marquee — animated ticker strip
+- [x] Why Worldwise — white, 2-col header, 4 feature rows, proof stats
+- [x] Countries — filter bar (budget/duration/internship) + grid/list toggle
+- [x] Our Difference — white, 3D floating cubes, Framer Motion, comparison strip
+- [x] Team — Dr. Nishu Yadav, Dr. Lokesh Attri, Dr. Bindu Tyagi (real photos)
+- [x] The Numbers — 4 stat callouts, comparison table
+- [x] Testimonials — featured card + grid, tags (Student/Parent/FMGE Graduate)
+- [x] YouTube section — placeholder (needs real video URL)
+- [x] FAQ — categorized accordion
+- [x] Final CTA — charcoal/teal split
+
+### Inner Pages
+- [x] /countries — filter + photo grid + comparison table + "How We Match You"
+- [x] /universities — grouped by country, NMC section
+- [x] /about — real founding story, team photos, values
+- [x] /process — 8 steps, timeline, docs checklist
+- [x] /eligibility — criteria cards, NEET guide, country table
+- [x] /blog — featured article, ruled grid
+- [x] /faq — categorized accordions, JSON-LD FAQPage schema
+- [x] /contact — WhatsApp + Instagram cards
+- [x] /book — 1-on-1 booking form (EmailJS, 3 doctors)
+
+### Data
+- [x] 7 countries: Russia, Georgia, Kazakhstan, Uzbekistan, Kyrgyzstan, Philippines, Serbia
+- [x] Russia universities: Kazan, Volgograd, Omsk, Tyumen, North Ossetian, Northern State
+- [x] Kazakhstan universities: Al-Farabi, Astana, KazNMU, Semey, Karaganda, West Kazakhstan
+- [x] Serbia universities: Alfa BK University, University of Kragujevac (from docs)
+- [x] Real team: Dr. Nishu Yadav, Dr. Lokesh Attri, Dr. Bindu Tyagi
+- [x] WhatsApp: +91 7011079984
+- [x] Instagram: @world.wiseeducation
 
 ---
 
-## In Progress
+## Pending (Needs Client Input)
 
-- [ ] Client to provide real WhatsApp number, Instagram handle, team photos
-- [ ] Real company name confirmation
-- [ ] Lighthouse score check / mobile testing
-- [ ] GA4 Measurement ID setup
+- [ ] **YouTube video URL** — replace placeholder in YouTube section (`app/page.tsx` line with `dQw4w9WgXcQ`)
+- [ ] **GA4 Measurement ID** — add `G-XXXXXXXXXX` to `.env.local` and Vercel env vars
+- [ ] **EmailJS setup** — Service ID, Template IDs, Public Key for booking system
+- [ ] **Student testimonial photos** — real photos for testimonial cards
+- [ ] **Office address** — for LocalBusiness JSON-LD schema
+- [ ] **Blog content** — current posts are stub content, needs real articles
 
 ---
 
-## Pending (Blocked on Client)
+## Pending (Can Do Without Client)
 
-- [ ] Real WhatsApp number
-- [ ] Real Instagram handle
-- [ ] Team member photos and bios
-- [ ] Student testimonial photos
-- [ ] Partner university list with actual fees
-- [ ] Official company/brand name confirmation
-- [ ] Office address for LocalBusiness schema
-- [ ] GA4 Measurement ID
+- [ ] Test suite (Playwright e2e)
+- [ ] Lighthouse performance audit
+- [ ] Update site URL in .env.local to worldwiseducation.in
+- [ ] Contact page update (has placeholder WhatsApp number reference)
+- [ ] /countries/[slug] inner pages — redesign to match new design system
+- [ ] /universities/[slug] inner pages — redesign to match new design system
+- [ ] Blog post pages — redesign

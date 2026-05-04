@@ -3,7 +3,7 @@ import { countries } from "@/data/countries";
 import { universities } from "@/data/universities";
 import { blogPosts } from "@/data/blog-posts";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nishumbbsabroad.com";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://worldwiseducation.in";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [

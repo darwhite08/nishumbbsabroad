@@ -19,7 +19,7 @@ export default function Breadcrumb({ items }: Props) {
       position: index + 1,
       name: item.label,
       ...(item.href && {
-        item: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://nishumbbsabroad.com"}${item.href}`,
+        item: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://worldwiseducation.in"}${item.href}`,
       }),
     })),
   };

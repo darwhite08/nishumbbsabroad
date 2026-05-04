@@ -993,8 +993,8 @@ export default function HomePage() {
         </div>
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([
-          { "@context": "https://schema.org", "@type": "Organization", name: "Worldwise Education", url: "https://nishumbbsabroad.com", description: "Doctor-led MBBS abroad consultancy for Indian students." },
-          { "@context": "https://schema.org", "@type": "WebSite", name: "Worldwise Education", url: "https://nishumbbsabroad.com" },
+          { "@context": "https://schema.org", "@type": "Organization", name: "Worldwise Education", url: "https://worldwiseducation.in", description: "Doctor-led MBBS abroad consultancy for Indian students." },
+          { "@context": "https://schema.org", "@type": "WebSite", name: "Worldwise Education", url: "https://worldwiseducation.in" },
         ]) }} />
       </section>
     </>

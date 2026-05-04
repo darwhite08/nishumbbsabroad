@@ -54,10 +54,10 @@ export default function BlogPostPage({ params }: Props) {
     publisher: {
       "@type": "Organization",
       name: "Worldwise Education",
-      url: "https://nishumbbsabroad.com",
+      url: "https://worldwiseducation.in",
     },
     datePublished: post.publishedAt,
-    mainEntityOfPage: `https://nishumbbsabroad.com/blog/${post.slug}`,
+    mainEntityOfPage: `https://worldwiseducation.in/blog/${post.slug}`,
   };
 
   return (

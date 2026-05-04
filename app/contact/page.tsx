@@ -26,7 +26,7 @@ export default function ContactPage() {
       addressCountry: "IN",
     },
     openingHours: "Mo-Sa 09:00-20:00",
-    url: "https://nishumbbsabroad.com",
+    url: "https://worldwiseducation.in",
   };
 
   return (

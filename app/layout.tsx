@@ -16,6 +16,7 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://worldwiseducation.in"),
   title: { default: "Worldwise Education — MBBS Abroad Consultancy", template: "%s | Worldwise Education" },
   description: "Premium MBBS abroad consultancy. Doctor-led guidance for NMC-approved universities in Russia, Georgia, Kazakhstan and 5 more countries.",
   keywords: ["mbbs abroad", "mbbs consultancy", "nmc approved universities", "mbbs russia", "mbbs georgia"],
