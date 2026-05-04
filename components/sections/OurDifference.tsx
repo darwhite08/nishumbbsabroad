@@ -49,6 +49,10 @@ export default function OurDifference() {
   const p3x = useTransform(smoothX, [0, 1400], [-24, 24]);
   const p3y = useTransform(smoothY, [0, 800], [-16, 16]);
 
+  // Cursor glow position — defined at top level to avoid hook-in-JSX glitch
+  const glowX = useTransform(smoothX, [0, 1400], [-250, 1150]);
+  const glowY = useTransform(smoothY, [0, 800], [-250, 550]);
+
   return (
     <section
       ref={sectionRef}
@@ -64,8 +68,8 @@ export default function OurDifference() {
           background: "radial-gradient(circle, rgba(0,197,163,0.08) 0%, transparent 70%)",
           pointerEvents: "none",
           zIndex: 1,
-          x: useTransform(smoothX, v => v - 250),
-          y: useTransform(smoothY, v => v - 250),
+          x: glowX,
+          y: glowY,
         }}
       />
 

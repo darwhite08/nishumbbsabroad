@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Phone, Instagram, MapPin, Clock, MessageSquare } from "lucide-react";
 import { whatsappLink, instagramLink } from "@/lib/utils";
 import Breadcrumb from "@/components/ui/Breadcrumb";
@@ -36,7 +37,11 @@ export default function ContactPage() {
       />
 
       {/* Hero */}
-      <section style={{ background: "#003366", paddingTop: "7rem", paddingBottom: "4rem" }}>
+      <section style={{ background: "#003366", paddingTop: "7rem", paddingBottom: "4rem", position: "relative", overflow: "hidden" }}>
+        {/* Logo watermark */}
+        <div style={{ position: "absolute", top: "5rem", right: "clamp(2rem,5vw,5rem)", width: "90px", height: "90px", opacity: 0.12, zIndex: 2, pointerEvents: "none" }}>
+          <Image src="/images/logo.png" alt="" fill className="object-contain" />
+        </div>
         <div className="container-custom">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
           <h1 className="text-white mb-4">Let&apos;s Talk</h1>

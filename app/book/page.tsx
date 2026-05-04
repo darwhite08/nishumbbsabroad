@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle2, Mail, Phone, Clock } from "lucide-react";
 import BookingForm from "@/components/sections/BookingForm";
@@ -24,6 +25,10 @@ export default function BookPage() {
       <section style={{ background: "#003366", paddingTop: "7rem", paddingBottom: "4rem", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "60px 60px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "3px", background: "#00C5A3" }} />
+        {/* Logo watermark */}
+        <div style={{ position: "absolute", top: "5rem", right: "clamp(2rem,5vw,5rem)", width: "90px", height: "90px", opacity: 0.12, zIndex: 2, pointerEvents: "none" }}>
+          <Image src="/images/logo.png" alt="" fill className="object-contain" />
+        </div>
 
         <div className="container-custom" style={{ position: "relative", zIndex: 1 }}>
           {/* Breadcrumb */}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { universities, getUniversitiesByCountry } from "@/data/universities";
 import { countries } from "@/data/countries";
@@ -70,6 +71,10 @@ export default function UniversitiesPage() {
           }}
         >
           12
+        </div>
+        {/* Logo watermark */}
+        <div style={{ position: "absolute", top: "5rem", right: "clamp(2rem,5vw,5rem)", width: "90px", height: "90px", opacity: 0.12, zIndex: 2, pointerEvents: "none" }}>
+          <Image src="/images/logo.png" alt="" fill className="object-contain" />
         </div>
 
         <div className="container-custom" style={{ position: "relative", zIndex: 1 }}>

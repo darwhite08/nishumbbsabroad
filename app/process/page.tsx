@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import CTABanner from "@/components/ui/CTABanner";
@@ -129,6 +130,10 @@ export default function ProcessPage() {
           }}
         >
           8
+        </div>
+        {/* Logo watermark */}
+        <div style={{ position: "absolute", top: "5rem", right: "clamp(2rem,5vw,5rem)", width: "90px", height: "90px", opacity: 0.12, zIndex: 2, pointerEvents: "none" }}>
+          <Image src="/images/logo.png" alt="" fill className="object-contain" />
         </div>
 
         <div className="container-custom" style={{ position: "relative" }}>

@@ -158,6 +158,9 @@ export default function BookingForm() {
   if (step === 3) {
     return (
       <div style={{ textAlign: "center", padding: "4rem 2rem", border: "1px solid #E8E8E8", background: "#FAFFFE" }}>
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.25rem" }}>
+          <Image src="/images/logo.png" alt="Worldwise Education" width={72} height={72} className="object-contain" />
+        </div>
         <div style={{ width: "64px", height: "64px", background: "rgba(0,197,163,0.1)", border: "2px solid #00C5A3", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 1.5rem" }}>
           <CheckCircle2 size={28} style={{ color: "#00C5A3" }} />
         </div>

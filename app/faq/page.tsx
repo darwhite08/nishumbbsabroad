@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { faqs, faqCategories } from "@/data/faqs";
 import CTABanner from "@/components/ui/CTABanner";
 import Breadcrumb from "@/components/ui/Breadcrumb";
@@ -60,6 +61,10 @@ export default function FAQPage() {
             pointerEvents: "none",
           }}
         />
+        {/* Logo watermark */}
+        <div style={{ position: "absolute", top: "5rem", right: "clamp(2rem,5vw,5rem)", width: "90px", height: "90px", opacity: 0.12, zIndex: 2, pointerEvents: "none" }}>
+          <Image src="/images/logo.png" alt="" fill className="object-contain" />
+        </div>
 
         <div className="container-custom" style={{ position: "relative" }}>
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "FAQ" }]} />

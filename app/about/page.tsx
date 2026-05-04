@@ -71,6 +71,11 @@ export default function AboutPage() {
           }}
         />
 
+        {/* Logo watermark */}
+        <div style={{ position: "absolute", top: "5rem", right: "clamp(2rem,5vw,5rem)", width: "90px", height: "90px", opacity: 0.12, zIndex: 2, pointerEvents: "none" }}>
+          <Image src="/images/logo.png" alt="" fill className="object-contain" />
+        </div>
+
         <div className="container-custom" style={{ position: "relative" }}>
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "About Us" }]} />
 
@@ -89,30 +94,38 @@ export default function AboutPage() {
             Who We Are
           </span>
 
-          <h1
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
-              lineHeight: 0.95,
-              letterSpacing: "-0.03em",
-              color: "#FFFFFF",
-              marginBottom: "1.25rem",
-            }}
-          >
-            Doctors helping doctors.
-          </h1>
+          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "2rem" }}>
+            <div>
+              <h1
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
+                  lineHeight: 0.95,
+                  letterSpacing: "-0.03em",
+                  color: "#FFFFFF",
+                  marginBottom: "1.25rem",
+                }}
+              >
+                Doctors helping doctors.
+              </h1>
 
-          <p
-            style={{
-              color: "rgba(255,255,255,0.65)",
-              fontSize: "1.0625rem",
-              lineHeight: 1.7,
-              maxWidth: "560px",
-            }}
-          >
-            We are doctors who studied MBBS abroad. We came back, cleared FMGE, and built
-            careers — and now we help the next generation do the same.
-          </p>
+              <p
+                style={{
+                  color: "rgba(255,255,255,0.65)",
+                  fontSize: "1.0625rem",
+                  lineHeight: 1.7,
+                  maxWidth: "560px",
+                }}
+              >
+                We are doctors who studied MBBS abroad. We came back, cleared FMGE, and built
+                careers — and now we help the next generation do the same.
+              </p>
+            </div>
+
+            <div style={{ flexShrink: 0 }}>
+              <Image src="/images/logo.png" alt="Worldwise Education" width={100} height={100} className="object-contain" />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -135,18 +148,21 @@ export default function AboutPage() {
               >
                 Our Story
               </span>
-              <h2
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "clamp(1.75rem, 3vw, 2.75rem)",
-                  lineHeight: 1.05,
-                  letterSpacing: "-0.025em",
-                  color: "#0D0D0D",
-                  marginBottom: "1.75rem",
-                }}
-              >
-                Why Doctors Started This Consultancy
-              </h2>
+              <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.75rem" }}>
+                <h2
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontSize: "clamp(1.75rem, 3vw, 2.75rem)",
+                    lineHeight: 1.05,
+                    letterSpacing: "-0.025em",
+                    color: "#0D0D0D",
+                    margin: 0,
+                  }}
+                >
+                  Why Doctors Started This Consultancy
+                </h2>
+                <Image src="/images/logo.png" alt="Worldwise Education" width={64} height={64} className="object-contain" style={{ flexShrink: 0 }} />
+              </div>
 
               <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem", color: "#4B5563", lineHeight: 1.75, fontSize: "0.9375rem" }}>
                 <p>

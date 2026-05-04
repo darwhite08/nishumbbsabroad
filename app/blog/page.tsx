@@ -73,6 +73,10 @@ export default function BlogPage() {
         >
           01
         </div>
+        {/* Logo watermark */}
+        <div style={{ position: "absolute", top: "5rem", right: "clamp(2rem,5vw,5rem)", width: "90px", height: "90px", opacity: 0.12, zIndex: 2, pointerEvents: "none" }}>
+          <Image src="/images/logo.png" alt="" fill className="object-contain" />
+        </div>
 
         <div className="container-custom" style={{ position: "relative", zIndex: 1 }}>
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />

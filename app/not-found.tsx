@@ -1,9 +1,13 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function NotFound() {
   return (
     <div className="min-h-screen bg-bg-light flex items-center justify-center">
       <div className="text-center px-4">
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.5rem" }}>
+          <Image src="/images/logo.png" alt="Worldwise Education" width={80} height={80} className="object-contain" />
+        </div>
         <p className="text-primary text-6xl font-extrabold mb-4">404</p>
         <h1 className="text-text-main text-2xl font-bold mb-4">Page Not Found</h1>
         <p className="text-text-muted mb-8 max-w-md mx-auto">
